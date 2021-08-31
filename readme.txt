@@ -2,7 +2,7 @@
 //Nhiệm vụ tuần 1
 Task 0:
         Tạo nhóm và chọn nhóm trưởng
-        Tìm hiểu đề tài và các công nghệ dự định dùng để thực hiện đề tài
+        Tìm hiểu đề tài và các công nghệ dự định dùng để thực hiện đề tài (nodeJS vs React)
         Phân công nhiệm vụ cho Task 1
         
 Task 1:
