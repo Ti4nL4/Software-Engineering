@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-blue: #434e6e;
+}
+
+.dark-blue {
+    background-color: #434e6e;
+}

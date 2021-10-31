@@ -1,0 +1,16 @@
+
+.menu-header {
+    height:6vh;
+    background-color: white;
+    padding: 2px 10px;
+
+}
+
+.menu-header button {
+    height: 100%;
+}
+
+.fit-content {
+    height: fit-content;
+    width: fit-content;
+}
