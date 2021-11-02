@@ -1,0 +1,26 @@
+
+.menu-item {
+    background-color: white;
+    border-radius: 10px;
+    height: 300px;
+}
+
+.menu-item:hover {
+    position: relative;
+    bottom: 10px;
+}
+
+.menu-item img{
+    width: 100%;
+    max-height: 200px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.menu-item button {
+    border-radius: 10px;
+    border-style: none;
+    background-color: red;
+    color: #fff;
+    padding: 7px 10px;
+}

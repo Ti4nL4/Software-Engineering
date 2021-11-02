@@ -1,0 +1,23 @@
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 18px solid rgb(201, 212, 201);
+  }
+  
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 18px solid rgb(201, 212, 201);
+}
+
+.btn-x {
+    min-width: 20px;
+    height: 100%;
+    background-color: inherit;
+    border: none !important;
+    border-style: none !important;
+}
