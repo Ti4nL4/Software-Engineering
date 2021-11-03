@@ -2,7 +2,7 @@
 .menu-item {
     background-color: white;
     border-radius: 10px;
-    height: 300px;
+    min-height: 300px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -24,4 +24,10 @@
     background-color: red;
     color: #fff;
     padding: 7px 10px;
+}
+
+.fixed-in-box {
+    position: absolute;
+    width: 95%;
+    bottom: 0;
 }

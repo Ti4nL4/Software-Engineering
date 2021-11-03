@@ -1,18 +1,19 @@
 import './MenuItem.css';
 
-const MenuItem = props => {
+const MenuItem = ({item}) => {
 
-    return <div className='menu-item p-3'>
+    return <div className='menu-item p-3 position-relative'>
         
-        <div className=''>
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrE4ZZmv-3HMaisN6_x4TIfskSPdh0532rcg&usqp=CAU' 
+        <div className='img-container'>
+            <img src={item.src} 
+                alt={item.alt}
             />
         </div>
 
-        <div className='mt-1'>
-        <h5>Hamburger</h5>
-            <div className="d-flex justify-content-between align-items-center text-danger">
-                <p>Cost: 123$</p>
+        <div className='mt-1 fixed-in-box p-2'>
+            <span>{item.name}</span>
+            <div className="d-flex text-danger justify-content-between col-11">
+                <p>Cost: {item.price}$</p>
 
             <button type="button">
                 <i className="fas fa-shopping-cart"></i>

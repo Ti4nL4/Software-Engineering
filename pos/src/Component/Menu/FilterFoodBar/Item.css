@@ -25,10 +25,15 @@
     background-color: aqua !important;
 }
 
-.circle {
-    border-radius: 50%;
-    
+.type {
+    font-size: 20px;
 }
+
+@media only screen and (max-width: 678px) {
+    .type {
+      font-size: 10px;
+    }
+  }
 
 .sc-iCfMLu  button {
     display: none !important;

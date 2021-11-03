@@ -1,14 +1,22 @@
 import './Item.css';
 
-const Item = props => {
+const Item = ({item, changeFilterValue}) => {
 
-  return <div className='col-12 p-3'>
+  function camelCase(str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index)
+    {
+        return index === 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');
+  }
+
+  return <div className='col-12 p-3' onClick={() => changeFilterValue(item.type)}>
     <div className='d-flex flex-column item col-12 p-2'>
-      <img src='https://www.ldoceonline.com/media/english/illustration/orange_juice.jpg?version=1.2.39'
+      <img src={item.src}
         className='circle'
+        alt={item.alt}
       />
       
-      <h4 className=''>Type</h4>
+      <p className='type'>{camelCase(item.type)}</p>
     </div>
   </div>
 }

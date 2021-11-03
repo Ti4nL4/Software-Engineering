@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import './FilterFoodBar.css';
 import Carousel, { consts } from "react-elastic-carousel";
 import Item from "./Item";
@@ -25,16 +24,17 @@ const customButton = ({type, onClick}) =>
     
   )
 }
-const FilterFoodBar = props => {
+const FilterFoodBar = ({productTypes, changeFilterValue}) => {
 
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
   return (
       <div className="carousel-wrapper col-12 align-content-center p-3 pt-5">
         <Carousel breakPoints={breakPoints} renderArrow={customButton}>
-          {items.map((item) => (
-            <Item key={item} />
-          ))}
+          { Object.values(productTypes).map( (item, index) => {
+            
+            return <Item item={item} changeFilterValue={changeFilterValue} key={index}/>;
+          }
+          )}
         </Carousel>
       </div>
   );
