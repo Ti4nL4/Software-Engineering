@@ -15,7 +15,7 @@ const breakPoints = [
 const customButton = ({type, onClick}) =>
 {
 
-  const pointer = type === consts.PREV ? <div className='arrow-left'></div> : <div className='arrow-right'></div>;
+  const pointer = type === consts.PREV ? <div className='arrow arrow-left'></div> : <div className='arrow arrow-right'></div>;
 
   return (
       
@@ -30,7 +30,7 @@ const FilterFoodBar = props => {
   const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
   return (
-      <div className="carousel-wrapper col-12 align-content-center p-2">
+      <div className="carousel-wrapper col-12 align-content-center p-3 pt-5">
         <Carousel breakPoints={breakPoints} renderArrow={customButton}>
           {items.map((item) => (
             <Item key={item} />
