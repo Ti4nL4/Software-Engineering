@@ -3,7 +3,7 @@ const ItemModal = props => {
     
 
     return (
-        <div className="modal fade mt-5 m-5" id='exampleModal' tabindex="-1" aria-labelledby='exampleModalLabel' aria-hidden="true">
+        <div className="modal fade" id='exampleModal' tabindex="-1" aria-labelledby='exampleModalLabel' aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
@@ -20,6 +20,8 @@ const ItemModal = props => {
                 </div>
             </div>
         </div>
+
+
     )
 }
 

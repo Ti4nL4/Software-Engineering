@@ -15,7 +15,7 @@ const MenuItem = ({item, handleAddToCart}) => {
             <div className="d-flex text-danger justify-content-between col-11">
                 <p>Cost: {item.price}$</p>
 
-            <button type="button" data-bs-toggle="modal" data-bs-target='#exampleModal'>
+            <button type="button" data-bs-toggle="modal" data-bs-target='#exampleModal' onClick={() => handleAddToCart(item)}>
                 <i className="fas fa-shopping-cart"></i>
             </button>
         </div>
