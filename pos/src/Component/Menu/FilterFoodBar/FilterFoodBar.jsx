@@ -24,13 +24,13 @@ const customButton = ({type, onClick}) =>
     
   )
 }
-const FilterFoodBar = ({productTypes, changeFilterValue}) => {
+const FilterFoodBar = ({foodTypes, changeFilterValue}) => {
 
 
   return (
       <div className="carousel-wrapper col-12 align-content-center p-3 pt-5">
         <Carousel breakPoints={breakPoints} renderArrow={customButton}>
-          { Object.values(productTypes).map( (item, index) => {
+          { Object.values(foodTypes).map( (item, index) => {
             
             return <Item item={item} changeFilterValue={changeFilterValue} key={index}/>;
           }

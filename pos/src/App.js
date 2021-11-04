@@ -1,8 +1,12 @@
 import MenuPage from "./pages/MenuPage/MenuPage";
+import FoodProvider from "./context/FoodManagement";
 
 function App() {
   return (
-    <MenuPage />
+    <FoodProvider>
+      <MenuPage />
+      
+    </FoodProvider>
   );
 }
 

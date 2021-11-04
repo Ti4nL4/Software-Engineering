@@ -1,6 +1,6 @@
 import './MenuItem.css';
 
-const MenuItem = ({item}) => {
+const MenuItem = ({item, handleAddToCart}) => {
 
     return <div className='menu-item p-3 position-relative'>
         
@@ -10,17 +10,18 @@ const MenuItem = ({item}) => {
             />
         </div>
 
-        <div className='mt-1 fixed-in-box p-2'>
+        <div className='fixed-in-box p-2'>
             <span>{item.name}</span>
             <div className="d-flex text-danger justify-content-between col-11">
                 <p>Cost: {item.price}$</p>
 
-            <button type="button">
+            <button type="button" data-bs-toggle="modal" data-bs-target='#exampleModal'>
                 <i className="fas fa-shopping-cart"></i>
             </button>
         </div>
-
+       
       </div>
+
     </div>
 }
 

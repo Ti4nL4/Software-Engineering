@@ -1,7 +1,8 @@
 import "./Menu.css";
 import FilterFoodBar from "./FilterFoodBar/FilterFoodBar";
 import MenuItem from './MenuItem/MenuItem';
-import { useEffect, useState } from "react";
+import { FoodManagement } from "../../context/FoodManagement";
+import { useContext, useEffect, useState } from "react";
 
 
 
@@ -9,33 +10,34 @@ import { useEffect, useState } from "react";
 
 const Menu = ({products}) => {
 
-    const [productTypes, setProductTypes] = useState({});
+    const [foodTypes, setFoodTypes] = useState({});
     const [filterValue, setFilterValue] = useState('');
-
+    const {foodList, modifyAmountInCart} = useContext(FoodManagement);
+    
     useEffect(() =>{
 
         let temp = {};
 
-        products.forEach(product => {
+        foodList.forEach(product => {
             
             if (!temp.hasOwnProperty(product.type))
                 temp[product.type] = product;
         });
         
-        setProductTypes({...temp});
-    }, [products]);
+        setFoodTypes({...temp});
+    }, [foodList]);
 
     return <div className='menu'>
         <div className='main mt-2 pt-4'>
-            <FilterFoodBar productTypes={productTypes} changeFilterValue = {setFilterValue}/>
+            <FilterFoodBar foodTypes={foodTypes} changeFilterValue = {setFilterValue}/>
             <div className='menu-body'>
                 <h3 className='mb-1'>{filterValue === '' ? "All" : filterValue}</h3>
                 <div className='row d-flex'>
 
-                    {products.map((item, index) =>
-                        item.type === filterValue || filterValue === '' ? 
+                    {foodList.map((food, index) =>
+                        food.type === filterValue || filterValue === '' ? 
                         <div className='col-6 col-lg-4 p-3' key = {index}>
-                        <MenuItem  item = {item}/>
+                            <MenuItem  item = {food} handleAddToCart={modifyAmountInCart}/>
                         </div>: null
                     )}
     
