@@ -5,46 +5,65 @@ import { useContext } from 'react';
 
 const Cart = props => {
 
-    const {cartItemList} = useContext(FoodManagement);
+  const { cartItemList } = useContext(FoodManagement);
+  const handleRemoveItem = props => {
 
-    return <table className="table table-image">
-        <tr>
-        <th scope="col">Image</th>
-        <th scope="col">Product</th>
-        <th scope="col">Price</th>
-        <th scope="col">Qty</th>
-        <th scope="col">Total</th>
-        <th scope="col">Actions</th>
-        </tr>
-
-        <tbody>
-
-        {cartItemList.map(item => 
-        
-        
-            <tr>
-              <td className="w-25">
-                <img src={item.imageURL} className="img-fluid img-thumbnail cart-img" alt="Sheep" />
-              </td>
-              <td>{item.name}</td>
-              <td>{item.price}$</td>
-              <td className="qty">
-                <input type="text" className="form-control w-30 mx-auto" defaultValue={item.amount} />
-              </td>
-              <td>{item.price * item.amount}$</td>
-              <td>
-                <a href="#" className="btn btn-danger btn-sm">
-                  <i className="fa fa-times"></i>
-                </a>
-              </td>
-            </tr>
-        
-        )}
-            
-          </tbody>
-
-    </table>
+  }
+  return (
+    <div id="modal-package">
+        <div className="modal-package "  >
+            <button type="button" className="btn-close"
+            //  onClick={onClick}
+             >X</button>
+            <div className="modal-header">
+                <h2>YOUR CARD</h2>
+                <h2 className="modal-num-product">DINE IN</h2>
+            </div>
+            <div className="modal-body">
+               <div className="modal-list-product">
+               {
+                    cartItemList.map(item => {
+                        return (
+                            <div key={item.id} className="modal-product-item">
+                                <div className="modal-product-image"><img src={item.imageURL} alt={item.alt} /></div>
+                                <div className="modal-product-info">
+                                    <div className="modal-product-name">{item.name}</div>
+                                    <div className="modal-product-price">{item.price * item.amount}</div>
+                                </div>
+                                <div className="modal-product-quantity">
+                                    <button >
+                                        <span className="minus"> - </span>
+                                        <input type="text" value={item.amount} />
+                                        <span className="plus"> + </span>
+                                    </button>
+                                    
+                                </div>
+                                <div className="close" >
+                                        x
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+               </div>
+                <div className="modal-total">
+                    <p>Total</p>
+                    <p>100.000 USD</p>
+                </div>
+            </div>
+            <div className="modal-footer">
+                <button className="btn-modal-checkout">
+                    <p>PAYMENT
+                    </p>
+                </button>
+            </div>
+        </div>
+    </div>
+  )
 }
 
 
 export default Cart;
+
+
+
