@@ -32,11 +32,17 @@ const FoodProvider = ({children}) => {
         }
     }
 
+    function IncreaseItem(item) {
+        console.log(item);
+        item.item.amount+=1;
+        setCartItemList([...cartItemList]);
+    }
+
 
     const data = {
         foodList,
         cartItemList,
-        modifyAmountInCart
+        modifyAmountInCart,IncreaseItem
     };
 
     return (

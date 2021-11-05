@@ -5,9 +5,14 @@ import { useContext } from 'react';
 
 const Cart = props => {
 
-  const { cartItemList } = useContext(FoodManagement);
-  const handleRemoveItem = props => {
-
+  const { cartItemList,modifyAmountInCart,IncreaseItem } = useContext(FoodManagement);
+  const handleIncreaseItem = (item)=> {
+    console.log(item);
+    IncreaseItem(item);
+  }
+  const handleDecreaseItem = (item)=> {
+    // console.log(item);
+    modifyAmountInCart(item,-1);
   }
   return (
     <div id="modal-package">
@@ -24,7 +29,7 @@ const Cart = props => {
                {
                     cartItemList.map(item => {
                         return (
-                            <div key={item.id} className="modal-product-item">
+                            <div key={item._id} className="modal-product-item">
                                 <div className="modal-product-image"><img src={item.imageURL} alt={item.alt} /></div>
                                 <div className="modal-product-info">
                                     <div className="modal-product-name">{item.name}</div>
@@ -32,14 +37,14 @@ const Cart = props => {
                                 </div>
                                 <div className="modal-product-quantity">
                                     <button >
-                                        <span className="minus"> - </span>
-                                        <input type="text" value={item.amount} />
-                                        <span className="plus"> + </span>
+                                        <span className="minus" onClick={()=>handleDecreaseItem({item})}> - </span>
+                                        <input type="text" placeholder={item.amount} />
+                                        <span className="plus" onClick={()=>handleIncreaseItem({item})}> + </span>
                                     </button>
                                     
                                 </div>
                                 <div className="close" >
-                                        x
+                                       x
                                 </div>
                             </div>
                         )

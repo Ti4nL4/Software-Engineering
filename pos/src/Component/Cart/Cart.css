@@ -122,6 +122,18 @@
     height:15px;
     
 }
+
+::-webkit-input-placeholder { 
+    color: white ;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white ;
+  }
+  
+  ::placeholder {
+    color: white ;
+  }
 .modal-product-quantity {
     width: 100px !important;
 }
