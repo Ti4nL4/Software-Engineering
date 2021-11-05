@@ -16,7 +16,7 @@ const Item = ({item, changeFilterValue}) => {
         alt={item.alt}
       />
       
-      <p className='type'>{camelCase(item.type)}</p>
+      <p className='type text-uppercase'>{item.type}</p>
     </div>
   </div>
 }
