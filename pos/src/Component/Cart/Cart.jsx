@@ -24,7 +24,7 @@ const Cart = props => {
         
             <tr>
               <td className="w-25">
-                <img src={item.src} className="img-fluid img-thumbnail cart-img" alt="Sheep" />
+                <img src={item.imageURL} className="img-fluid img-thumbnail cart-img" alt="Sheep" />
               </td>
               <td>{item.name}</td>
               <td>{item.price}$</td>
