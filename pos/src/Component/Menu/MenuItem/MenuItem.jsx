@@ -5,7 +5,7 @@ const MenuItem = ({item, handleAddToCart}) => {
     return <div className='menu-item p-3 position-relative'>
         
         <div className='img-container'>
-            <img src={item.src} 
+            <img src={item.imageURL} 
                 alt={item.alt}
             />
         </div>
