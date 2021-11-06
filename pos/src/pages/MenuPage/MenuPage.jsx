@@ -11,7 +11,7 @@ const MenuPage = props => {
             <Navbar />
             <Menu />
         </div>
-        <div className='d-none d-xl-block col-5 fixed-right p-4 cart-container'>
+        <div className='d-none d-xl-block col-5 fixed-right cart-container'>
             <Cart />
         </div>
     
