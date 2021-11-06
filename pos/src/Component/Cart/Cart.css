@@ -145,9 +145,9 @@
 }
 
 .modal-list-product {
-    max-height: 350px;
+    max-height: 60vh;
     overflow: overlay;
-    padding-right: 20px;
+    width: 100%;
 }
 
 .modal-list-product::-webkit-scrollbar {

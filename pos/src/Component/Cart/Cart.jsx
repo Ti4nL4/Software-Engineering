@@ -26,8 +26,8 @@ const Cart = props => {
                     cartItemList.map(item => {
                         totalPrice = totalPrice+item.price * item.amount;
                         return (
-                            <div key={item._id} className="modal-product-item">
-                                <div className="modal-product-image"><img src={item.imageURL} alt={item.alt} /></div>
+                            <div key={item._id} className="modal-product-item col-12">
+                                <div className="modal-product-image border border-1 border-danger p-1"><img src={item.imageURL} alt={item.alt} /></div>
                                 <div className="modal-product-info">
                                     <div className="modal-product-name">{item.name}</div>
                                     <div className="modal-product-price">{item.price * item.amount}$</div>
