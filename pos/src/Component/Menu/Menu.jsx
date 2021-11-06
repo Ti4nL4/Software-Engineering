@@ -38,7 +38,6 @@ const Menu = ({products}) => {
                         food.type === filterValue || filterValue === '' ? 
                         <div className='col-6 col-lg-4 p-3' key = {index}>
                             <MenuItem  item = {food}
-                            //  handleAddToCart={modifyAmountInCart}
                              />
                         </div>: null
                     )}

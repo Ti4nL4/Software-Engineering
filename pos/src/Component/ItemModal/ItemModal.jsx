@@ -1,10 +1,15 @@
 import './ItemModal.css'
 import { FoodManagement } from '../../context/FoodManagement';
-import { useContext,useState} from 'react';
+import { useContext,useState,useEffect} from 'react';
 
 const ItemModal = props => {
     const [amount,setAmount]=useState(1)
     const { itemDetail,modifyAmountInCart } = useContext(FoodManagement);
+    const defaultAmount = 1;
+
+    useEffect(() =>{
+        setAmount(defaultAmount)
+    }, [itemDetail])
     const handleIncreaseItem =()=> {
         setAmount(amount > 1?amount -1:1)
     }
