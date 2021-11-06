@@ -9,6 +9,7 @@ const FoodProvider = ({children}) => {
 
     const [foodList, setFoodList] = useState([]);
     const [cartItemList, setCartItemList] = useState([]);
+    const [itemDetail,setItemDetail] = useState([]);
 
     useEffect(() =>{
 
@@ -33,16 +34,24 @@ const FoodProvider = ({children}) => {
     }
 
     function IncreaseItem(item) {
-        console.log(item);
-        item.item.amount+=1;
+        item.item.amount = item.item.amount < item.item.quantity ? item.item.amount + 1 : item.item.amount;
         setCartItemList([...cartItemList]);
     }
+    function DecreaseItem(item) {
+        item.item.amount = item.item.amount > 0 ? item.item.amount - 1 : 0;
+        setCartItemList([...cartItemList]);
+    }
+
 
 
     const data = {
         foodList,
         cartItemList,
-        modifyAmountInCart,IncreaseItem
+        modifyAmountInCart,
+        IncreaseItem,
+        DecreaseItem,
+        itemDetail,
+        setItemDetail
     };
 
     return (

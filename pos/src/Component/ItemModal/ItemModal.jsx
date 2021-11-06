@@ -1,44 +1,51 @@
 import './ItemModal.css'
+import { FoodManagement } from '../../context/FoodManagement';
+import { useContext,useState} from 'react';
 
 const ItemModal = props => {
-
-
-
+    const [amount,setAmount]=useState(1)
+    const { itemDetail,modifyAmountInCart } = useContext(FoodManagement);
     return (
-        <div className="modal fade" id='exampleModal' tabIndex="-1" aria-labelledby='exampleModalLabel' aria-hidden="true">
+        <div className="modal  fade" id='exampleModal' tabIndex="-1" aria-labelledby='exampleModalLabel' aria-hidden="true">
             <div className="modal-dialog ">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 className="modal-title" id="exampleModalLabel">ADD TO CART</h5>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                         <div className="row">
-                            <div className="body-img col-md-5">
-                                <img src="https://cdn.tgdd.vn/Products/Images/2282/176472/bhx/thung-24-lon-bia-becks-ice-330ml-201912270840074206.JPG"
-                                    alt=""
+                            <div className="body-img col-md-4">
+                                <img src={itemDetail.imageURL}
+                                    alt={itemDetail.alt}
                                 />
                             </div>
-                            <div className=" col-md-7">
+                            <div className=" col-md-8">
                                 <div className="row info ">
-                                    <div className="col-3">SKU</div>
-                                    <div className="col-5">Hamberger</div>
-                                    <div className="col-4">Price</div>
+                                    <div className="col-3">
+                                        <h5>SKU</h5>
+                                        <p>{itemDetail.quantity}</p>
+                                    </div>
+                                    <div className="col-6">
+                                        <h5>Name</h5>
+                                        {itemDetail.name}</div>
+                                    <div className="col-3"><h5>Price</h5><p>{itemDetail.price}</p></div>
                                 </div>
                                 <div className=" row qty">
-                                    <div className="col-6">Quantity</div>
+                                    <div className="col-6"><h5>Quantity</h5></div>
                                     <div className="modal-product-quantity">
-                                        <button > <span>-</span></button>
-                                        <button > 1 </button>
-                                        <button > <span>+</span></button>
+                                        <button onClick={()=>setAmount(amount > 0?amount -1:0)}> <span>-</span></button>
+                                        <button > {amount} </button>
+                                        <button onClick={()=>setAmount(amount < itemDetail.quantity?amount +1:amount) }> <span>+</span></button>
                                     </div>
                                 </div>
-                                <div><h5> Description</h5>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid eum iusto repellendus temporibus dolore dolor quasi minus facere fuga! Dicta et dolorum harum in beatae ea, repellat laboriosam nobis veniam.
-                                    </div>
-                                    <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">Save changes</button>
-                    </div>
+                                <div className="title-description"><h5> Description</h5></div>
+                                <div className="description">
+                                    <p>{itemDetail.description}</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="add-to-cart" data-bs-dismiss="modal" aria-label="Close" onClick={()=>modifyAmountInCart(itemDetail,amount)}><i class="fas fa-shopping-cart"></i> Save changes</button>
+                                </div>
                             </div>
                         </div>
                     </div>
