@@ -106,7 +106,7 @@
 }
 .description {
 
-    height:160px;
+    height:225px;
     overflow: overlay;
     padding-right: 16px;
     text-align: justify;
@@ -140,6 +140,9 @@
 .add-to-cart:hover i {
     animation: onHover 1s ease;
     transform: rotate(-10deg);
+}
+.modal-footer {
+    height: 50px !important;
 }
 
 @keyframes onHover {

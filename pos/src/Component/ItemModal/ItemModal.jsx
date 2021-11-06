@@ -5,6 +5,12 @@ import { useContext,useState} from 'react';
 const ItemModal = props => {
     const [amount,setAmount]=useState(1)
     const { itemDetail,modifyAmountInCart } = useContext(FoodManagement);
+    const handleIncreaseItem =()=> {
+        setAmount(amount > 1?amount -1:1)
+    }
+    const handleDecreaseItem =()=> {
+        setAmount(amount < itemDetail.quantity?amount +1:amount)
+    }
     return (
         <div className="modal  fade" id='exampleModal' tabIndex="-1" aria-labelledby='exampleModalLabel' aria-hidden="true">
             <div className="modal-dialog ">
@@ -34,9 +40,9 @@ const ItemModal = props => {
                                 <div className=" row qty">
                                     <div className="col-6"><h5>Quantity</h5></div>
                                     <div className="modal-product-quantity">
-                                        <button onClick={()=>setAmount(amount > 0?amount -1:0)}> <span>-</span></button>
+                                        <button onClick={handleIncreaseItem}> <span>-</span></button>
                                         <button > {amount} </button>
-                                        <button onClick={()=>setAmount(amount < itemDetail.quantity?amount +1:amount) }> <span>+</span></button>
+                                        <button onClick={handleDecreaseItem }> <span>+</span></button>
                                     </div>
                                 </div>
                                 <div className="title-description"><h5> Description</h5></div>
