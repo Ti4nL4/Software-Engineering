@@ -1,5 +1,6 @@
 import Chart from '../components/Chart'
 import BasicDateRangePicker from '../components/Datepick'
+import Header from '../components/Header';
 const data= [{date: "2019-01-03", count: 15},
              {date: "2019-01-05", count: 18},
              {date: "2019-01-06", count: 32},
@@ -10,7 +11,9 @@ const data= [{date: "2019-01-03", count: 15},
             ]
 function ReportProduct() {
   return(
+    
     <div class='container'>
+      <Header/>
       <BasicDateRangePicker/>
       <Chart data={data} dataKey="count" title="Sản phẩm" xaxis="date"/>
     </div>

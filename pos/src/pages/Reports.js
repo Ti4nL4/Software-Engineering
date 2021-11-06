@@ -1,5 +1,6 @@
 import Chart from '../components/Chart'
 import BasicDateRangePicker from '../components/Datepick'
+import Header from '../components/Header';
 const data= [{date: "2019-01-03", numorder: 1,
                 order0:{
                   product0:1,
@@ -125,7 +126,9 @@ function Reports() {
 
 
   return(
+    
     <div class='container'>
+      <Header/>
       <BasicDateRangePicker/>
         <div class="row">
       <div class="col-md-4 col-sm-12">
