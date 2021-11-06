@@ -16,11 +16,8 @@ export default function Login() {
         e.preventDefault();
         for (let userAccount of userAccountData) {
             if (userAccount.account == account && userAccount.password == pw) {
-                return(
-                    <>
-                    
-                    </>
-                )
+                 return  (window.location.href= "/home")
+                
             } 
         }
         // e.preventDefault();
@@ -38,11 +35,11 @@ export default function Login() {
 
     return (
         <div class=''>
-            <div class='row-md-3'>
+            {/* <div class='row-md-3'>
                 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
                     <a class="navbar-brand" href="#">NavBar</a>
                 </nav>
-            </div>
+            </div> */}
             <div class="">
                 <div class="container-md" style={{ width: "350px", paddingTop: "100px" }} >
                     <form>
