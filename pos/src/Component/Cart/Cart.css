@@ -53,7 +53,6 @@
 .modal-body {
     display: flex;
     flex-direction: column;
-
 }
 
 .modal-body .modal-product-item {
@@ -143,7 +142,7 @@
 }
 
 .modal-list-product {
-    max-height: 60vh;
+    max-height: 75vh;
     overflow: overlay;
     width: 100%;
 }

@@ -1,4 +1,3 @@
-
 import './Cart.css';
 import { FoodManagement } from '../../context/FoodManagement';
 import { useContext } from 'react';
@@ -6,13 +5,13 @@ import { useContext } from 'react';
 const Cart = props => {
   
     let totalPrice=0;
-  const { cartItemList,IncreaseItem ,DecreaseItem} = useContext(FoodManagement);
-  const handleIncreaseItem = (item)=> {
-    IncreaseItem(item);
-  }
-  const handleDecreaseItem = (item)=> {
-    DecreaseItem(item);
-  }
+    const { cartItemList,IncreaseItem ,DecreaseItem} = useContext(FoodManagement);
+    const handleIncreaseItem = (item)=> {
+        IncreaseItem(item);
+    }
+    const handleDecreaseItem = (item)=> {
+        DecreaseItem(item);
+    }
   return (
     <div id="modal-package">
         <div className="modal-package "  >
@@ -53,15 +52,9 @@ const Cart = props => {
                     <p>{totalPrice}$</p>
                 </div>
             </div>
-            <div className="modal-footer">
-                <button className="btn-modal-checkout">
-                    <p>PAYMENT
-                    </p>
-                </button>
-            </div>
         </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 
