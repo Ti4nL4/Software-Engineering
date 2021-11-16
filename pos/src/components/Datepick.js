@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import './Datepick.css'
 import "react-datepicker/dist/react-datepicker.css";
-
+import axios from 'axios';
+const datadatepick = []
 const Datepick = () => {
 	const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
@@ -15,10 +16,26 @@ const Datepick = () => {
   const handleCheckOutDate = (date) => {
     setCheckOutDate(date);
   };
-  // const RenderReport =()=> {
-  //   console.log(checkInDate)
-  //   console.log(checkOutDate)
-  // }
+  const RenderReport =  async ()=> {
+    console.log(checkInDate)
+    console.log(checkOutDate)
+    try {
+      const res = await axios.get('http://localhost:9001/reports'
+      ,
+      { 
+        params:{
+          start: checkInDate, end: checkOutDate
+        }
+      }
+      )
+      // console.log(res.data.data[3].User_Id)
+      // console.log(res.data['data'][0].Buy_Time)
+      datadatepick = res.data
+      console.log(res, 'nguyenthucquan')
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
   return (
    
       <div className="container">
@@ -28,7 +45,7 @@ const Datepick = () => {
           {/* <label>Check-in</label> */}
           <DatePicker
             selected={checkInDate}
-            minDate={new Date()}
+            //minDate={new Date()}
             onChange={handleCheckInDate}
             placeholderText ="Start date"
             dateFormat="yyyy-MM-dd"
@@ -47,8 +64,8 @@ const Datepick = () => {
           />
         </div>
         <div class ='col-md-3 col-sm-12'>
-        {/* <button type="submit" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button> */}
-        <button type="submit" class="btn btn-primary">Xuất báo cáo</button>
+        <button type="button" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button>
+        {/* <button type="button" class="btn btn-primary">Xuất báo cáo</button> */}
 
         </div>
       </div>
@@ -57,35 +74,4 @@ const Datepick = () => {
   );
       };
 
-export default Datepick;
-
-// import * as React from 'react';
-// import TextField from '@mui/material/TextField';
-// import DateRangePicker from '@mui/lab/DateRangePicker';
-// import AdapterDateFns from '@mui/lab/AdapterDateFns';
-// import LocalizationProvider from '@mui/lab/LocalizationProvider';
-// import Box from '@mui/material/Box';
-
-// export default function BasicDateRangePicker() {
-//   const [value, setValue] = React.useState([null, null]);
-
-//   return (
-//     <LocalizationProvider dateAdapter={AdapterDateFns}>
-//       <DateRangePicker
-//         startText="Check-in"
-//         // endText="Check-out"
-//         value={value}
-//         onChange={(newValue) => {
-//           setValue(newValue);
-//         }}
-//         renderInput={(startProps, endProps) => (
-//           <React.Fragment>
-//             <TextField {...startProps} />
-//             <Box sx={{ mx: 2 }}> to </Box>
-//             <TextField {...endProps} />
-//           </React.Fragment>
-//         )}
-//       />
-//     </LocalizationProvider>
-//   );
-// }
+export {Datepick, datadatepick};
