@@ -1,0 +1,66 @@
+<%- include('./footer/Footer'); -%>
+
+<div class="col-6 mx-auto mt-2">
+
+  <div class="header text-center text-uppercase">
+    <h1>THÊM SẢN PHẨM</h1>
+  </div>
+    <form action="/add-food" method="post">
+        <!-- Name input -->
+        <div class="form-outline mb-2">
+            <label class="form-label" for="name">Tên sản phẩm</label>
+            <input type="text" id="name" class="form-control" name='name'/>
+        </div>
+      
+        <!-- Email input -->
+        <div class="form-outline mb-2">
+            <label class="form-label" for="imageURL">Đường dẫn hình ảnh</label>
+          <input type="text" id="imageURL" class="form-control" name='imageURL'/>
+        </div>
+
+        <div class="form-outline mb-2">
+          <label class="form-label" for="type">Loại</label>
+      
+          <% for (let i = 0; i < foodTypeList.length; i++) {%>
+          <div class="radio">
+            <label><input type="radio" name="type" 
+              value="<%= foodTypeList[i]%>"
+              > 
+             <%= foodTypeList[i]%>
+            </label>
+          </div>
+          <%} %>
+          <input type="text" name="anotherType" id="" placeholder="Khác">
+        </div>
+
+      <div class="form-outline mb-2">
+        <label class="form-label" for="alt">alt</label>
+        <input type="text" id="alt" class="form-control" name='alt'/>
+      </div>
+
+      <div class="form-outline mb-2">
+        <label class="form-label" for="price">Giá thành</label>
+        <input type="float" id="alt" class="form-control" name='price' step="0.0001"/>
+      </div>
+
+      <div class="form-outline mb-2">
+        <label class="form-label" for="quantity">Số lượng</label>
+        <input type="number" id="quantity" class="form-control" name='quantity'/>
+      </div>
+
+      
+        <!-- Message input -->
+        <div class="form-outline mb-2">
+            <label class="form-label" for="description">Miêu tả</label>
+          <textarea class="form-control" id="description" rows="4" name='description'></textarea>
+        </div>
+      
+    
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-2">Send</button>
+      </form>
+</div>
+
+
+<%- include('./header/Header'); -%>
