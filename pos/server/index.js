@@ -2,12 +2,16 @@ const express = require('express');
 // var cors = require('cors')
 const app = express();
 const productCont = require('./Controller/Product/productCont');
+const billCont = require('./Controller/Bill/billCont');
+
 // app.use(cors);
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 app.use(express.static('./view/public'));
+
 productCont(app);
+billCont(app);
 
 // change CORS
 app.use(function(req, res, next) {

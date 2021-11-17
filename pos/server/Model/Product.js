@@ -1,4 +1,5 @@
 const connector = require('./DatabaseConnector');
+const query = require('./utils/query');
 const tableName = 'product';
 
 module.exports = {
@@ -7,12 +8,7 @@ module.exports = {
 
         const sql = `SELECT * FROM ${tableName}`;
 
-        connector.query(sql, function(err, result) {
-
-            if (err) callback(err);
-            else 
-                callback(result);
-        });
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
     },
 
     getById: function(id, callback) {
@@ -24,13 +20,7 @@ module.exports = {
 
         const sql = `SELECT DISTINCT Product_Type FROM ${tableName}`;
         
-        connector.query(sql, function(err, result) {
-
-            
-            if (err) callback([]);
-            else 
-                callback(result);
-        });
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
         
     },
     add: function(data, callback) {
@@ -42,12 +32,6 @@ module.exports = {
         "${data.price}", "${data.fund}", "${data.product_description}", "${data.instock}", "${data.image}")
         `;
 
-        connector.query(sql, function(err, result) {
-
-            if (err) callback([]);
-            else 
-                callback(result);
-        });
-
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
     }
 };
