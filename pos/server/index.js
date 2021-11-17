@@ -4,12 +4,10 @@ const app = express();
 const productCont = require('./Controller/Product/productCont');
 // app.use(cors);
 
-// add route
-productCont(app);
-
 app.use(express.urlencoded({extended: true}))
-app.use(express.json())
-app.use(express.static('./view/public'))
+app.use(express.json());
+app.use(express.static('./view/public'));
+productCont(app);
 
 // change CORS
 app.use(function(req, res, next) {
