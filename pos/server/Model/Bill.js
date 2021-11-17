@@ -6,6 +6,8 @@ module.exports = {
     addBill: async (data, callback) => {
 
         const conn = await query.getConnection();
+
+        // start a transaction
         conn.beginTransaction(async err => {
 
             try {

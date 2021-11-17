@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 app.use(express.static('./view/public'));
 
+// add route
 productCont(app);
 billCont(app);
 
