@@ -5,7 +5,7 @@ create table _User (
     Role_of_user		varchar(30)		not null, 	#Guest vs Admin
     User_Name			varchar(30) 	not null,
     User_Password		varchar(30)		not null,
-    Email				varchar(50)		not null,
+    Email				varchar(50)		not null	unique,
     Phone				char(10)		not null,
     Address				varchar(100) 	not null
 );
