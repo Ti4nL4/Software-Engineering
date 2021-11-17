@@ -128,7 +128,7 @@ function Reports() {
                 name='end'
               />
             </div>
-            <div class ='col-md-3 col-sm-12'>
+            <div class ='col-md-4 col-sm-12'>
             <button type="button" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button>
             {/* <button type="submit" class="btn btn-primary">Xuất báo cáo</button> */}
             </div>

@@ -41,33 +41,32 @@ const Datepick = () => {
       <div className="container">
         <form method="get">
         <div class ='row'>
-        <div class ='col-md-3 col-sm-6'>
-          {/* <label>Check-in</label> */}
-          <DatePicker
-            selected={checkInDate}
-            //minDate={new Date()}
-            onChange={handleCheckInDate}
-            placeholderText ="Start date"
-            dateFormat="yyyy-MM-dd"
-            name='start'
-          />
-        </div>
-        <div class ='col-md-3 col-sm-6'>
-          {/* <label>Check-out</label> */}
-          <DatePicker
-            selected={checkOutDate}
-            minDate={checkInDate}
-            onChange={handleCheckOutDate}
-            placeholderText ="End date"
-            dateFormat="yyyy-MM-dd"
-            name='end'
-          />
-        </div>
-        <div class ='col-md-3 col-sm-12'>
-        <button type="button" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button>
-        {/* <button type="button" class="btn btn-primary">Xuất báo cáo</button> */}
-
-        </div>
+          <div class ='col-md-3 col-sm-6'>
+            {/* <label>Check-in</label> */}
+            <DatePicker
+              selected={checkInDate}
+              //minDate={new Date()}
+              onChange={handleCheckInDate}
+              placeholderText ="Start date"
+              dateFormat="yyyy-MM-dd"
+              name='start'
+            />
+          </div>
+          <div class ='col-md-3 col-sm-6'>
+            {/* <label>Check-out</label> */}
+            <DatePicker
+              selected={checkOutDate}
+              minDate={checkInDate}
+              onChange={handleCheckOutDate}
+              placeholderText ="End date"
+              dateFormat="yyyy-MM-dd"
+              name='end'
+            />
+          </div>
+          <div class ='col-md-6 col-sm-12'>
+          <button type="button" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button>
+          {/* <button type="button" class="btn btn-primary">Xuất báo cáo</button> */}
+          </div>
       </div>
       </form>
     </div>

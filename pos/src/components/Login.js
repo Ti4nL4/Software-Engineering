@@ -1,27 +1,48 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-const userAccountData = [
-    {
-        "account": "tienidol",
-        "password": "tienidol"
-    }
-]
+import axios from 'axios';
 
 export default function Login() {
+    
     const [account, setAccount] = useState('')
     const [pw, setPw] = useState('')
-    function handleSubmit(e) {
-        e.preventDefault();
-        for (let userAccount of userAccountData) {
-            if (userAccount.account == account && userAccount.password == pw) {
-                 return  (window.location.href= "/home")
-                
-            } 
+    // const [check, setCheck] = useState(true)
+    let check = false
+    const handleSubmit = async () => {
+        try {
+            const res = await axios.post('http://localhost:9001/login'
+            ,
+            { 
+            
+                account: account, password: pw, role: 'Guest'
+            
+            }
+            )
+            if (res.data == 'Accept'){
+                check = true
+            }
+            console.log(res.data)
+            console.log(account)
+            console.log(pw)
+            console.log(check)
+
+        } catch (error) {
+            console.log(error.message)
         }
+        if (check == true) {
+            return  (window.location.href= "/home")
+        }
+        //e.preventDefault();
+        // for (let userAccount of userAccountData) {
+        //     if (userAccount.account == account && userAccount.password == pw) {
+        //          return  (window.location.href= "/home")
+                
+        //     } 
+        // }
         // e.preventDefault();
         // alert("Tài khoản hoặc mật khẩu không đúng")
+
         toast.error('Mật khẩu hoặc tài khoản không đúng', {
             position: "top-right",
             autoClose: 5000,
@@ -62,7 +83,7 @@ export default function Login() {
                             </label>
                         </div>
                         <a class="float-start" href='#'> Quên mật khẩu </a>
-                        <button class="w-50 btn btn-lg btn-success float-end" type="submit" onClick={handleSubmit}>Log in</button>
+                        <button class="w-50 btn btn-lg btn-success float-end" type="button" onClick={handleSubmit}>Log in</button>
                         <ToastContainer />
                     </form>
                 </div>
