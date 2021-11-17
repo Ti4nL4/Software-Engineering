@@ -23,21 +23,21 @@ app.use(function(req, res, next) {
 });
 
 
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
-app.get('/' , (req , res)=>{
+// app.get('/' , (req , res)=>{
 
-    console.log('123');
-    res.render('home.ejs', {})
+//     console.log('123');
+//     res.render('home.ejs', {})
  
-});
+// });
 
-app.get('/home' , (req , res)=>{
+// app.get('/home' , (req , res)=>{
 
-    console.log('123');
-    res.render('home.ejs', {})
+//     console.log('123');
+//     res.render('home.ejs', {})
  
-});
+// });
 
 
 app.listen(3000, () => {
