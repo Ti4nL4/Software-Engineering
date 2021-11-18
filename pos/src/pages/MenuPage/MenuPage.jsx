@@ -8,7 +8,9 @@ const MenuPage = props => {
     return <div>
 
         <div className='col-xl-7 col-12 border-0'>
-            <Navbar />
+            <div className = 'fixed-top col-xl-7 col-12'>
+                <Navbar />
+            </div>
             <Menu />
         </div>
         <div className='d-none d-xl-block col-5 fixed-right cart-container'>

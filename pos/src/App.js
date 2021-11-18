@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import FoodProvider from "./context/FoodManagement";
+import Navbar from './Component/Navbar/Navbar';
 import routes from "./routes";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <BrowserRouter>
       
       <Routes>
-
+     
       {
         [
         ...routes.map((route, index) => 

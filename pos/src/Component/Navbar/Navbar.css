@@ -1,20 +1,14 @@
-.navbar {
-    width: inherit;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: fixed;
+/* .navbar {
     top: 0;
     z-index: 1033;
-}
+} */
 
-.navbar button {
+/* .navbar button {
     height: 50%;
     margin-right: 0.6rem;
-}
+} */
 
-.fit-content {
+/* .fit-content {
     height: fit-content;
     width: fit-content;
-}
+} */

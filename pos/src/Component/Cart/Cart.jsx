@@ -16,7 +16,7 @@ const Cart = props => {
         DecreaseItem(item);
     }
   return (
-    <div id="menu-cart-package">
+    <div id="menu-cart-package" >
         <div className="menu-cart-package" >
             <div className="menu-cart-header">
                 <h2><i className="fas fa-shopping-cart"></i> YOUR CART</h2>
