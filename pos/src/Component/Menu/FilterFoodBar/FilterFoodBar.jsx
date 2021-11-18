@@ -28,8 +28,8 @@ const FilterFoodBar = ({foodTypes, changeFilterValue}) => {
 
 
   return (
-      <div className="carousel-wrapper col-12 align-content-center p-3 pt-5">
-        <Carousel breakPoints={breakPoints} renderArrow={customButton}>
+      <div className="carousel slide row p-0 m-0">
+        <Carousel focusOnSelect={false} itemPadding={[10, 50]} breakPoints={breakPoints} renderArrow={customButton}>
           { Object.values(foodTypes).map( (item, index) => {
             
             return <Item item={item} changeFilterValue={changeFilterValue} key={index}/>;
