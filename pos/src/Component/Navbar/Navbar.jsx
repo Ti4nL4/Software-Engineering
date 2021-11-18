@@ -25,15 +25,23 @@ export default function Header(){
 							<Link to = '/menu' className='nav-link'>Thực đơn</Link>
 					      </li>
 						  <li className="nav-item">
-						<a className="nav-link " href="#">Khách hàng</a>
+							<a className="nav-link" href="#">Khách hàng</a>
 					      </li>
+						 
 					    </ul>
+
+						
 					    <div className="d-flex flex-row-reverse">
 							<button type="button"  className="btn btn-outline-danger">
 								<i className="fa fa-sign-out" aria-hidden="true"></i>
 								<a className="navbar-brand" href="/">Đăng xuất</a>
 							</button>
+							
+						  <button className="btn text-white navbar-brand" type="button" data-bs-toggle="offcanvas" 
+						  	data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Xem giỏ hàng</button>
+						  
 					  	</div>
+						  
 					  </div>
 					  
 				</div>

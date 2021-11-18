@@ -96,7 +96,7 @@ const CheckoutForm = props => {
 
           <hr className="my-4" />
 
-          <button className="w-100 btn btn-primary btn-lg" type='button' onClick={handleOnSubmit}>Thanh toán</button>
+          <button className="w-100 btn btn-outline-danger btn-lg" type='button' onClick={handleOnSubmit}>Thanh toán</button>
         </form>
 
         </div>
