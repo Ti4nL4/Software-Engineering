@@ -217,11 +217,11 @@
 @media (min-width: 576px) {
     
     .cart-container {
-        width: 80% !important;
+        width: 75% !important;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
 
     .cart-container {
         width: 62% !important;
@@ -231,18 +231,18 @@
 
 @media (min-width: 992px) {
     .cart-container {
-        width: 50% !important;
+        width: 52% !important;
     }
 }
 
 @media (min-width: 1200px) {
     .cart-container {
-        width: 43% !important;
+        width: 50% !important;
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
     .cart-container {
-        width: 35% !important;
+        width: 37% !important;
     }
 }

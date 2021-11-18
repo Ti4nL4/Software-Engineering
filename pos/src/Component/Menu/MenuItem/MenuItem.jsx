@@ -6,7 +6,6 @@ const MenuItem = ({item}) => {
     const { setItemDetail} = useContext(FoodManagement);
     const handleOnClick =(item )=>{
         setItemDetail(item);
-
     }
     return <div className='menu-item p-3 position-relative'>
         
@@ -17,7 +16,7 @@ const MenuItem = ({item}) => {
         </div>
 
         <div className='fixed-in-box p-2'>
-            <span>{item.name}</span>
+            <span>{item.Product_Name}</span>
             <div className="d-flex text-danger justify-content-between col-11">
                 <p>Cost: {item.Price}$</p>
 

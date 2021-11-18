@@ -49,9 +49,11 @@ const FoodProvider = ({children}) => {
             items: cartItemList
         }
 
-       
-
-        createNewOrder(data, callback);
+        createNewOrder(data, res => {
+            console.log(res);
+            callback(res.data);
+            setCartItemList([]);
+        });
         
     }
 

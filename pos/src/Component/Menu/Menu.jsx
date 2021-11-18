@@ -31,7 +31,7 @@ const Menu = ({products}) => {
         <div className='main mt-2 pt-4'>
             <FilterFoodBar foodTypes={foodTypes} changeFilterValue = {setFilterValue}/>
             <div className='menu-body'>
-                <h3 className='mb-1'>{filterValue === '' ? "All" : filterValue}</h3>
+                <h3 className='mb-1'>{filterValue === '' ? "Tất cả" : filterValue}</h3>
                 <div className='row d-flex'>
 
                     {foodList.map((food, index) =>

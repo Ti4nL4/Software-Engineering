@@ -16,7 +16,7 @@ const Cart = props => {
         DecreaseItem(item);
     }
   return (
-    <div className='cart-container offcanvas offcanvas-end col-10' 
+    <div className='cart-container offcanvas offcanvas-end' 
     tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div className="flex-row-reverse">
             
@@ -36,7 +36,7 @@ const Cart = props => {
                             return (
                                 <div key={item._id} className="menu-cart-product-item col-11 mx-auto">
                                     <div className="menu-cart-product-image border border-1 border-danger p-1"><img src={item.Image} alt="" /></div>
-                                    <div className="menu-cart-product-info">
+                                    <div className="menu-cart-product-info p-1">
                                         <div className="menu-cart-product-name">{item.Product_Name}</div>
                                         <div className="menu-cart-product-price">{item.Price * item.amount}$</div>
                                     </div>
