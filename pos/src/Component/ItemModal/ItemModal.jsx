@@ -14,7 +14,7 @@ const ItemModal = props => {
         setAmount(amount > 1?amount -1:1)
     }
     const handleDecreaseItem =()=> {
-        setAmount(amount < itemDetail.quantity?amount +1:amount)
+        setAmount(amount < itemDetail.Instock ?amount +1:amount)
     }
     return (
         <div className="modal  fade" id='exampleModal' tabIndex="-1" aria-labelledby='exampleModalLabel' aria-hidden="true">
