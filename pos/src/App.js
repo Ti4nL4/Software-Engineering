@@ -11,8 +11,8 @@ function App() {
 
       {
         [
-        ...routes.map(route => 
-          <Route exact path={route.path} element={route.component}></Route>
+        ...routes.map((route, index) => 
+          <Route exact path={route.path} element={route.component} key={index}></Route>
         )
         ]
       }

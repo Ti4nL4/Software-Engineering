@@ -20,8 +20,8 @@ const Menu = ({products}) => {
 
         foodList.forEach(product => {
             
-            if (!temp.hasOwnProperty(product.type))
-                temp[product.type] = product;
+            if (!temp.hasOwnProperty(product.Product_Type))
+                temp[product.Product_Type] = product;
         });
         
         setFoodTypes({...temp});
@@ -35,7 +35,7 @@ const Menu = ({products}) => {
                 <div className='row d-flex'>
 
                     {foodList.map((food, index) =>
-                        food.type === filterValue || filterValue === '' ? 
+                        food.Product_Type === filterValue || filterValue === '' ? 
                         <div className='col-6 col-lg-4 p-3' key = {index}>
                             <MenuItem  item = {food}
                              />

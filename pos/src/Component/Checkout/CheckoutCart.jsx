@@ -18,12 +18,12 @@ const CheckoutCart = props => {
     {
         cartItemList.map(item => 
 
-            <li className="list-group-item d-flex justify-content-between lh-sm">
+            <li className="list-group-item d-flex justify-content-between lh-sm" key={item.Id}>
                 <div>
-                <h6 className="my-0">{item.name}</h6>
-                <small className="text-muted">{item.price}x{item.amount}</small>
+                <h6 className="my-0">{item.Product_Name}</h6>
+                <small className="text-muted">{item.Price}x{item.amount}</small>
                 </div>
-                <span className="text-muted">${item.price * item.amount}</span>
+                <span className="text-muted">${item.Price * item.amount}</span>
             </li>
         )
     }

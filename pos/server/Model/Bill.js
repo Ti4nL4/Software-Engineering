@@ -21,18 +21,18 @@ module.exports = {
                 
                 for (let item of data.items) {
                    
-                    let insertCartSql = `INSERT INTO CART VALUES (${billID}, ${item.id}, ${item.amount})`;
+                    let insertCartSql = `INSERT INTO CART VALUES (${billID}, ${item.Id}, ${item.amount})`;
                     
                     await query.transQuery(conn, insertCartSql);
                 }
 
                 await conn.commit();
-                callback(true);
+                callback({isSuccess: true});
 
             } catch (error) {
             
                 await conn.rollback();
-                callback(error);
+                callback({isSuccess: false, error});
             }
 
         });

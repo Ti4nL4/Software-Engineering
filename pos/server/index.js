@@ -1,5 +1,5 @@
 const express = require('express');
-// var cors = require('cors')
+// var cors = require('cors');
 const app = express();
 const productCont = require('./Controller/Product/productCont');
 const billCont = require('./Controller/Bill/billCont');
@@ -10,9 +10,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 // app.use(express.static('./view/public'));
 
-// add route
-productCont(app);
-billCont(app);
+
 
 // change CORS
 app.use(function(req, res, next) {
@@ -22,6 +20,9 @@ app.use(function(req, res, next) {
     next();
 });
 
+// add route
+productCont(app);
+billCont(app);
 
 // app.set('view engine', 'ejs');
 

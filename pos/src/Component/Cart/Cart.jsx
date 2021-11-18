@@ -19,20 +19,20 @@ const Cart = props => {
     <div id="menu-cart-package">
         <div className="menu-cart-package" >
             <div className="menu-cart-header">
-                <h2><i class="fas fa-shopping-cart"></i> YOUR CART</h2>
+                <h2><i className="fas fa-shopping-cart"></i> YOUR CART</h2>
                 <h2 className="menu-cart-num-product">DINE IN</h2>
             </div>
             <div className="menu-cart-body">
                <div className="menu-cart-list-product">
                {
                     cartItemList.map(item => {
-                        totalPrice = totalPrice+item.price * item.amount;
+                        totalPrice = totalPrice+item.Price * item.amount;
                         return (
                             <div key={item._id} className="menu-cart-product-item col-11 mx-auto">
-                                <div className="menu-cart-product-image border border-1 border-danger p-1"><img src={item.imageURL} alt={item.alt} /></div>
+                                <div className="menu-cart-product-image border border-1 border-danger p-1"><img src={item.Image} alt="" /></div>
                                 <div className="menu-cart-product-info">
                                     <div className="menu-cart-product-name">{item.name}</div>
-                                    <div className="menu-cart-product-price">{item.price * item.amount}$</div>
+                                    <div className="menu-cart-product-price">{item.Price * item.amount}$</div>
                                 </div>
                                 <div className="menu-cart-product-quantity">
                                     <button >

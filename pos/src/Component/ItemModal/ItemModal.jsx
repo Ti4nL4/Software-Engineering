@@ -27,7 +27,7 @@ const ItemModal = props => {
                     <div className="modal-body">
                         <div className="row">
                             <div className="body-img col-md-4">
-                                <img src={itemDetail.imageURL}
+                                <img src={itemDetail.Image}
                                     alt={itemDetail.alt}
                                 />
                             </div>
@@ -35,12 +35,12 @@ const ItemModal = props => {
                                 <div className="row info ">
                                     <div className="col-3">
                                         <h5>SKU</h5>
-                                        <p>{itemDetail.quantity}</p>
+                                        <p>{itemDetail.Instock}</p>
                                     </div>
                                     <div className="col-6">
                                         <h5>Name</h5>
-                                        {itemDetail.name}</div>
-                                    <div className="col-3"><h5>Price</h5><p>{itemDetail.price}</p></div>
+                                        {itemDetail.Product_Name}</div>
+                                    <div className="col-3"><h5>Price</h5><p>{itemDetail.Price}</p></div>
                                 </div>
                                 <div className=" row qty">
                                     <div className="col-6"><h5>Quantity</h5></div>
@@ -52,10 +52,10 @@ const ItemModal = props => {
                                 </div>
                                 <div className="title-description"><h5> Description</h5></div>
                                 <div className="description">
-                                    <p>{itemDetail.description}</p>
+                                    <p>{itemDetail.Product_Description}</p>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="add-to-cart" data-bs-dismiss="modal" aria-label="Close" onClick={()=>modifyAmountInCart(itemDetail,amount)}><i class="fas fa-shopping-cart"></i> Save changes</button>
+                                    <button type="button" className="add-to-cart" data-bs-dismiss="modal" aria-label="Close" onClick={()=>modifyAmountInCart(itemDetail,amount)}><i className="fas fa-shopping-cart"></i> Save changes</button>
                                 </div>
                             </div>
                         </div>
