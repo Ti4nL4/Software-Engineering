@@ -8,7 +8,7 @@ function App() {
   return (
     <FoodProvider>
     <BrowserRouter>
-        <div className = 'fixed-top col-12'>
+        <div className = 'row p-0 m-0'>
             <Navbar />
         </div>
         <Cart />

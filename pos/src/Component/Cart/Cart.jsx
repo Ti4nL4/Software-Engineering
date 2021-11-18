@@ -24,9 +24,9 @@ const Cart = props => {
         <div id="menu-cart-package">
             <div className="menu-cart-package" >
                 <div className="menu-cart-header">
-                    <h2><i className="fas fa-shopping-cart"></i>GIỎ HÀNG CỦA BẠN</h2>
+                    <h2><i className="fas fa-shopping-cart"></i> GIỎ HÀNG CỦA BẠN</h2>
                    
-                    <button type="button" className="btn btn-outline-danger" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+                    <button type="button" className="btn btn-close mx-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="menu-cart-body">
                 <div className="menu-cart-list-product">
@@ -43,7 +43,7 @@ const Cart = props => {
                                     <div className="menu-cart-product-quantity">
                                         <button >
                                             <span className="minus" onClick={()=>handleDecreaseItem({item})}> - </span>
-                                            <input type="text" placeholder={item.amount} />
+                                            <input type="text" value={item.amount} readOnly={true} />
                                             <span className="plus" onClick={()=>handleIncreaseItem({item})}> + </span>
                                         </button>
                                         

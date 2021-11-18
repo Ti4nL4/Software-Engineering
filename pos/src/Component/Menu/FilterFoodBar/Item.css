@@ -1,9 +1,4 @@
 .item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 6.3rem;
-    width: 86%;
     background-color: #fff;
     border-radius: 5%;
     color: black;
@@ -17,8 +12,8 @@
 }
 
 .item img {
-    width: 80%;
-    height: 3.8rem;
+    width: 70%;
+    height: auto;
 }
 
 .item button:hover {

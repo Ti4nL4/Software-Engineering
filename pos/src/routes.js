@@ -13,5 +13,11 @@ export default  [
         exact: true,
         public: true,
         component: <MenuPage />
+    },
+    {
+        path: '/',
+        exact: true,
+        public: true,
+        component: <MenuPage />
     }
 ];

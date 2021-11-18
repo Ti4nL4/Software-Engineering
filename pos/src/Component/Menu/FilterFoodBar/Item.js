@@ -3,14 +3,14 @@ import './Item.css';
 const Item = ({item, changeFilterValue}) => {
 
 
-  return <div className='col-12 p-3' onClick={() => changeFilterValue(item.Product_Type)}>
-    <div className='d-flex flex-column item col-12 p-2'>
+  return <div className='item row py-3 text-center' onClick={() => changeFilterValue(item.Product_Type)}>
+    <div className='row justify-content-center m-0 p-0'>
       <img src={item.Image}
-        className='circle'
         alt=""
       />
-      
-      <p className='type text-uppercase'>{item.Product_Type}</p>
+    </div>
+    <div className="row text-center m-0 p-0">
+      <p className='type text-uppercase m-0 p-0'>{item.Product_Type}</p>
     </div>
   </div>
 }
