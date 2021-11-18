@@ -224,25 +224,25 @@
 @media (min-width: 768px) {
 
     .cart-container {
-        width: 70% !important;
+        width: 62% !important;
     }
 
 }
 
 @media (min-width: 992px) {
     .cart-container {
-        width: 60% !important;
+        width: 50% !important;
     }
 }
 
 @media (min-width: 1200px) {
     .cart-container {
-        width: 60% !important;
+        width: 43% !important;
     }
 }
 
 @media (min-width: 1400px) {
     .cart-container {
-        width: 40% !important;
+        width: 35% !important;
     }
 }

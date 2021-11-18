@@ -19,13 +19,14 @@ const Cart = props => {
     <div className='cart-container offcanvas offcanvas-end col-10' 
     tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div className="flex-row-reverse">
-            <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            
         </div>
         <div id="menu-cart-package">
             <div className="menu-cart-package" >
                 <div className="menu-cart-header">
                     <h2><i className="fas fa-shopping-cart"></i>GIỎ HÀNG CỦA BẠN</h2>
-                    <h2 className="menu-cart-num-product">DINE IN</h2>
+                   
+                    <button type="button" className="btn btn-outline-danger" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
                 </div>
                 <div className="menu-cart-body">
                 <div className="menu-cart-list-product">
