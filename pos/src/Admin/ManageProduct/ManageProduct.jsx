@@ -1,7 +1,7 @@
 import './ManageProduct.css'
 import { FoodManagement } from '../../context/FoodManagement';
 import React, { useContext,useEffect } from 'react';
-import AddProduct from "./AddProduct/AddProduct"
+import AddProduct from "../AddProduct/AddProduct"
 import useModal from './useModal';
 
 function ManageProduct() {
@@ -19,8 +19,22 @@ function ManageProduct() {
      }, [isShowing ]);
 
     return (
-        <React.Fragment>
+        <div id="product">
+             <div className="sidebar">
+                <ul>
+                    <li><i class="far fa-chart-bar"></i>DashBoard</li>
+                    <li><i class="fas fa-balance-scale"></i>Statistics</li>
+                    <li><i class="fas fa-shopping-basket"></i>Product</li>
+                    <li><i class="fas fa-users"></i>Customer</li>
+                    <li><i class="fas fa-user"></i>Account</li>
+                </ul>
+            </div>
             <div className="manage-product">
+            <div className="header">
+                    <div className="avatar">
+                        <img src="https://material-kit-react.devias.io/static/images/avatars/avatar_6.png" alt="" />
+                    </div>
+                </div>
                 <div className="list-activity">
                     <div>
                         <i onClick={toggle} className="far fa-plus-square"></i>
@@ -81,7 +95,7 @@ function ManageProduct() {
                 </div>
             </div>
 
-        </React.Fragment>
+        </div>
     )
 }
 

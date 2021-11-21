@@ -1,0 +1,112 @@
+/* .manage-product {
+    width: 80%;
+    margin: 0 auto;
+} */
+
+
+.sidebar{
+    position:fixed;
+    width: 300px;
+    height:100vh;
+    background-color: #111827;
+    
+}
+ .sidebar ul{
+    display:flex;
+    flex-direction:column;
+    padding-top: 60px;
+    margin: 0 8px;
+}
+
+ .sidebar ul li{
+    display: inline-block;
+
+    color: #d1d5d5;
+    margin-top:30px;
+    margin-right: 32px;
+    padding: 12px 24px;
+    line-height: 2;
+    border-radius: 6px;
+    font-weight: 900;
+}
+ .sidebar ul li i{
+    width:32px;
+}
+ .sidebar ul li:hover{
+    cursor: pointer;
+    color: #11b17b;
+    background-color: #242a38;
+   
+}
+
+#product .body {
+    width: calc(100% - 300px);
+}
+
+#product .header{
+    width:100%;
+    height:80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+}
+
+#product .header .avatar {
+    height:60px;
+    width:60px;
+    border-radius:50%;
+    margin-right: 24px;
+}
+
+#product .header .avatar img {
+    width:100%;
+    border-radius:50%;
+}
+
+.manage-product{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+}
+.list-activity, .filter-value {
+    display: flex;
+    flex-direction: row;
+}
+.list-activity {
+    justify-content: flex-end;
+    background-color:#f9fafc;
+    width:100%;
+}
+.list-activity i {
+    padding: 24px 30px;
+    font-size: 30px;
+    color:blue
+}
+.filter-value {
+    justify-content: space-between;
+    width:80%;
+    margin: 0 auto;
+}
+.filter-value div {
+    margin: 12px 0;
+}
+
+/* Product table */
+ .list-product-container{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+.list-product-container .table-head ul, .list-product-container .table-body ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.list-product-container .table-head ul li, .list-product-container .table-body ul li{
+    list-style: none;
+}
+.list-product-container .table-head ul, .list-product-container .table-body ul {
+    border: 1px solid #eee;
+    padding:12px;
+}
