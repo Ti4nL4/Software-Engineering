@@ -1,0 +1,40 @@
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 6.3rem;
+    width: 86%;
+    background-color: #fff;
+    border-radius: 5%;
+    color: black;
+    font-size: 4em;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.item:hover {
+    background-color: #434e6e;
+    color: white;
+}
+
+.item img {
+    width: 80%;
+    height: 3.8rem;
+}
+
+.item button:hover {
+    background-color: aqua !important;
+}
+
+.type {
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 678px) {
+    .type {
+      font-size: 0.7rem;
+    }
+  }
+
+.sc-iCfMLu  button {
+    display: none !important;
+}
