@@ -1,3 +1,18 @@
+.yellow{
+    background-color: gold;
+}
+.red {
+    background-color: crimson;
+}
+
+.blue {
+    background-color: darkblue;
+}
+.green {
+    background-color: yellowgreen;
+}
+
+
 #home-page-admin {
     background-color: #eee;
     list-style: none;
@@ -11,6 +26,8 @@
     text-decoration: none;
 }
  .sidebar{
+     position: sticky;
+     top:0;
     width: 300px;
     height:100vh;
     background-color: #111827;
@@ -19,7 +36,8 @@
  .sidebar ul{
     display:flex;
     flex-direction:column;
-    padding-top: 60px;
+    padding-top: 80px;
+    padding-left: 8px;
     margin: 0 8px;
 }
 
@@ -28,7 +46,7 @@
 
     color: #d1d5d5;
     margin-top:30px;
-    margin-right: 32px;
+    margin-right: 8px;
     padding: 12px 24px;
     line-height: 2;
     border-radius: 6px;
@@ -43,12 +61,18 @@
     background-color: #242a38;
    
 }
+.sidebar ul li:first-child{
+    color: #11b17b;
+    background-color: #242a38;
+   
+}
 
 
 /* body */
 /* header */
 #home-page-admin .body {
     width: calc(100% - 300px);
+    margin-left: 300px;
 }
 
 #home-page-admin .header{
@@ -78,17 +102,36 @@
     padding: 12px 24px;
     margin:12px;
     display: flex;
+    justify-content: space-between
 }
 #home-page-admin .card {
+    color:white;
     padding:24px 12px;
     margin:0 12px;
-    width:50%;
+    width:250px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    box-shadow:0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)
+
+    
 }
 #home-page-admin .icon {
-    padding-left:12px;
+    width :56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: rgb(71, 60, 168);
 }
+#home-page-admin .icon i{
+    color: white;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    line-height: 3.2;
+}
+
 
 #home-page-admin .body-table {
     display: flex;
@@ -97,35 +140,29 @@
 #home-page-admin .some-product{
     width: 40% ;
     height: 500px;
-    background-color: white;
     margin-left: 48px;
-}
-#home-page-admin .some-product table{
-    display: inline-block;
-   width: 100%;
-}
-#home-page-admin .some-product table tr{
-    display: flex;
-    justify-content: space-around;
 }
 
 #home-page-admin .some-orders{
     width: 60% ;
-    height: 500px;
-    background-color: white;
+    /* background-color: white; */
+    /* max-height: 800px;
+*/
     margin-right: 48px;
-    margin-left: 12px;
+    margin-left: 12px; 
 }
-#home-page-admin .some-orders table{
-    display: inline-block;
-   width: 100%;
-}
-#home-page-admin .some-orders table tr{
-    display: flex;
-    justify-content: space-around;
+#home-page-admin .some-product .pie-chart{
+    margin-top: 40px;
 }
 
 
+#home-page-admin .footer {
+    text-align: center;
+    border-top: 2px solid #d1d5d5;
+}
+#home-page-admin .footer p{
+    padding-top: 24px;
+}
 
 
 

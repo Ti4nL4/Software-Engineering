@@ -2,21 +2,15 @@ import './Item.css';
 
 const Item = ({item, changeFilterValue}) => {
 
-  function camelCase(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index)
-    {
-        return index === 0 ? word.toLowerCase() : word.toUpperCase();
-    }).replace(/\s+/g, '');
-  }
 
-  return <div className='col-12 p-3' onClick={() => changeFilterValue(item.type)}>
-    <div className='d-flex flex-column item col-12 p-2'>
-      <img src={item.imageURL}
-        className='circle'
-        alt={item.alt}
+  return <div className='item row py-3 text-center' onClick={() => changeFilterValue(item.Product_Type)}>
+    <div className='row justify-content-center m-0 p-0'>
+      <img src={item.Image}
+        alt=""
       />
-      
-      <p className='type text-uppercase'>{item.type}</p>
+    </div>
+    <div className="row text-center m-0 p-0">
+      <p className='type text-uppercase m-0 p-0'>{item.Product_Type}</p>
     </div>
   </div>
 }

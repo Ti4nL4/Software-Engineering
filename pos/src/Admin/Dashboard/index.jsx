@@ -1,12 +1,43 @@
 import React from 'react';
 import './index.css'
-
+import { useStyles } from './listEm.style.component';
+import { Grid } from '@mui/material';
+import { Pie } from 'react-chartjs-2';
+import ItemEm from './../itemEm/itemEm.component';
+const state = {
+    labels: ['Hamberger', 'Noodle', 'Coffe',
+        'Apple-juice', 'Snack'],
+    datasets: [
+        {
+            label: 'Product',
+            backgroundColor: [
+                '#B21F00',
+                '#C9DE00',
+                '#2FDE00',
+                '#00A6B4',
+                '#6800B4'
+            ],
+            hoverBackgroundColor: [
+                '#501800',
+                '#4B5000',
+                '#175000',
+                '#003350',
+                '#35014F'
+            ],
+            data: [15, 59, 80, 81, 56]
+        }
+    ]
+}
 function HomePageAdmin(props) {
+    const classes = useStyles();
+
 
     return (
         <div id="home-page-admin" className="home-page-admin">
             <div className="sidebar">
+                
                 <ul>
+                    <li><h2>AmazingFood</h2></li>
                     <li><i class="far fa-chart-bar"></i>DashBoard</li>
                     <li><i class="fas fa-balance-scale"></i>Statistics</li>
                     <li><i class="fas fa-shopping-basket"></i>Product</li>
@@ -22,37 +53,39 @@ function HomePageAdmin(props) {
                 </div>
                 <div className="body-content">
                     <div className="list-card ">
-                        <div className="card ">
-                            <div className="">
-                                <div >Total customers</div>
-                                <div>123</div>
+
+                        <div className="card blue">
+                            <div className="title">
+                                <h6 >Total customers</h6>
+                                <h4>123</h4>
                             </div>
                             <div className="icon">
                                 <i class="fas fa-users"></i>
                             </div>
                         </div>
-                        <div className="card ">
+
+                        <div className="card yellow">
                             <div className="">
-                                <div >Total products</div>
-                                <div>123</div>
+                                <h6 >Total products</h6>
+                                <h4>123</h4>
+                            </div>
+                            <div className="icon ">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div className="card red">
+                            <div className="">
+                                <h6 >Total profits</h6>
+                                <h4>123</h4>
                             </div>
                             <div className="icon">
                                 <i class="fas fa-users"></i>
                             </div>
                         </div>
-                        <div className="card ">
+                        <div className="card green">
                             <div className="">
-                                <div >Total profits</div>
-                                <div>123</div>
-                            </div>
-                            <div className="icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                        </div>
-                        <div className="card ">
-                            <div className="">
-                                <div >Total bill</div>
-                                <div>123</div>
+                                <h6 >Total bill</h6>
+                                <h4>123</h4>
                             </div>
                             <div className="icon">
                                 <i class="fas fa-users"></i>
@@ -62,49 +95,74 @@ function HomePageAdmin(props) {
                     </div>
                     <div className="body-table">
                         <div className="some-product">
-                            <table>
-                                <tr>
-                                    <td>Product</td>
-                                    <td>Description</td>
-                                </tr>
-                                <tr>
-                                    <td>Hamberger</td>
-                                    <td>Very delicious</td>
-                                </tr>
-                                <tr>
-                                    <td>Hamberger</td>
-                                    <td>Very delicious</td>
-                                </tr>
-                                <tr>
-                                    <td>Hamberger</td>
-                                    <td>Very delicious</td>
-                                </tr>
-                            </table>
+                            <div className={classes.boxmain}>
+                                <h5>Most popular product</h5>
+                                <div className="pie-chart">
+                                <Pie
+                                    data={state}
+                                    options={{
+                                        title: {
+                                            display: true,
+                                            text: 'Average Rainfall per month',
+                                            fontSize: 20
+                                        },
+                                        legend: {
+                                            display: true,
+                                            position: 'bottom'
+                                        }
+                                    }}
+                                />
+                                </div>
+                            </div>
 
                         </div>
                         <div className="some-orders">
-                        <table>
-                                <tr>
-                                    <td>Product</td>
-                                    <td>Description</td>
-                                </tr>
-                                <tr>
-                                    <td>Hamberger</td>
-                                    <td>Very delicious</td>
-                                </tr>
-                                <tr>
-                                    <td>Hamberger</td>
-                                    <td>Very delicious</td>
-                                </tr>
-                                <tr>
-                                    <td>Hamberger</td>
-                                    <td>Very delicious</td>
-                                </tr>
-                            </table>
+                            <div className={classes.root}>
+
+
+                                <div className={classes.boxmain}>
+                                    <div className={classes.searchbox}>
+
+                                        <h5>Recent Custormer</h5>
+
+                                    </div>
+
+                                    <div className={classes.listcus}>
+                                        <div className={classes.head}>
+                                            <Grid className={classes.grid} spacing={2}>
+                                                <Grid className={classes.item} item xs={3}>
+                                                    Name
+                                                </Grid>
+                                                <Grid className={classes.item} item xs={4}>
+                                                    Email
+                                                </Grid>
+                                                <Grid className={classes.item} item xs={3}>
+                                                    Phone
+                                                </Grid>
+                                                <Grid className={classes.item} item xs={2}>
+                                                    Username
+                                                </Grid>
+                                            </Grid>
+                                        </div>
+
+                                        <div className={classes.listitem}>
+                                            <ItemEm id={1}></ItemEm>
+                                            <ItemEm id={2}></ItemEm>
+                                            <ItemEm id={3}></ItemEm>
+                                            <ItemEm id={4}></ItemEm>
+                                            <ItemEm id={5}></ItemEm>
+                                            <ItemEm id={6}></ItemEm>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
+                <div className="footer"><p>@CoppyRight2021</p></div>
             </div>
+
         </div>
     )
 

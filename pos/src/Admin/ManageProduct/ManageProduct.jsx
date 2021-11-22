@@ -11,16 +11,10 @@ function ManageProduct() {
     const { foodList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
     const [isShowingEditModal, setIsShowingEditModal] = useState(false);
-    const [category, setCategory] = useState('All');
 
     const toggleEdit = () => {
         console.log("edit");
         setIsShowingEditModal(!isShowingEditModal);
-    }
-    const showCategory = () => {
-        $('.dropdown-category .dropdown-item').on('click', function () {
-            setCategory($(this).text())
-        });
     }
 
     useEffect(() => {
@@ -31,12 +25,14 @@ function ManageProduct() {
             document.body.style.overflow = 'unset';
         }
 
-    }, [isShowing, isShowingEditModal, category]);
+    }, [isShowing, isShowingEditModal]);
 
     return (
         <div id="product">
             <div className="sidebar">
                 <ul>
+                <li><h2>AmazingFood</h2></li>
+
                     <li><i className="far fa-chart-bar"></i>DashBoard</li>
                     <li><i className="fas fa-balance-scale"></i>Statistics</li>
                     <li><i className="fas fa-shopping-basket"></i>Product</li>
@@ -103,10 +99,10 @@ function ManageProduct() {
                             {foodList.map((food, index) =>
                                 <tr key={index}>
                                     <th scope="row">{index}</th>
-                                    <td>{food.name}</td>
-                                    <td>{food.type}</td>
-                                    <td>{food.quantity}</td>
-                                    <td>{food.price}</td>
+                                    <td>{food.Product_Name}</td>
+                                    <td>{food.Product_Type}</td>
+                                    <td>{food.Instock}</td>
+                                    <td>{food.Price}</td>
                                     <td ><i className="far fa-trash-alt"></i></td>
                                     <td onClick={toggleEdit}><i className="far fa-edit"></i></td>
                                 </tr>

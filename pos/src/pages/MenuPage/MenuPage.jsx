@@ -5,15 +5,14 @@ import ItemModal from "../../Component/ItemModal/ItemModal";
 const MenuPage = props => {
 
 
-    return <div>
+    return <div className='row'>
 
-        <div className='col-xl-7 col-12 border-0'>
-            <Navbar />
+        <div className='col m-0 p-0'>
             <Menu />
         </div>
-        <div className='d-none d-xl-block col-5 fixed-right p-4 cart-container'>
+        {/* <div className='col-3 cart-container m-0 p-0'>
             <Cart />
-        </div>
+        </div> */}
     
             <ItemModal />
         

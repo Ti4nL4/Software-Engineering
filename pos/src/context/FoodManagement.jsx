@@ -1,5 +1,5 @@
 import {useState, createContext, useEffect} from "react";
-import {requireFoodList} from '../api/services';
+import {requireFoodList, createNewOrder} from '../api/services';
 
 
 export const FoodManagement = createContext();
@@ -20,7 +20,7 @@ const FoodProvider = ({children}) => {
 
     function modifyAmountInCart(item, amount = 1) {
 
-        const foundItems = cartItemList.filter(cartItem => cartItem._id === item._id);
+        const foundItems = cartItemList.filter(cartItem => cartItem.Id === item.Id);
 
         if (foundItems.length === 0) {
             let cartItem = {...item, amount: amount};
@@ -34,7 +34,7 @@ const FoodProvider = ({children}) => {
     }
 
     function IncreaseItem(item) {
-        item.item.amount = item.item.amount < item.item.quantity ? item.item.amount + 1 : item.item.amount;
+        item.item.amount = item.item.amount < item.item.Instock ? item.item.amount + 1 : item.item.amount;
         setCartItemList([...cartItemList]);
     }
     function DecreaseItem(item) {
@@ -42,6 +42,20 @@ const FoodProvider = ({children}) => {
         setCartItemList([...cartItemList]);
     }
 
+    function placeOrder(callback) {
+
+        const data = {
+            User_Id: 1,
+            items: cartItemList
+        }
+
+        createNewOrder(data, res => {
+            console.log(res);
+            callback(res.data);
+            setCartItemList([]);
+        });
+        
+    }
 
 
     const data = {
@@ -51,7 +65,8 @@ const FoodProvider = ({children}) => {
         IncreaseItem,
         DecreaseItem,
         itemDetail,
-        setItemDetail
+        setItemDetail,
+        placeOrder
     };
 
     return (

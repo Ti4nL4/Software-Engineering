@@ -8,25 +8,25 @@ const MenuItem = ({item}) => {
         setItemDetail(item);
 
     }
-    return <div className='menu-item p-3 position-relative'>
+    return <div className='menu-item p-3'>
         
-        <div className='img-container'>
-            <img src={item.imageURL} 
-                alt={item.alt}
+        <div className='row m-0 p-0'>
+            <img src={item.Image} 
+                alt={""}
             />
         </div>
 
-        <div className='fixed-in-box p-2'>
-            <span>{item.name}</span>
-            <div className="d-flex text-danger justify-content-between col-11">
-                <p>Cost: {item.price}$</p>
+        <div className='row m-0 p-0'>
+            <div className="text-center p-3"><h5>{item.Product_Name}</h5></div>
+            <div className="d-flex text-danger justify-content-between p-0">
+                <p>Cost: {item.Price}$</p>
 
-            <button type="button" data-bs-toggle="modal" data-bs-target='#exampleModal' onClick={()=> handleOnClick(item)}>
-                <i className="fas fa-shopping-cart"></i>
-            </button>
-        </div>
+                <button type="button" data-bs-toggle="modal" data-bs-target='#exampleModal' onClick={()=> handleOnClick(item)}>
+                    <i className="fas fa-shopping-cart"></i>
+                </button>
+            </div>
        
-      </div>
+        </div>
 
     </div>
 }

@@ -1,16 +1,31 @@
-import MenuPage from "./pages/MenuPage/MenuPage";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import FoodProvider from "./context/FoodManagement";
-import FormSignUp from "./Component/SignUp/FormSignUp"
-import HomePageAdmin from './Admin/ManageProduct/ManageProduct'
-// import AddProduct from "./Component/Admin/AddProduct/AddProduct"
+import Navbar from './Component/Navbar/Navbar';
+import Cart from './Component/Cart/Cart';
+import routes from "./routes";
+
 function App() {
   return (
     <FoodProvider>
-    {/* //   <MenuPage /> */}
-         {/* <FormSignUp /> */}
-            <HomePageAdmin />
-     </FoodProvider>
+    <BrowserRouter>
+        <div className = 'row p-0 m-0'>
+            <Navbar />
+        </div>
+        <Cart />
+      <Routes>
+      
+      {
+        [
+        ...routes.map((route, index) => 
+          <Route exact path={route.path} element={route.component} key={index}></Route>
+        )
+        ]
+      }
 
+      </Routes>
+      </BrowserRouter>
+      </FoodProvider>
+     
   );
 }
 
