@@ -1,67 +1,83 @@
 import './ManageProduct.css'
+import $ from 'jquery';
 import { FoodManagement } from '../../context/FoodManagement';
-import React, { useContext,useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AddProduct from "../AddProduct/AddProduct"
+// import RemoveProduct from "../RemoveProduct/RemoveProduct"
+import EditProduct from "../EditProduct/EditProduct"
 import useModal from './useModal';
 
 function ManageProduct() {
     const { foodList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
+    const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+    const [category, setCategory] = useState('All');
+
+    const toggleEdit = () => {
+        console.log("edit");
+        setIsShowingEditModal(!isShowingEditModal);
+    }
+    const showCategory = () => {
+        $('.dropdown-category .dropdown-item').on('click', function () {
+            setCategory($(this).text())
+        });
+    }
 
     useEffect(() => {
-        if (isShowing){
+        if (isShowing || isShowingEditModal) {
             document.body.style.overflow = 'hidden';
         }
         else {
             document.body.style.overflow = 'unset';
         }
 
-     }, [isShowing ]);
+    }, [isShowing, isShowingEditModal, category]);
 
     return (
         <div id="product">
-             <div className="sidebar">
+            <div className="sidebar">
                 <ul>
-                    <li><i class="far fa-chart-bar"></i>DashBoard</li>
-                    <li><i class="fas fa-balance-scale"></i>Statistics</li>
-                    <li><i class="fas fa-shopping-basket"></i>Product</li>
-                    <li><i class="fas fa-users"></i>Customer</li>
-                    <li><i class="fas fa-user"></i>Account</li>
+                    <li><i className="far fa-chart-bar"></i>DashBoard</li>
+                    <li><i className="fas fa-balance-scale"></i>Statistics</li>
+                    <li><i className="fas fa-shopping-basket"></i>Product</li>
+                    <li><i className="fas fa-users"></i>Customer</li>
+                    <li><i className="fas fa-user"></i>Account</li>
                 </ul>
             </div>
             <div className="manage-product">
-            <div className="header">
+                <div className="header">
                     <div className="avatar">
                         <img src="https://material-kit-react.devias.io/static/images/avatars/avatar_6.png" alt="" />
                     </div>
                 </div>
                 <div className="list-activity">
-                    <div>
-                        <i onClick={toggle} className="far fa-plus-square"></i>
-                        <AddProduct
-                            isShowing={isShowing}
-                            hide={toggle}
-                        />
-                    </div>
-                    <div>
-                        <i className="far fa-trash-alt"></i>
-                    </div>
-                    <div>
-                        <i className="far fa-edit"></i>
-                    </div>
+                    <h2>Product</h2>
+                    <div onClick={toggle}><i className="far fa-plus-square"></i> <h4>Add new product</h4></div>
+                    <AddProduct
+                        isShowing={isShowing}
+                        hide={toggle}
+                    />
+                    {/* <RemoveProduct
+                        isShowing={isShowing}
+                        hide={toggle}
+                    /> */}
+                    <EditProduct
+                        isShowing={isShowingEditModal}
+                        hide={toggleEdit}
+                    />
                 </div>
                 <div className="filter-value">
-                    <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            Category
-                        </button>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button className="dropdown-item" href="/">All</button>
-                            <button className="dropdown-item" href="/">Snack</button>
-                            <button className="dropdown-item" href="/">Hamberger</button>
-                            <button className="dropdown-item" href="/">Coffe</button>
-                        </div>
-                    </div>
+
+
+                    <select class="mdb-select md-form">
+                        <option value="" disabled selected>Category</option>
+                        <option value="all">All</option>
+                        <option value="snack">Snack</option>
+                        <option value="hamberger">Hamberger</option>
+                        <option value="coffe">Coffe</option>
+
+                    </select>
+
                     <div className="input-group rounded" style={{ width: '200px' }}>
                         <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search"
                             aria-describedby="search-addon" />
@@ -71,27 +87,34 @@ function ManageProduct() {
                     </div>
                 </div>
                 <div className="list-product-container">
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Instock</th>
+                                <th scope="col">Price</th>
+                                <td colSpan="2"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                    <div className="table-head">
-                        <ul>
-                            <li className="col-1">No</li>
-                            <li className="col-4">Name</li>
-                            <li className="col-3">Type</li>
-                            <li className="col-2">InStock</li>
-                            <li className="col-2">Price</li>
-                        </ul>
-                    </div>
-                    <div className="table-body">
-                        {foodList.map((food, index) =>
-                            <ul>
-                                <li className="col-1">{index}</li>
-                                <li className="col-4">{food.name}</li>
-                                <li className="col-3">{food.type}</li>
-                                <li className="col-2">{food.quantity}</li>
-                                <li className="col-2">{food.price}</li>
-                            </ul>
-                        )}
-                    </div>
+                            {foodList.map((food, index) =>
+                                <tr key={index}>
+                                    <th scope="row">{index}</th>
+                                    <td>{food.name}</td>
+                                    <td>{food.type}</td>
+                                    <td>{food.quantity}</td>
+                                    <td>{food.price}</td>
+                                    <td ><i className="far fa-trash-alt"></i></td>
+                                    <td onClick={toggleEdit}><i className="far fa-edit"></i></td>
+                                </tr>
+
+                            )}
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
