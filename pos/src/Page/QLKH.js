@@ -6,7 +6,7 @@ import MyClass from "./components/MyClass"
 import moment from 'moment';
 import Header from "./components/header";
 
-class App extends React.Component {
+class QLKH extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -86,4 +86,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default QLKH;

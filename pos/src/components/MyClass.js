@@ -86,11 +86,6 @@ class MyClass extends React.Component {
 	}
 
 	static getDerivedStateFromProps(props, state) {
-		// console.log(
-		// 	'MyClass getDerivedStateFromProps',
-		// 	props.className,
-		// 	props.newCustomer
-		// );
 		let totalCustomers = 0;
 		if (!props.className || props.className === '') {
 			totalCustomers = state.Customers.length;
@@ -109,13 +104,8 @@ class MyClass extends React.Component {
 			newCustomer.id = currentID;
 			newCustomer.className = props.className;
 			newCustomer.actions = newCustomer.id;
-
-			// console.log('MyClass newCustomer', newCustomer, state.maxID);
-
 			Customers.push(newCustomer);
 			++totalCustomers;
-			// console.log('MyClass newCustomer after', newCustomer, Customers);
-			// console.log('MyClass handleTotalCustomers', totalCustomers);
 			props.handleTotalCustomers(totalCustomers);
 			return {
 				selectedClass: props.className,
@@ -138,12 +128,9 @@ class MyClass extends React.Component {
 	}
 
 	editRow = (id) => {
-		// console.log('editRow', id);
 		const editCustomer = this.state.Customers.find(
 			(Customer) => Customer.id === id
 		);
-		// console.log('editRow', id, editCustomer);
-		// console.log('editRow', id, { ...editCustomer });
 		if (editCustomer) {
 			this.setState({
 				openEditor: true,
@@ -157,8 +144,6 @@ class MyClass extends React.Component {
 		const editCustomer = this.state.Customers.find(
 			(Customer) => Customer.id === id
 		);
-		// console.log('deleteRow', id, editCustomer);
-		// alert('xoá');
 		if (editCustomer) {
 			this.setState({
 				openConfirmation: true,
@@ -168,7 +153,6 @@ class MyClass extends React.Component {
 	};
 
 	handleCloseConfirmation = (yes) => {
-		// console.log('handleCloseConfirmation', yes);
 		this.setState({ openConfirmation: false });
 		if (yes) {
 			let Customers = this.state.Customers;
@@ -176,7 +160,6 @@ class MyClass extends React.Component {
 				(data) => data.id !== this.state.editCustomer.id
 			);
 			const totalCustomers = this.state.totalCustomers - 1;
-			// console.log('handleCloseConfirmation', Customers);
 			this.setState({ Customers: Customers, totalCustomers: totalCustomers });
 			this.props.handleTotalCustomers(totalCustomers);
 			this.setState({
@@ -188,17 +171,9 @@ class MyClass extends React.Component {
 	};
 
 	handleCloseEditor = (yes) => {
-		// console.log('handleCloseEditor', yes);
 		this.setState({ openEditor: false });
 		if (yes) {
-			// console.log(
-			// 	'handleCloseEditor: editCustomer',
-			// 	this.state.editCustomer
-			// );
-			// console.log(
-			// 	'handleCloseEditor: editedCustomer',
-			// 	this.state.editedCustomer
-			// );
+
 			let Customers = this.state.Customers;
 			Customers = Customers.filter(
 				(data) => data.id !== this.state.editedCustomer.id
@@ -221,21 +196,18 @@ class MyClass extends React.Component {
 	};
 
 	setFirstName = (event) => {
-		// console.log('setFirstName', event.target.value);
 		const editedCustomer = this.state.editedCustomer;
 		editedCustomer.firstName = event.target.value;
 		this.setState(editedCustomer);
 	};
 
 	setLastName = (event) => {
-		// console.log('setLastName', event.target.value);
 		const editedCustomer = this.state.editedCustomer;
 		editedCustomer.lastName = event.target.value;
 		this.setState(editedCustomer);
 	};
 
 	setCountry = (event) => {
-		// console.log('setCountry', event.target.value);
 		const editedCustomer = this.state.editedCustomer;
 		editedCustomer.country = event.target.value;
 		this.setState(editedCustomer);
@@ -261,7 +233,6 @@ class MyClass extends React.Component {
 	// }
 
 	render() {
-		// console.log('MyClass render', this.state.selectedClass);
 		let displayCustomers = [...this.state.Customers];
 		displayCustomers = displayCustomers.filter(
 			(data) => data.className === this.state.selectedClass

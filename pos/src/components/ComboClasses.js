@@ -1,5 +1,5 @@
 import React from 'react';
-// import style from './ComboClasses.css';
+import style from './ComboClasses.css';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -18,7 +18,6 @@ class ComboClasses extends React.Component {
 	}
 
 	handleChange = (event, value) => {
-		// console.log('ComboClasses chọn lớp: ', value);
 		this.setState({ selectedList: value?.name });
 		this.props.handleChange(value?.name);
 	};
