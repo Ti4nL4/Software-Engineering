@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom';
 const EditProduct =({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
 
     <React.Fragment>
-     <div id="modal-add-product">
+     <div id="modal-edit-product">
             <div className="modal-content">
                 <div className="modal-header">
                     <h5>Edit Product</h5>
-                    <button type="button" className="close" onClick={hide} style={{ width:'25px', border:'none',color:'red'}}>X</button>
+                    <button type="button" className="close" onClick={hide} >X</button>
                 </div>
                 <div className="modal-body">
                     <label>Name:</label>

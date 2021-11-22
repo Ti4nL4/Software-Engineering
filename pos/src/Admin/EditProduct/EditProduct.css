@@ -1,5 +1,5 @@
 
-#modal-add-product {
+#modal-edit-product {
     background-color: rgba(30,30,30,0.8);
     position: absolute;
     width: 100%;
@@ -8,16 +8,16 @@
     overflow:hidden
 }
 
-#modal-add-product .modal-content {
+#modal-edit-product .modal-content {
     position: absolute;
     top:50px;
     left:calc((100vw - 500px)/2);
     width: 500px;
-    height:500px;
+    height:600px;
     overflow: hidden;
 }
 
-#modal-add-product .product-type {
+#modal-edit-product .product-type {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -25,15 +25,15 @@
     align-content: center;
     flex-wrap: nowrap;
 }
-#modal-add-product .product-type p {
+#modal-edit-product .product-type p {
     margin-bottom: 0;
 }
-#modal-add-product .modal-footer {
+#modal-edit-product .modal-footer {
     height:auto;
     margin: 0 auto 12px;
     border-top: none;
 }
-#modal-add-product .modal-footer button{
+#modal-edit-product .modal-footer button{
     width:100px;
     border-radius:10px;
     background-color: #434E6E;
@@ -41,9 +41,9 @@
     border: none;
     padding: 4px 0;
 }
-#modal-add-product .modal-footer button:hover{
+#modal-edit-product .modal-footer button:hover{
     transform: scale(1.1) ;
 }
-#modal-add-product .active {
+#modal-edit-product .active {
     display: inline-block !important;
 }
