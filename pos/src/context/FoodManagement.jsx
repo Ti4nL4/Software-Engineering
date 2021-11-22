@@ -13,8 +13,9 @@ const FoodProvider = ({children}) => {
 
     useEffect(() =>{
 
+        
         requireFoodList(setFoodList);
-
+        
     }, []);
 
 
@@ -50,9 +51,11 @@ const FoodProvider = ({children}) => {
         }
 
         createNewOrder(data, res => {
-            console.log(res);
-            callback(res.data);
-            setCartItemList([]);
+            
+            console.log(res.isSuccess);
+            callback(res.isSuccess);
+            if (res.isSuccess)
+                setCartItemList([]);
         });
         
     }

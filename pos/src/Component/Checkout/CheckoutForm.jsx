@@ -1,14 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FoodManagement } from "../../context/FoodManagement";
+import StateModal from "./StateModal";
 
 const CheckoutForm = props => {
 
+  const NONE_STATE = 'NONE';
+  const SUCCESS_STATE = 'SUCCESS';
+  const FAIL_STATE = 'FAIL';
   const {placeOrder} = useContext(FoodManagement);
+  const [state, setState] = useState(NONE_STATE);
   
+
+  // useEffect(() => {
+
+  //   setState(NONE_STATE);
+
+  // }, []);
+
+
   const handleOnSubmit = (event) => {
 
     event.preventDefault();
-    placeOrder((res) => {console.log("Success")});
+    
+    setState(NONE_STATE);
+    
+    placeOrder((isSuccess) => {
+      
+      if (isSuccess)
+        setState(SUCCESS_STATE);
+      else {
+        setState(FAIL_STATE);
+      }
+    });
   }
 
     return (
@@ -32,7 +55,7 @@ const CheckoutForm = props => {
 
             <div className="col-12">
               <label htmlFor="email" className="form-label">Email <span className="text-muted">(Tuỳ chọn)</span></label>
-              <input type="email" className="form-control" id="email" placeholder="you@example.com" />
+              <input type="email" className="form-control" id="email" placeholder="you@state.com" />
             </div>
 
             <div className="col-12">
@@ -96,9 +119,12 @@ const CheckoutForm = props => {
 
           <hr className="my-4" />
 
-          <button className="w-100 btn btn-outline-danger btn-lg" type='button' onClick={handleOnSubmit}>Thanh toán</button>
+          <button className="w-100 btn btn-outline-danger btn-lg" type='button' 
+          data-bs-toggle="modal" data-bs-target="#stateModal"
+          onClick={handleOnSubmit}>Thanh toán</button>
         </form>
-
+        
+          <StateModal state = {state}/>  
         </div>
       
     )
