@@ -1,6 +1,7 @@
 const express = require('express');
 // var cors = require('cors');
 const app = express();
+const cors = require('cors');
 const productCont = require('./Controller/Product/productCont');
 const billCont = require('./Controller/Bill/billCont');
 
@@ -8,6 +9,7 @@ const billCont = require('./Controller/Bill/billCont');
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+app.use(cors());
 // app.use(express.static('./view/public'));
 
 
