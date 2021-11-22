@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { Login } from './component/user/login'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import store from './store'
+import { ForgotPassword } from './component/user/forgotpassword';
+import { ResetPassword } from './component/user/resetpassword';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+    <Router>
+    <Routes>
+      <Route exact path="/reset/:token" element={<ResetPassword />}></Route>
+      <Route exact path="/forgot" element={<ForgotPassword />}></Route>
+      <Route exact path="/" element={<Login />}></Route>
+    </Routes>
+    </Router>
+    </Provider>
   );
 }
 
