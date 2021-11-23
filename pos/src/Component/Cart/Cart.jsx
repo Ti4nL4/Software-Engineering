@@ -17,7 +17,7 @@ const Cart = props => {
     }
   return (
     <div className='cart-container offcanvas offcanvas-end' 
-    tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div className="flex-row-reverse">
             
         </div>

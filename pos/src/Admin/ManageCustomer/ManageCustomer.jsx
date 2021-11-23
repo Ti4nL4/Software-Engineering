@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import './ManageProduct.css'
+import './ManageCustomer.css'
 import { createNewProduct, deleteProduct, requireFoodList, updateProduct } from '../../api/services'
 import { FoodManagement } from '../../context/FoodManagement';
 import React, { useContext, useEffect, useState } from 'react';
-import AddProduct from "./AddProduct/AddProduct"
-import EditProduct from "./EditProduct/EditProduct"
+import AddCustomer from "./AddCustomer/AddCustomer"
 import useModal from './useModal';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
@@ -44,20 +43,19 @@ function ManageProduct() {
     const [page, setPage] = useState(1);
     const { foodList, setFoodList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
-    const [isShowingEditModal, setIsShowingEditModal] = useState(false);
     let num = foodList ? foodList.length : 0;
     let numPage = num % 10 === 0 ? num / 10 : Math.floor(num / 10) + 1;
 
     useEffect(() => {
 
-        if (isShowing || isShowingEditModal) {
+        if (isShowing ) {
             document.body.style.overflow = 'hidden';
         }
         else {
             document.body.style.overflow = 'unset';
         }
 
-    }, [isShowing, isShowingEditModal, foodList]);
+    }, [isShowing, foodList]);
 
 
     const handleInputChange = (event) => {
@@ -83,32 +81,8 @@ function ManageProduct() {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleToggleEdit = (id) => {
-        const product = foodList.filter(item => item.Id === id)[0]
-        setData({
-            product_name: product.Product_Name,
-            product_type: product.Product_Type,
-            fund: product.Fund,
-            price: product.Price,
-            instock: product.Instock,
-            product_description: product.product_Description,
-            image: product.Image,
-        })
-        toggleEdit();
-        setId(id);
-    }
-    const handleEditChange = (idEdit) => {
-        const dataEdit = {
-            data: data,
-            id: idEdit
-        }
 
-        toggleEdit();
-        updateProduct(dataEdit);
-        setTimeout(() =>
-            requireFoodList(setFoodList), 100)
-
-    }
+  
 
     const handleChangePage = (event, value) => {
         setPage(value);
@@ -116,9 +90,7 @@ function ManageProduct() {
     const handleChange = (event) => {
         setFilter(event.target.value);
     };
-    const toggleEdit = () => {
-        setIsShowingEditModal(!isShowingEditModal);
-    }
+
 
     const callB = () => {
         toggle();
@@ -181,8 +153,8 @@ function ManageProduct() {
                     
                 </div>
                 <div className="list-activity">
-                    <h2>Product</h2>
-                    <div onClick={toggle}><i className="far fa-plus-square"></i> <h4>Add new product</h4></div>
+                    <h2>Customer</h2>
+                    <div onClick={toggle}><i className="far fa-plus-square"></i> <h4>Add new customer</h4></div>
                 </div>
                 <div className="filter-value">
 
@@ -235,7 +207,6 @@ function ManageProduct() {
                                     <td>{food.Instock}</td>
                                     <td>{food.Price}</td>
                                     <td onClick={() => handleClickOpen(food.Id)}><i className="far fa-trash-alt"></i></td>
-                                    <td onClick={() => handleToggleEdit(food.Id)}><i className="far fa-edit"></i></td>
                                 </tr>
                             )}
 
@@ -247,19 +218,13 @@ function ManageProduct() {
                 </div>
                 <div className="footer"><p>@CoppyRight2021</p></div>
             </div>
-            <AddProduct
+            <AddCustomer
                 isShowing={isShowing}
                 hide={toggle}
                 callB={callB}
                 handleInputChange={handleInputChange}
             />
-            <EditProduct
-                isShowing={isShowingEditModal}
-                hide={toggleEdit}
-                handleEditChange={handleEditChange}
-                handleInputChange={handleInputChange}
-                product={foodList.filter(item => item.Id === id)[0]}
-            />
+            
             <Dialog
                 open={open}
                 onClose={handleClose}

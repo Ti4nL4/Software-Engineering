@@ -1,9 +1,10 @@
 import React from 'react';
 import './index.css'
+import { Link } from 'react-router-dom';
 import { useStyles } from './listEm.style.component';
 import { Grid } from '@mui/material';
 import { Pie } from 'react-chartjs-2';
-import ItemEm from './../itemEm/itemEm.component';
+import ItemEm from './itemEm/itemEm.component';
 const state = {
     labels: ['Hamberger', 'Noodle', 'Coffe',
         'Apple-juice', 'Snack'],
@@ -38,9 +39,11 @@ function HomePageAdmin(props) {
                 
                 <ul>
                     <li><h2>AmazingFood</h2></li>
-                    <li><i class="far fa-chart-bar"></i>DashBoard</li>
+                   
+                    <li> <Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
+                    
                     <li><i class="fas fa-balance-scale"></i>Statistics</li>
-                    <li><i class="fas fa-shopping-basket"></i>Product</li>
+                     <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
                     <li><i class="fas fa-users"></i>Customer</li>
                     <li><i class="fas fa-user"></i>Account</li>
                 </ul>
@@ -123,35 +126,31 @@ function HomePageAdmin(props) {
                                 <div className={classes.boxmain}>
                                     <div className={classes.searchbox}>
 
-                                        <h5>Recent Custormer</h5>
+                                        <h5>Recent Bill</h5>
 
                                     </div>
 
                                     <div className={classes.listcus}>
                                         <div className={classes.head}>
                                             <Grid className={classes.grid} spacing={2}>
-                                                <Grid className={classes.item} item xs={3}>
-                                                    Name
+                                                <Grid className={classes.item} item xs={5}>
+                                                    User Name
                                                 </Grid>
                                                 <Grid className={classes.item} item xs={4}>
-                                                    Email
+                                                Phone
                                                 </Grid>
-                                                <Grid className={classes.item} item xs={3}>
-                                                    Phone
+                                                <Grid className={classes.item} item xs={4}>
+                                                Address
                                                 </Grid>
                                                 <Grid className={classes.item} item xs={2}>
-                                                    Username
+                                                    Id Bill
                                                 </Grid>
                                             </Grid>
                                         </div>
 
                                         <div className={classes.listitem}>
                                             <ItemEm id={1}></ItemEm>
-                                            <ItemEm id={2}></ItemEm>
-                                            <ItemEm id={3}></ItemEm>
-                                            <ItemEm id={4}></ItemEm>
-                                            <ItemEm id={5}></ItemEm>
-                                            <ItemEm id={6}></ItemEm>
+
                                         </div>
                                     </div>
                                 </div>

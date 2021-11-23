@@ -2,6 +2,7 @@ import MenuPage from "./pages/MenuPage/MenuPage";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import Admin from "./Admin/Dashboard/index"
 import AdminProduct from './Admin/ManageProduct/ManageProduct'
+import AdminCustomer from './Admin/ManageCustomer/ManageCustomer'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  [
 
@@ -34,5 +35,12 @@ export default  [
         exact: true,
         public: true,
         component: <AdminProduct />
+    },
+    {
+        path: '/admin/customer',
+        exact: true,
+        public: true,
+        component: <AdminCustomer />
     }
+
 ];

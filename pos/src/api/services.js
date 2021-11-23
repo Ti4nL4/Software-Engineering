@@ -2,8 +2,6 @@ import axios from "axios";
 
 // const url = 'https://fierce-sands-72710.herokuapp.com/food';
 const url = 'http://localhost:3000/';
-const dataS={"product_name":"Cháo yến Yến Việt đậu xanh","Product_Type":"Cháo","Price":12000,"Fund":8000,"Product_Description":"Là dòng sản phẩm cháo yến ăn liền tiện lợi từ thương hiệu Yến Việt. Cháo yến Yến Việt đậu xanh thịt bằm ly 50g có chứa tổ yến tự nhiên cùng rau thịt tươi sấy thăng hoa mang hương vị đậu xanh thịt bằm tươi ngon và giàu dinh dưỡng là lựa chọn hoàn hảo cho bữa ăn tiện lợi, đơn giản những vẫn đủ chất","Instock":10,"Image":"https://cdn.tgdd.vn/Products/Images/2564/191290/bhx/chao-yen-yenviet-dau-xanh-thit-bam-ly-50g-2-org.jpg"}
-
 
 const requireFoodList = callback =>{
 
@@ -19,6 +17,16 @@ const requireFoodList = callback =>{
       })
       .catch(error => console.log(error));
 };
+const requireRecentBill = callback =>{
+
+  axios.get(url + 'recent-bill')
+    .then(res => {
+      
+      const data = res.data;
+      callback(data);
+    })
+    .catch(error => console.log(error));
+};
 
 const createNewOrder = (data, callback) => {
 
@@ -32,8 +40,8 @@ const createNewOrder = (data, callback) => {
   
 };
 
-const createNewProduct =()=>{
-  axios.post(url +'add-product',dataS)
+const createNewProduct =(data)=>{
+  axios.post(url +'add-product',data)
     .then(res=>{
       console.log("SSSS");
     })
@@ -42,4 +50,34 @@ const createNewProduct =()=>{
     })
 }
 
-export {requireFoodList, createNewOrder,createNewProduct};
+const deleteProduct =(id)=>{
+  
+  console.log(id);
+  const dId={
+    id:id
+  }
+  axios.post(url +'delete-product',dId)
+  .then(res=>{
+    console.log("ssss");
+  })
+  .catch(err=>console.log(err))
+}
+const getProductByType =(type,callback)=>{
+  axios.get(url + 'get-product-by-type',type)
+  .then(res => {
+    
+    const data = res.data;
+    // console.log(data);
+    callback(data);
+  })
+  .catch(error => console.log(error));
+}
+const updateProduct=(data,callback)=>{
+  axios.post(url + 'update-product', data)
+  .then(res=>{
+    console.log("EditSuccess")
+  })
+  .catch(err=>console.log(err))
+}
+
+export {requireFoodList, createNewOrder,createNewProduct,deleteProduct,getProductByType,updateProduct,requireRecentBill};

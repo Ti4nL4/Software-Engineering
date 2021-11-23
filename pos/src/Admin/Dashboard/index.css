@@ -66,6 +66,17 @@
     background-color: #242a38;
    
 }
+.sidebar ul li a{
+   text-decoration: none;
+   color:white ;
+   
+}
+.sidebar ul li a:hover{
+
+    color: #11b17b;
+  
+   
+}
 
 
 /* body */
