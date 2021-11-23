@@ -8,13 +8,8 @@ const Cart = props => {
   
     let totalPrice=0;
     let navigate = useNavigate();
-    const { cartItemList,IncreaseItem ,DecreaseItem} = useContext(FoodManagement);
-    const handleIncreaseItem = (item)=> {
-        IncreaseItem(item);
-    }
-    const handleDecreaseItem = (item)=> {
-        DecreaseItem(item);
-    }
+    const { cartItemList,IncreaseItem ,DecreaseItem, removeItem} = useContext(FoodManagement);
+    
   return (
     <div className='cart-container offcanvas offcanvas-end' 
     tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -31,27 +26,43 @@ const Cart = props => {
                 <div className="menu-cart-body">
                 <div className="menu-cart-list-product">
                 {
-                        cartItemList.map(item => {
-                            totalPrice = totalPrice+item.Price * item.amount;
-                            return (
-                                <div key={item._id} className="menu-cart-product-item col-11 mx-auto">
-                                    <div className="menu-cart-product-image border border-1 border-danger p-1"><img src={item.Image} alt="" /></div>
-                                    <div className="menu-cart-product-info p-1">
-                                        <div className="menu-cart-product-name">{item.Product_Name}</div>
-                                        <div className="menu-cart-product-price">{item.Price * item.amount}$</div>
-                                    </div>
-                                    <div className="menu-cart-product-quantity">
-                                        <button >
-                                            <span className="minus" onClick={()=>handleDecreaseItem({item})}> - </span>
-                                            <input type="text" value={item.amount} readOnly={true} />
-                                            <span className="plus" onClick={()=>handleIncreaseItem({item})}> + </span>
-                                        </button>
-                                        
-                                    </div>
-                                    <div className="close" >
-                                        x
-                                    </div>
-                                </div>
+                cartItemList.map(item => {
+                    totalPrice = totalPrice+item.Price * item.amount;
+                    return (
+                    <div class="card rounded-3 px-5">
+                        <div class="card-body p-1">
+                            <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img src={item.Image}
+                                class="img-fluid rounded-3" />
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-xl-4">
+                                <p class="lead fw-normal mb-2">{item.Product_Name}</p>
+                                <p><span class="text-muted">Còn: </span>{item.Instock}</p>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xl-1 d-flex">
+                                <button class="btn btn-link"
+                               onClick = {() => DecreaseItem(item)}>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                
+                                <span className='d-flex align-content-center' style={{fontSize: "1.5rem"}}>{item.amount}</span>
+                               
+                                <button class="btn btn-link px-2" onClick = {() => IncreaseItem(item)}>
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h5 class="mb-0">${item.amount * item.Price}</h5>
+                            </div>
+                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <button className='btn btn-danger'
+                                    onClick = {() => removeItem(item)}
+                                ><i class="fas fa-trash fa-lg"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                             )
                         })
                     }

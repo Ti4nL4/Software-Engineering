@@ -35,12 +35,19 @@ const FoodProvider = ({children}) => {
     }
 
     function IncreaseItem(item) {
-        item.item.amount = item.item.amount < item.item.Instock ? item.item.amount + 1 : item.item.amount;
+        item.amount = item.amount < item.Instock ? item.amount + 1 : item.amount;
         setCartItemList([...cartItemList]);
     }
     function DecreaseItem(item) {
-        item.item.amount = item.item.amount > 0 ? item.item.amount - 1 : 0;
+        item.amount = item.amount > 0 ? item.amount - 1 : 0;
         setCartItemList([...cartItemList]);
+    }
+
+    function removeItem(item) {
+
+        const foundItems = cartItemList.filter(cartItem => cartItem.Id !== item.Id);
+
+        setCartItemList(foundItems);
     }
 
     function placeOrder(callback) {
@@ -69,7 +76,8 @@ const FoodProvider = ({children}) => {
         DecreaseItem,
         itemDetail,
         setItemDetail,
-        placeOrder
+        placeOrder,
+        removeItem
     };
 
     return (
