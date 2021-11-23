@@ -95,4 +95,20 @@ module.exports = function (app) {
       });
    
    })
+   app.get('/customer',(req , res)=>{
+    
+      product.getCustomer((result) => {
+
+           res.send(result);
+
+      });
+   
+   })
+   app.post('/delete-customer', (req,res)=>{
+      const idDelete=req.body.id;
+      console.log(idDelete);
+      product.deleteCustomer(idDelete , result=>{
+         res.send(result)
+      })
+   })
 }

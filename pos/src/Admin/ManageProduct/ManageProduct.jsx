@@ -20,7 +20,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+import 'aos/dist/aos.css'; 
 // ..
 AOS.init();
 
@@ -132,53 +132,51 @@ function ManageProduct() {
         <div id="product">
             <div className="sidebar">
                 <ul>
-                <li><h2>AmazingFood</h2></li>
-                    
-                    <li><Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
-                    
+                    <li><h2>AmazingFood</h2></li>
+                    <li> <Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
                     <li><i class="fas fa-balance-scale"></i>Statistics</li>
-                     <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
-                    <li><i class="fas fa-users"></i>Customer</li>
-                    <li><i class="fas fa-user"></i>Account</li>
+                    <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
+                    <li><Link to="/admin/customer"><i class="fas fa-users"></i>Customer</Link></li>
+                    <li><Link to='/admin/account'><i class="fas fa-user"></i>Account</Link></li>
                 </ul>
             </div>
             <div className="manage-product">
                 <div className="header">
 
-                        <nav class=" avatar navbar navbar-expand-lg navbar-light ">
-                            <div class="container-fluid">
-                                <ul class="navbar-nav">
+                    <nav class=" avatar navbar navbar-expand-lg navbar-light ">
+                        <div class="container-fluid">
+                            <ul class="navbar-nav">
 
-                                    <li class="nav-item dropdown dropstart ">
-                                        <a
-                                            class="nav-link d-flex align-items-center"
-                                            href="#"
-                                            id="navbarDropdownMenuLink"
-                                            role="button"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                        >
-                                            <img
-                                                src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                                                class="rounded-circle"
-                                                height="42"
-                                                alt=""
-                                                loading="lazy"
-                                            />
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li>
-                                                <a class="dropdown-item" href="#">My profile</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Logout</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    
+                                <li class="nav-item dropdown dropstart ">
+                                    <a
+                                        class="nav-link d-flex align-items-center"
+                                        href="#"
+                                        id="navbarDropdownMenuLink"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        <img
+                                            src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                                            class="rounded-circle"
+                                            height="42"
+                                            alt=""
+                                            loading="lazy"
+                                        />
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li>
+                                            <a class="dropdown-item" href="#">My profile</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Logout</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
                 </div>
                 <div className="list-activity">
                     <h2>Product</h2>

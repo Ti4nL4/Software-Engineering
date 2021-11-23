@@ -1,16 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './ManageCustomer.css'
-import { createNewProduct, deleteProduct, requireFoodList, updateProduct } from '../../api/services'
+import {  requireCustomer ,deleteCustomer } from '../../api/services'
 import { FoodManagement } from '../../context/FoodManagement';
 import React, { useContext, useEffect, useState } from 'react';
 import AddCustomer from "./AddCustomer/AddCustomer"
 import useModal from './useModal';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -19,7 +15,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+import 'aos/dist/aos.css'; 
 // ..
 AOS.init();
 
@@ -39,11 +35,11 @@ function ManageProduct() {
     })
     const [id, setId] = useState(0);
     const [open, setOpen] = useState(false);
-    const [filter, setFilter] = useState('');
+    // const [filter, setFilter] = useState('');
     const [page, setPage] = useState(1);
-    const { foodList, setFoodList } = useContext(FoodManagement);
+    const { customerList, setCustomerList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
-    let num = foodList ? foodList.length : 0;
+    let num = customerList ? customerList.length : 0;
     let numPage = num % 10 === 0 ? num / 10 : Math.floor(num / 10) + 1;
 
     useEffect(() => {
@@ -55,27 +51,28 @@ function ManageProduct() {
             document.body.style.overflow = 'unset';
         }
 
-    }, [isShowing, foodList]);
+    }, [isShowing, customerList]);
 
 
-    const handleInputChange = (event) => {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        setData({
-            ...data,
-            [name]: value,
+    // const handleInputChange = (event) => {
+    //     const target = event.target;
+    //     const value = target.value;
+    //     const name = target.name;
+    //     setData({
+    //         ...data,
+    //         [name]: value,
 
-        });
-    }
+    //     });
+    // }
     const handleClickOpen = (id) => {
         setOpen(true);
         setId(id);
     };
     const handelSubmitDelete = () => {
-        deleteProduct(id);
+        deleteCustomer(id);
         setTimeout(() =>
-            requireFoodList(setFoodList), 100)
+        requireCustomer(setCustomerList)
+        , 100)
         setOpen(false);
     }
     const handleClose = () => {
@@ -87,31 +84,27 @@ function ManageProduct() {
     const handleChangePage = (event, value) => {
         setPage(value);
     };
-    const handleChange = (event) => {
-        setFilter(event.target.value);
-    };
 
 
-    const callB = () => {
-        toggle();
-        createNewProduct(data);
-        setTimeout(() =>
-            requireFoodList(setFoodList), 100)
-
-    }
+    // const callB = () => {
+    //     toggle();
+    //     createNewProduct(data);
+    //     setTimeout(() =>
+    //         requireFoodList(setFoodList), 100)
+    // }
 
     return (
-        <div id="product">
+        <div id="customer">
             <div className="sidebar">
                 <ul>
                 <li><h2>AmazingFood</h2></li>
-                    
-                    <li><Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
+                   
+                    <li> <Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
                     
                     <li><i class="fas fa-balance-scale"></i>Statistics</li>
                      <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
-                    <li><i class="fas fa-users"></i>Customer</li>
-                    <li><i class="fas fa-user"></i>Account</li>
+                    <li><Link to="/admin/customer"><i class="fas fa-users"></i>Customer</Link></li>
+                    <li><Link to='/admin/account'><i class="fas fa-user"></i>Account</Link></li>
                 </ul>
             </div>
             <div className="manage-product">
@@ -157,26 +150,6 @@ function ManageProduct() {
                     <div onClick={toggle}><i className="far fa-plus-square"></i> <h4>Add new customer</h4></div>
                 </div>
                 <div className="filter-value">
-
-                    <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                        <InputLabel id="demo-simple-select-standard-label">Category</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-standard-label"
-                            id="demo-simple-select-standard"
-                            value={filter}
-                            onChange={handleChange}
-                            label="Age"
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={'All'}>All</MenuItem>
-                            <MenuItem value={'Snack'}>Snack</MenuItem>
-                            <MenuItem value={'Hamberger'}>Hamberger</MenuItem>
-                            <MenuItem value={'Coffe'}>Coffe</MenuItem>
-                        </Select>
-                    </FormControl>
-
                     <div className="input-group rounded" style={{ width: '200px' }}>
                         <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search"
                             aria-describedby="search-addon" />
@@ -190,23 +163,29 @@ function ManageProduct() {
                         <thead>
                             <tr >
                                 <th scope="col">#</th>
+                                <th scope="col">Id</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Instock</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
                                 <td colSpan="2"></td>
                             </tr>
                         </thead>
                         <tbody>
 
-                            {foodList.map((food, index) =>
+                            {customerList.map((food, index) =>
                                 index >= (page - 1) * 10 && index < page * 10 && <tr key={index} >
                                     <th scope="row">{index + 1}</th>
-                                    <td>{food.Product_Name}</td>
-                                    <td>{food.Product_Type}</td>
-                                    <td>{food.Instock}</td>
-                                    <td>{food.Price}</td>
-                                    <td onClick={() => handleClickOpen(food.Id)}><i className="far fa-trash-alt"></i></td>
+                                    <td>{food.Id}</td>
+                                    <td>{food.User_Name}</td>
+                                    <td>{food.User_Password}</td>
+                                    <td>{food.Email}</td>
+                                    <td>{food.Phone}</td>
+                                    <td>{food.Address}</td>
+                                    <td 
+                                    onClick={() => handleClickOpen(food.Id)}
+                                    ><i className="far fa-trash-alt"></i></td>
                                 </tr>
                             )}
 
@@ -218,12 +197,12 @@ function ManageProduct() {
                 </div>
                 <div className="footer"><p>@CoppyRight2021</p></div>
             </div>
-            <AddCustomer
+            {/* <AddCustomer
                 isShowing={isShowing}
                 hide={toggle}
                 callB={callB}
                 handleInputChange={handleInputChange}
-            />
+            /> */}
             
             <Dialog
                 open={open}
@@ -236,7 +215,9 @@ function ManageProduct() {
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handelSubmitDelete}>Agree</Button>
+                    <Button 
+                    onClick={handelSubmitDelete}
+                    >Agree</Button>
                 </DialogActions>
             </Dialog>
         </div>

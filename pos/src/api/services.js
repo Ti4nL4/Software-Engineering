@@ -27,6 +27,15 @@ const requireRecentBill = callback =>{
     })
     .catch(error => console.log(error));
 };
+const requireCustomer = callback =>{
+
+  axios.get(url + 'customer')
+    .then(res => {
+      const data = res.data;
+      callback(data);
+    })
+    .catch(error => console.log(error));
+};
 
 const createNewOrder = (data, callback) => {
 
@@ -79,5 +88,19 @@ const updateProduct=(data,callback)=>{
   })
   .catch(err=>console.log(err))
 }
+const deleteCustomer =(id)=>{
+  console.log(id);
+  const dId={
+    id:id
+  }
+  axios.post(url +'delete-customer',dId)
+  .then(res=>{
+    console.log("delete-customer");
+  })
+  .catch(err=>console.log(err))
+}
 
-export {requireFoodList, createNewOrder,createNewProduct,deleteProduct,getProductByType,updateProduct,requireRecentBill};
+export {requireFoodList, createNewOrder,createNewProduct,
+  deleteProduct,getProductByType,updateProduct,requireRecentBill,
+  requireCustomer,deleteCustomer
+};

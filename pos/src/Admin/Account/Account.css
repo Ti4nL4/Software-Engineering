@@ -1,0 +1,148 @@
+
+.sidebar{
+    position:fixed;
+    width: 300px;
+    height:100vh;
+    background-color: #111827;
+    
+}
+ .sidebar ul{
+    display:flex;
+    flex-direction:column;
+    padding-top: 60px;
+    margin: 0 8px;
+}
+
+ .sidebar ul li{
+    display: inline-block;
+
+    color: #d1d5d5;
+    margin-top:30px;
+    margin-right: 32px;
+    padding: 12px 24px;
+    line-height: 2;
+    border-radius: 6px;
+    font-weight: 900;
+}
+ .sidebar ul li i{
+    width:32px;
+    color: white ;
+}
+
+ .sidebar ul li:hover{
+    cursor: pointer;
+    color: #11b17b;
+    background-color: #242a38;
+   
+}
+.sidebar ul li a{
+
+  text-decoration: none;
+  color:white 
+   
+}
+.sidebar ul li a:hover{
+    cursor: pointer;
+    color: #11b17b;
+    background-color: #242a38;
+}
+#account .sidebar ul li:first-child, #account .sidebar ul li:nth-child(6), #account .sidebar ul li:nth-child(6) a, #account .sidebar ul li:nth-child(6) i{
+    color: #11b17b;
+    background-color: #242a38;
+}
+
+#account .acount-detail {
+    margin-left: 300px;
+
+
+}
+#account .header{
+    width:calc(100% - 300px);
+    height:80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+    position: fixed;
+    margin-left: 300px;
+}
+
+#account .header .avatar {
+    margin-right: 14px;
+}
+
+#account .header .avatar img {
+    width:100%;
+    border-radius:50%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: aliceblue
+}
+
+div.container.rounded {
+    background-color: #fff;
+    width: 70%;
+    margin: 0 auto;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    
+}
+
+img.rounded-circle.mt-5 {
+    width:180px;
+    height: auto;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+button.btn.profile-button {
+    background-color: #434E6E;
+    color: #ffffff;
+}
+#account .footer {
+    text-align: center;
+    border-top: 2px solid #d1d5d5;
+}
+#account .footer p{
+    padding-top: 24px;
+}

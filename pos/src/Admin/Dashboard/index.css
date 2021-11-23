@@ -41,7 +41,7 @@
     margin: 0 8px;
 }
 
- .sidebar ul li{
+#home-page-admin .sidebar ul li{
     display: inline-block;
 
     color: #d1d5d5;
@@ -61,7 +61,7 @@
     background-color: #242a38;
    
 }
-.sidebar ul li:first-child{
+#home-page-admin .sidebar ul li:first-child, #home-page-admin .sidebar ul li:nth-child(2) a, #home-page-admin .sidebar ul li:nth-child(2) i{
     color: #11b17b;
     background-color: #242a38;
    
@@ -71,11 +71,8 @@
    color:white ;
    
 }
-.sidebar ul li a:hover{
-
+.sidebar ul li:hover a, .sidebar ul li:hover i, .sidebar ul li:hover {
     color: #11b17b;
-  
-   
 }
 
 
@@ -97,10 +94,7 @@
 }
 
 #home-page-admin .header .avatar {
-    height:60px;
-    width:60px;
-    border-radius:50%;
-    margin-right: 24px;
+    margin-right: 14px;
 }
 
 #home-page-admin .header .avatar img {

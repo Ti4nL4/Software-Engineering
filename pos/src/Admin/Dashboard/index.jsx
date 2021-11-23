@@ -44,15 +44,49 @@ function HomePageAdmin(props) {
                     
                     <li><i class="fas fa-balance-scale"></i>Statistics</li>
                      <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
-                    <li><i class="fas fa-users"></i>Customer</li>
-                    <li><i class="fas fa-user"></i>Account</li>
+                    <li><Link to="/admin/customer"><i class="fas fa-users"></i>Customer</Link></li>
+                    <li><Link to='/admin/account'><i class="fas fa-user"></i>Account</Link></li>
                 </ul>
             </div>
             <div className="body">
                 <div className="header">
-                    <div className="avatar">
-                        <img src="https://material-kit-react.devias.io/static/images/avatars/avatar_6.png" alt="" />
-                    </div>
+                <div className="header">
+
+<nav class=" avatar navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+
+            <li class="nav-item dropdown dropstart ">
+                <a
+                    class="nav-link d-flex align-items-center"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <img
+                        src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                        class="rounded-circle"
+                        height="42"
+                        alt=""
+                        loading="lazy"
+                    />
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item" href="#">My profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</div>
                 </div>
                 <div className="body-content">
                     <div className="list-card ">

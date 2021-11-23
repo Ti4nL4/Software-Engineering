@@ -17,7 +17,7 @@
     margin: 0 8px;
 }
 
- .sidebar ul li{
+#product .sidebar ul li{
     display: inline-block;
 
     color: #d1d5d5;
@@ -49,9 +49,12 @@
     cursor: pointer;
     color: #11b17b;
     background-color: #242a38;
+}
+#product .sidebar ul li:first-child, #product .sidebar ul li:nth-child(4), #product .sidebar ul li:nth-child(4) a,  #product .sidebar ul li:nth-child(4) i{
+    color: #11b17b;
+    background-color: #242a38;
    
 }
-
 #product .body {
     width: calc(100% - 300px);
 }

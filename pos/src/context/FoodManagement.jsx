@@ -1,5 +1,5 @@
 import {useState, createContext, useEffect} from "react";
-import {requireFoodList, createNewOrder,requireRecentBill} from '../api/services';
+import {requireFoodList, createNewOrder,requireRecentBill,requireCustomer} from '../api/services';
 
 
 export const FoodManagement = createContext();
@@ -11,11 +11,13 @@ const FoodProvider = ({children}) => {
     const [cartItemList, setCartItemList] = useState([]);
     const [itemDetail,setItemDetail] = useState([]);
     const [recentBill,setRecentBill] = useState([])
+    const [customerList,setCustomerList] = useState([]);
 
     useEffect(() =>{
 
         requireFoodList(setFoodList);
-        requireRecentBill(setRecentBill)
+        requireRecentBill(setRecentBill);
+        requireCustomer(setCustomerList);
 
     }, []);
 
@@ -70,7 +72,9 @@ const FoodProvider = ({children}) => {
         itemDetail,
         setItemDetail,
         placeOrder,
-        recentBill
+        recentBill,
+        customerList,
+        setCustomerList
     };
 
     return (
