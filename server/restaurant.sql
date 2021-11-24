@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2021 at 06:37 AM
+-- Generation Time: Nov 24, 2021 at 06:40 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -174,8 +174,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Id`, `Product_Name`, `Product_Type`, `Price`, `Fund`, `Product_Description`, `Instock`, `Image`) VALUES
-(2, 'Cháo yến Yến Việt đậu xanh', 'Cháo', 12000, 8000, 'Là dòng sản phẩm cháo yến ăn liền tiện lợi từ thương hiệu Yến Việt. Cháo yến Yến Việt đậu xanh thịt bằm ly 50g có chứa tổ yến tự nhiên cùng rau thịt tươi sấy thăng hoa mang hương vị đậu xanh thịt bằm tươi ngon và giàu dinh dưỡng là lựa chọn hoàn hảo cho bữa ăn tiện lợi, đơn giản những vẫn đủ chất', -37, 'https://cdn.tgdd.vn/Products/Images/2564/191290/bhx/chao-yen-yenviet-dau-xanh-thit-bam-ly-50g-2-org.jpg'),
-(6, 'Thùng 30 gói cháo yến trẻ em Y', 'Cháo', 7000, 5000, 'Dòng sản phẩm cháo yến ăn liền trẻ em tiện lợi từ thương hiệu Yến Việt. 30 gói cháo yến trẻ em Yến Việt Nest IQ thịt bằm 50g chứa tổ yến tự nhiên cùng rau thịt tươi sấy thăng hoa mang hương vị bò bằm bó xôi tươi ngon và giàu dinh dưỡng là lựa chọn hoàn hảo cho bữa ăn tiện lợi và đủ chất', 0, 'https://cdn.tgdd.vn/Products/Images/2564/191289/bhx/thung-chao-yen-yenviet-tre-em-thit-bam-50g-30goi-2-org.jpg'),
+(2, 'Cháo yến Yến Việt đậu xanh', 'Cháo', 12000, 8000, 'Là dòng sản phẩm cháo yến ăn liền tiện lợi từ thương hiệu Yến Việt. Cháo yến Yến Việt đậu xanh thịt bằm ly 50g có chứa tổ yến tự nhiên cùng rau thịt tươi sấy thăng hoa mang hương vị đậu xanh thịt bằm tươi ngon và giàu dinh dưỡng là lựa chọn hoàn hảo cho bữa ăn tiện lợi, đơn giản những vẫn đủ chất', 37, 'https://cdn.tgdd.vn/Products/Images/2564/191290/bhx/chao-yen-yenviet-dau-xanh-thit-bam-ly-50g-2-org.jpg'),
+(6, 'Thùng 30 gói cháo yến trẻ em Y', 'Cháo', 7000, 5000, 'Dòng sản phẩm cháo yến ăn liền trẻ em tiện lợi từ thương hiệu Yến Việt. 30 gói cháo yến trẻ em Yến Việt Nest IQ thịt bằm 50g chứa tổ yến tự nhiên cùng rau thịt tươi sấy thăng hoa mang hương vị bò bằm bó xôi tươi ngon và giàu dinh dưỡng là lựa chọn hoàn hảo cho bữa ăn tiện lợi và đủ chất', 1000, 'https://cdn.tgdd.vn/Products/Images/2564/191289/bhx/thung-chao-yen-yenviet-tre-em-thit-bam-50g-30goi-2-org.jpg'),
 (7, 'Cháo sườn Chinsu hộp 420g', 'Cháo', 30000, 20000, 'Là dòng sản phẩm cháo ăn liền của thương hiệu Chin-su. Cháo sườn Chinsu hộp 420g tươi ngon như mới nấu đặc biệt có thêm gói sườn nguyên miếng chất lượng mang đến bữa ăn nhanh chóng, tiện lợi và đảm bảo dinh dưỡng. Sản phẩm cam kết chất lượng, an toàn, không chất bảo quản, màu và mùi nhân tạo', 11, 'https://cdn.tgdd.vn/Products/Images/2564/221705/bhx/chao-suon-chinsu-hop-420g-202005091249329924.jpg'),
 (8, 'Mì Hảo Hảo tôm chua cay', 'Mì gói', 3000, 2000, 'Sợi mì vàng dai ngon hòa quyện trong nước súp tôm chua cay Hảo Hảo, đậm đà thấm đẫm từng sợi sóng sánh cùng hương thơm quyến rũ ngất ngây. Mì Hảo Hảo tôm chua cay gói 75g là lựa chọn hấp dẫn không thể bỏ qua đặc biệt là những ngày bận rộn cần bổ sung năng lượng nhanh chóng đơn giản mà vẫn đủ chất', 49, 'https://cdn.tgdd.vn/Products/Images/2565/85959/bhx/thung-30-goi-mi-hao-hao-tom-chua-cay-75g-202110110920304347.JPG'),
 (9, 'Bún bò Huế Hằng Nga', 'Bún bò', 25000, 20000, 'Sản phẩm bún ăn liền thương hiệu Hằng Nga được sản xuất từ các thành phần tự nhiên an toàn cho khỏe. 30 gói bún bò Huế Hằng Nga 73g chất lượng thơm ngon, cay hít hà đậm đà vị Huế cho bạn tô bún bò hảo hạng chuẩn vị, cực đậm đà và hấp dẫn, phù hợp cho bữa ăn nhanh tiện lợi và dinh dưỡng', 48, 'https://cdn.tgdd.vn/Products/Images/2963/174711/bhx/bun-hang-nga-bun-bo-hue-75g-thung-30-5-org.jpg'),
