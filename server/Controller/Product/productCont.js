@@ -86,29 +86,6 @@ module.exports = function (app) {
          res.send(result);
       })
     })
-    app.get('/recent-bill' , (req , res)=>{
     
-      product.getRecentBill((result) => {
-
-           res.send(result);
-
-      });
    
-   })
-   app.get('/customer',(req , res)=>{
-    
-      product.getCustomer((result) => {
-
-           res.send(result);
-
-      });
-   
-   })
-   app.post('/delete-customer', (req,res)=>{
-      const idDelete=req.body.id;
-      console.log(idDelete);
-      product.deleteCustomer(idDelete , result=>{
-         res.send(result)
-      })
-   })
 }

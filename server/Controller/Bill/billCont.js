@@ -10,4 +10,14 @@ module.exports = function (app) {
        bill.addBill(req.body, (result) => {res.send(result)});
     
     })
+    ,
+    app.get('/recent-bill' , (req , res)=>{
+    
+        product.getRecentBill((result) => {
+  
+             res.send(result);
+  
+        });
+     
+     })
 }
