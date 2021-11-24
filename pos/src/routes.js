@@ -4,6 +4,7 @@ import Admin from "./Admin/Dashboard/index"
 import AdminProduct from './Admin/ManageProduct/ManageProduct'
 import AdminCustomer from './Admin/ManageCustomer/ManageCustomer'
 import AccountAdmin from './Admin/Account/Account'
+import Statistics from './Admin/Statistics'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  [
 
@@ -48,6 +49,12 @@ export default  [
         exact: true,
         public: true,
         component: <AccountAdmin />
+    },
+    {
+        path: '/admin/statistics',
+        exact: true,
+        public: true,
+        component: <Statistics />
     }
 
 ];

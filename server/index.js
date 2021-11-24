@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 const productCont = require('./Controller/Product/productCont');
 const billCont = require('./Controller/Bill/billCont');
-
+const customerCont = require('./Controller/Customer/customerCont');
 // app.use(cors);
 
 app.use(express.urlencoded({extended: true}))
@@ -25,6 +25,7 @@ app.use(function(req, res, next) {
 // add route
 productCont(app);
 billCont(app);
+customerCont(app);
 
 // app.set('view engine', 'ejs');
 

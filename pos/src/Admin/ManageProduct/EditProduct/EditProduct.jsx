@@ -17,13 +17,21 @@ const EditProduct =({ isShowing, hide,handleInputChange,handleEditChange,product
                     <div className="product-type mt-2" >
                     <p >Type:</p>
             
+
+                    <input type="radio" id="drink" name="product_type" value="Drink"  defaultChecked={product.Product_Type==='Drink'}  onChange={handleInputChange}/>
+                    <label htmlFor="Drink">Drink</label>
+
+                    <input type ="radio" id="fastfood" name="product_type" value="FastFood"defaultChecked={product.Product_Type==='FastFood'} onChange={handleInputChange}/>
+                    <label htmlFor="FastFood">FastFood</label>
+
+                    <input type ="radio" id="sweets" name="product_type" value="Sweets" defaultChecked={product.Product_Type==='Sweets'}onChange={handleInputChange}/>
+                    <label htmlFor="Sweets">Sweets</label>
                     
-                    <input type="radio" id="coffe" name="product_type" value="Coffe" defaultChecked={product.Product_Type==='Coffe'} onChange={handleInputChange}/>
-                    <label htmlFor="Coffe">Coffe</label>
-                    <input type ="radio" id="snack" name="product_type" value="Snack" defaultChecked={product.Product_Type==='Snack'} onChange={handleInputChange}/>
-                    <label htmlFor="Snack">Snack</label>
-                    <input type ="radio" id="hamberger" name="product_type" value="Fastfood" defaultChecked={product.Product_Type==='Fastfood'} onChange={handleInputChange}/>
-                    <label htmlFor="Fastfood">Fastfood</label>
+                    <input type ="radio" id="canning" name="product_type" value="Canning" defaultChecked={product.Product_Type==='Canning'}onChange={handleInputChange}/>
+                    <label htmlFor="Canning">Canning</label>
+                    
+                    <input type ="radio" id="frozenfood" name="product_type" value="FrozenFood" onChange={handleInputChange}/>
+                    <label htmlFor="FrozenFood">FrozenFood</label>
                     
                     </div>
                     <label className="mt-2">Image:</label>

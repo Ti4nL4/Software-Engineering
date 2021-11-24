@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './ManageCustomer.css'
-import {  requireCustomer ,deleteCustomer } from '../../api/services'
+import {  requireCustomer ,deleteCustomer,createNewCustomer } from '../../api/services'
 import { FoodManagement } from '../../context/FoodManagement';
 import React, { useContext, useEffect, useState } from 'react';
 import AddCustomer from "./AddCustomer/AddCustomer"
@@ -10,8 +10,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-// import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
@@ -25,13 +23,11 @@ AOS.init();
 
 function ManageProduct() {
     const [data, setData] = useState({
-        product_name: '',
-        product_type: '',
-        fund: '',
-        price: '',
-        instock: '',
-        product_description: '',
-        image: '',
+        User_Name:'',
+        User_Password:'',
+        Email:'',
+        Phone:'',
+        Address:''
     })
     const [id, setId] = useState(0);
     const [open, setOpen] = useState(false);
@@ -54,16 +50,16 @@ function ManageProduct() {
     }, [isShowing, customerList]);
 
 
-    // const handleInputChange = (event) => {
-    //     const target = event.target;
-    //     const value = target.value;
-    //     const name = target.name;
-    //     setData({
-    //         ...data,
-    //         [name]: value,
+    const handleInputChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        setData({
+            ...data,
+            [name]: value,
 
-    //     });
-    // }
+        });
+    }
     const handleClickOpen = (id) => {
         setOpen(true);
         setId(id);
@@ -86,12 +82,12 @@ function ManageProduct() {
     };
 
 
-    // const callB = () => {
-    //     toggle();
-    //     createNewProduct(data);
-    //     setTimeout(() =>
-    //         requireFoodList(setFoodList), 100)
-    // }
+    const callB = () => {
+        toggle();
+        createNewCustomer(data);
+        setTimeout(() =>
+        requireCustomer(setCustomerList), 100)
+    }
 
     return (
         <div id="customer">
@@ -99,24 +95,23 @@ function ManageProduct() {
                 <ul>
                 <li><h2>AmazingFood</h2></li>
                    
-                    <li> <Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
-                    
-                    <li><i class="fas fa-balance-scale"></i>Statistics</li>
-                     <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
-                    <li><Link to="/admin/customer"><i class="fas fa-users"></i>Customer</Link></li>
-                    <li><Link to='/admin/account'><i class="fas fa-user"></i>Account</Link></li>
+                    <li> <Link to="/admin"><i className="far fa-chart-bar"></i>DashBoard</Link></li>
+                    <li><Link to="/admin/statistics"><i className="fas fa-balance-scale"></i>Statistics</Link></li>
+                     <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
+                    <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
+                    <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
                 </ul>
             </div>
             <div className="manage-product">
                 <div className="header">
 
-                        <nav class=" avatar navbar navbar-expand-lg navbar-light ">
-                            <div class="container-fluid">
-                                <ul class="navbar-nav">
+                        <nav className=" avatar navbar navbar-expand-lg navbar-light ">
+                            <div className="container-fluid">
+                                <ul className="navbar-nav">
 
-                                    <li class="nav-item dropdown dropstart ">
+                                    <li className="nav-item dropdown dropstart ">
                                         <a
-                                            class="nav-link d-flex align-items-center"
+                                            className="nav-link d-flex align-items-center"
                                             href="#"
                                             id="navbarDropdownMenuLink"
                                             role="button"
@@ -125,18 +120,18 @@ function ManageProduct() {
                                         >
                                             <img
                                                 src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                                                class="rounded-circle"
+                                                className="rounded-circle"
                                                 height="42"
                                                 alt=""
                                                 loading="lazy"
                                             />
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li>
-                                                <a class="dropdown-item" href="#">My profile</a>
+                                            <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="#">Logout</a>
+                                                <a className="dropdown-item" href="#">Logout</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -197,12 +192,12 @@ function ManageProduct() {
                 </div>
                 <div className="footer"><p>@CoppyRight2021</p></div>
             </div>
-            {/* <AddCustomer
+            <AddCustomer
                 isShowing={isShowing}
                 hide={toggle}
                 callB={callB}
                 handleInputChange={handleInputChange}
-            /> */}
+            />
             
             <Dialog
                 open={open}

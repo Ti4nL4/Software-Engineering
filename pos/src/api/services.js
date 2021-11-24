@@ -36,6 +36,15 @@ const requireCustomer = callback =>{
     })
     .catch(error => console.log(error));
 };
+const getBillWithTotalPrice = callback =>{
+
+  axios.get(url + 'recent-bill-with-price')
+    .then(res => {
+      const data = res.data;
+      callback(data);
+    })
+    .catch(error => console.log(error));
+};
 
 const createNewOrder = (data, callback) => {
 
@@ -99,8 +108,75 @@ const deleteCustomer =(id)=>{
   })
   .catch(err=>console.log(err))
 }
+const createNewCustomer =(data)=>{
+  axios.post(url +'add-customer',data)
+    .then(res=>{
+      console.log("SSSS");
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+const getTotalCustomer = (callback)=>{
+  axios.get(url + 'num-customer')
+  .then(res => {
+        
+    const data = res.data;
+    // console.log(data);
+    callback(data);
+  })
+  .catch(error => console.log(error));
+}
+const getTotalBill = (callback)=>{
+  axios.get(url + 'num-bill')
+  .then(res => {
+        
+    const data = res.data;
+    callback(data);
+  })
+  .catch(error => console.log(error));
+}
+const getTotalProduct = (callback)=>{
+  axios.get(url + 'num-product')
+  .then(res => {
+        
+    const data = res.data;
+    callback(data);
+  })
+  .catch(error => console.log(error));
+}
+const getTotalProductByType = (callback)=>{
+  axios.get(url + 'num-product-by-type')
+  .then(res => {
+    const data = res.data;
+    callback(data);
+  })
+  .catch(error => console.log(error));
+}
+const getProfit= (callback)=>{
+  axios.get(url + 'profit')
+  .then(res => {
+    const data = res.data;
+    callback(data);
+  })
+  .catch(error => console.log(error));
+}
 
-export {requireFoodList, createNewOrder,createNewProduct,
-  deleteProduct,getProductByType,updateProduct,requireRecentBill,
-  requireCustomer,deleteCustomer
+
+export {requireFoodList, 
+  createNewOrder,
+  createNewProduct,
+  deleteProduct,
+  getProductByType,
+  updateProduct,
+  requireRecentBill,
+  requireCustomer,
+  deleteCustomer,
+  getBillWithTotalPrice,
+  createNewCustomer,
+  getTotalCustomer,
+  getTotalBill,
+  getTotalProduct,
+  getTotalProductByType,
+  getProfit
 };

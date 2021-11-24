@@ -14,23 +14,23 @@ function Account() {
                 <ul>
                     <li><h2>AmazingFood</h2></li>
 
-                    <li> <Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
+                    <li> <Link to="/admin"><i className="far fa-chart-bar"></i>DashBoard</Link></li>
 
-                    <li><i class="fas fa-balance-scale"></i>Statistics</li>
-                    <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
-                    <li><Link to="/admin/customer"><i class="fas fa-users"></i>Customer</Link></li>
-                    <li><Link to='/admin/account'><i class="fas fa-user"></i>Account</Link></li>
+                    <li><Link to="/admin/statistics"><i className="fas fa-balance-scale"></i>Statistics</Link></li>
+                    <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
+                    <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
+                    <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
                 </ul>
             </div>
             <div className="header">
 
-                        <nav class=" avatar navbar navbar-expand-lg navbar-light ">
-                            <div class="container-fluid">
-                                <ul class="navbar-nav">
+                        <nav className=" avatar navbar navbar-expand-lg navbar-light ">
+                            <div className="container-fluid">
+                                <ul className="navbar-nav">
 
-                                    <li class="nav-item dropdown dropstart ">
+                                    <li className="nav-item dropdown dropstart ">
                                         <a
-                                            class="nav-link d-flex align-items-center"
+                                            className="nav-link d-flex align-items-center"
                                             href="#"
                                             id="navbarDropdownMenuLink"
                                             role="button"
@@ -39,18 +39,18 @@ function Account() {
                                         >
                                             <img
                                                 src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                                                class="rounded-circle"
+                                                className="rounded-circle"
                                                 height="42"
                                                 alt=""
                                                 loading="lazy"
                                             />
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li>
-                                                <a class="dropdown-item" href="#">My profile</a>
+                                            <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="#">Logout</a>
+                                                <a className="dropdown-item" href="#">Logout</a>
                                             </li>
                                         </ul>
                                     </li>

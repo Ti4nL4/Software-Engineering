@@ -41,6 +41,7 @@ function ManageProduct() {
     const [id, setId] = useState(0);
     const [open, setOpen] = useState(false);
     const [filter, setFilter] = useState('');
+    const [filterSearch, setFilterSearch] = useState('');
     const [page, setPage] = useState(1);
     const { foodList, setFoodList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
@@ -57,7 +58,7 @@ function ManageProduct() {
             document.body.style.overflow = 'unset';
         }
 
-    }, [isShowing, isShowingEditModal, foodList]);
+    }, [isShowing, isShowingEditModal, foodList,filterSearch]);
 
 
     const handleInputChange = (event) => {
@@ -114,7 +115,10 @@ function ManageProduct() {
         setPage(value);
     };
     const handleChange = (event) => {
-        setFilter(event.target.value);
+        setTimeout(()=>{
+            setFilter(event.target.value);
+        },10)
+        console.log(filter);
     };
     const toggleEdit = () => {
         setIsShowingEditModal(!isShowingEditModal);
@@ -127,29 +131,36 @@ function ManageProduct() {
             requireFoodList(setFoodList), 100)
 
     }
-
+    const handleChangeSearch=(event)=>{
+        const target = event.target;
+        const value = target.value;
+        setTimeout(()=>{
+            setFilterSearch(value);
+        },10)
+    }
+  
     return (
         <div id="product">
             <div className="sidebar">
                 <ul>
                     <li><h2>AmazingFood</h2></li>
-                    <li> <Link to="/admin"><i class="far fa-chart-bar"></i>DashBoard</Link></li>
-                    <li><i class="fas fa-balance-scale"></i>Statistics</li>
-                    <li><Link to="/admin/product"><i class="fas fa-shopping-basket"></i>Product</Link></li>
-                    <li><Link to="/admin/customer"><i class="fas fa-users"></i>Customer</Link></li>
-                    <li><Link to='/admin/account'><i class="fas fa-user"></i>Account</Link></li>
+                    <li> <Link to="/admin"><i className="far fa-chart-bar"></i>DashBoard</Link></li>
+                    <li><Link to="/admin/statistics"><i className="fas fa-balance-scale"></i>Statistics</Link></li>
+                    <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
+                    <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
+                    <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
                 </ul>
             </div>
             <div className="manage-product">
                 <div className="header">
 
-                    <nav class=" avatar navbar navbar-expand-lg navbar-light ">
-                        <div class="container-fluid">
-                            <ul class="navbar-nav">
+                    <nav className=" avatar navbar navbar-expand-lg navbar-light ">
+                        <div className="container-fluid">
+                            <ul className="navbar-nav">
 
-                                <li class="nav-item dropdown dropstart ">
+                                <li className="nav-item dropdown dropstart ">
                                     <a
-                                        class="nav-link d-flex align-items-center"
+                                        className="nav-link d-flex align-items-center"
                                         href="#"
                                         id="navbarDropdownMenuLink"
                                         role="button"
@@ -158,18 +169,18 @@ function ManageProduct() {
                                     >
                                         <img
                                             src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                                            class="rounded-circle"
+                                            className="rounded-circle"
                                             height="42"
                                             alt=""
                                             loading="lazy"
                                         />
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <li>
-                                            <a class="dropdown-item" href="#">My profile</a>
+                                        <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">Logout</a>
+                                            <a className="dropdown-item" href="#">Logout</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -197,15 +208,17 @@ function ManageProduct() {
                                 <em>None</em>
                             </MenuItem>
                             <MenuItem value={'All'}>All</MenuItem>
-                            <MenuItem value={'Snack'}>Snack</MenuItem>
-                            <MenuItem value={'Hamberger'}>Hamberger</MenuItem>
-                            <MenuItem value={'Coffe'}>Coffe</MenuItem>
+                            <MenuItem value={'Drink'}>Drink</MenuItem>
+                            <MenuItem value={'FastFood'}>FastFood</MenuItem>
+                            <MenuItem value={'Sweets'}>Sweets</MenuItem>
+                            <MenuItem value={'Canning'}>Canning</MenuItem>
+                            <MenuItem value={'FrozenFood'}>FrozenFood</MenuItem>
                         </Select>
                     </FormControl>
 
                     <div className="input-group rounded" style={{ width: '200px' }}>
-                        <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search"
-                            aria-describedby="search-addon" />
+                        <input type="text" className="form-control rounded" placeholder="Search" aria-label="Search"
+                            aria-describedby="search-addon" onChange={handleChangeSearch}/>
                         <span className="input-group-text border-0" id="search-addon">
                             <i className="fas fa-search"></i>
                         </span>
@@ -226,7 +239,11 @@ function ManageProduct() {
                         <tbody>
 
                             {foodList.map((food, index) =>
-                                index >= (page - 1) * 10 && index < page * 10 && <tr key={index} >
+                                (food.Product_Type === filter || filter==="" || filter === 'All') && food.Product_Name.toLocaleLowerCase().indexOf(filterSearch.toLocaleLowerCase()) !== -1 
+                                && index >= (page - 1) * 10 
+                                && index < page * 10 
+                                
+                                && <tr key={index} >
                                     <th scope="row">{index + 1}</th>
                                     <td>{food.Product_Name}</td>
                                     <td>{food.Product_Type}</td>

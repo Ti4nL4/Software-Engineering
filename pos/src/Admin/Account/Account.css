@@ -1,4 +1,6 @@
-
+a {
+    text-decoration: none;
+}
 .sidebar{
     position:fixed;
     width: 300px;

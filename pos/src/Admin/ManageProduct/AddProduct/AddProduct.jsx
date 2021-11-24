@@ -18,10 +18,20 @@ const AddProduct =({ isShowing, hide,callB,handleInputChange }) => isShowing ? R
                     <p >Type:</p>
             
                     
-                    <input type="radio" id="coffe" name="product_type" value="Coffe" onChange={handleInputChange}/><label for="Coffe">Coffe</label>
-                    <input type ="radio" id="snack" name="product_type" value="Snack" onChange={handleInputChange}/><label for="Snack">Snack</label>
-                    <input type ="radio" id="hamberger" name="product_type" value="Fastfood" onChange={handleInputChange}/>
-                    <label for="Fastfood">Fastfood</label>
+                    <input type="radio" id="drink" name="product_type" value="Drink" onChange={handleInputChange}/>
+                    <label htmlFor="Drink">Drink</label>
+
+                    <input type ="radio" id="fastfood" name="product_type" value="FastFood" onChange={handleInputChange}/>
+                    <label htmlFor="FastFood">FastFood</label>
+
+                    <input type ="radio" id="sweets" name="product_type" value="Sweets" onChange={handleInputChange}/>
+                    <label htmlFor="Sweets">Sweets</label>
+
+                    <input type ="radio" id="canning" name="product_type" value="Canning" onChange={handleInputChange}/>
+                    <label htmlFor="Canning">Canning</label>
+                    
+                    <input type ="radio" id="frozenfood" name="product_type" value="FrozenFood" onChange={handleInputChange}/>
+                    <label htmlFor="FrozenFood">FrozenFood</label>
                     
                     </div>
                     <label className="mt-2">Image:</label>

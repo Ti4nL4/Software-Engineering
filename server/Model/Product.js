@@ -53,28 +53,12 @@ module.exports = {
 
         query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
     },
-    getRecentBill: function(callback) {
-
-        const sql = `SELECT _User.User_Name,_User.Phone,_User.Address,Bill.Id
-        FROM Bill,_User
-        WHERE Bill.User_Id = _User.Id AND Role_of_user= "Guest"
-        ORDER BY Bill.Buy_Time
-        DESC LIMIT 6
-        `;
-
+    getTotalProduct: function (callback){
+        const sql = `SELECT COUNT(Id) AS Num FROM Product`;
         query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
     },
-    getCustomer: function(callback) {
-
-        const sql = `SELECT *
-        FROM _User
-        WHERE Role_of_user= "Guest"
-        `;
+    getTotalProductByType: function (callback){
+        const sql = `SELECT Product_Type,COUNT(*) AS Num FROM Product GROUP BY Product_Type`;
         query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
     },
-    deleteCustomer: function(id,callback){
-        const sql = `DELETE FROM _User WHERE id = ${id}`;
-        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
-    },
-
 };
