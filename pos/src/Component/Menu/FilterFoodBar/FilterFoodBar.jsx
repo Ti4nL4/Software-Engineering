@@ -36,11 +36,7 @@ const FilterFoodBar = ({foodTypes, changeFilterValue}) => {
             return <Item item={item} changeFilterValue={changeFilterValue} key={index}/>;
           }
           )}
-          { Object.values(foodTypes).map( (item, index) => {
-            
-            return <Item item={item} changeFilterValue={changeFilterValue} key={index}/>;
-          }
-          )}
+          
         </Carousel>
       </div>
   );
