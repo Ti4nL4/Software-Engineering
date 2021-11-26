@@ -7,7 +7,10 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
+    "cor": "^0.0.0",
+    "cors": "^2.8.5",
     "react": "^17.0.2",
+    "react-datepicker": "^4.3.0",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
     "react-multi-carousel": "^2.6.5",
@@ -16,6 +19,9 @@
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3",
+    "react-toastify": "^8.1.0",
+    "reactstrap": "^9.0.0",
+    "recharts": "^2.1.6",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
