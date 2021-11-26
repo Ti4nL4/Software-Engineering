@@ -11,24 +11,17 @@ module.exports = function (app) {
             console.log(result);
         res.render('addFoodPage.ejs', {foodTypeList: result});
        });
-    })
-    ,
+    }),
+
     app.post('/add-product' , (req , res)=>{
-      
+
       const product_name = req.body.product_name;
-      let product_type = '';
+      const product_type = req.body.product_type
       const fund = req.body.fund;
       const price = req.body.price;
       const instock = req.body.instock;
       const product_description = req.body.product_description;
       const image = req.body.image;
-      
-      
-
-      if (req.body.anotherType !== '')
-         product_type = req.body.anotherType;
-      else
-         product_type = req.body.product_type;
 
       const data = {
          product_name,
@@ -39,7 +32,7 @@ module.exports = function (app) {
          product_description,
          image
       };
-
+    
       product.add(data, result => {
 
          res.send(result);
@@ -56,4 +49,52 @@ module.exports = function (app) {
        });
     
     })
+    app.post('/delete-product', (req,res)=>{
+       const idDelete=req.body.id;
+       console.log(idDelete);
+       product.delete(idDelete , result=>{
+          res.send(result)
+       })
+    })
+    app.get('/get-product-by-type', (req,res)=>{
+       product.getProductByType(req.body.product_type,result =>{
+         res.send(result)
+       })
+    })
+    app.post('/update-product',(req,res)=>{
+      const product_name = req.body.data.product_name;
+      const product_type = req.body.data.product_type
+      const fund = req.body.data.fund;
+      const price = req.body.data.price;
+      const instock = req.body.data.instock;
+      const product_description = req.body.data.product_description;
+      const image = req.body.data.image;
+      const id = req.body.id;
+
+      const data = {
+         product_name,
+         product_type,
+         fund,
+         price,
+         instock,
+         product_description,
+         image,
+         id
+      };
+      console.log(data);
+       product.update(data, result => {
+
+         res.send(result);
+      })
+    })
+   app.get('/num-product',(req , res)=>{
+      product.getTotalProduct((result) => {
+           res.send(result);
+      });
+   })
+   app.get('/num-product-by-type',(req , res)=>{
+      product.getTotalProductByType((result) => {
+           res.send(result);
+      });
+   })
 }

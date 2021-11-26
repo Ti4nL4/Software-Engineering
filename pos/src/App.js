@@ -9,7 +9,7 @@ function App() {
     <FoodProvider>
     <BrowserRouter>
         <div className = 'row p-0 m-0'>
-            <Navbar />
+            {/* <Navbar /> */}
         </div>
         <Cart />
       <Routes>

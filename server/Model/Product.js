@@ -33,5 +33,32 @@ module.exports = {
         `;
 
         query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
-    }
+    },
+    delete: function(id,callback){
+        const sql = `DELETE FROM ${tableName} WHERE id = ${id}`;
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
+    },
+    getProductByType: function(type,callback){
+        const sql = `SELECT  * FROM ${tableName} WHERE Product_Type = ${type}`;
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
+    },
+    update: function(data, callback) {
+
+        const sql = `UPDATE ${tableName}
+        SET 
+        Product_Name = "${data.product_name}",Product_Type="${data.product_type}", Price="${data.price}", Fund="${data.fund}",
+         Product_Description="${data.product_description}", Instock="${data.instock}", Image="${data.image}"
+       WHERE Id= ${data.id}
+        `;
+
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
+    },
+    getTotalProduct: function (callback){
+        const sql = `SELECT COUNT(Id) AS Num FROM Product`;
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
+    },
+    getTotalProductByType: function (callback){
+        const sql = `SELECT Product_Type,COUNT(*) AS Num FROM Product GROUP BY Product_Type`;
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
+    },
 };

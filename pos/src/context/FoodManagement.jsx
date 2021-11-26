@@ -1,5 +1,6 @@
 import {useState, createContext, useEffect} from "react";
-import {requireFoodList, createNewOrder} from '../api/services';
+import {requireFoodList, createNewOrder,requireRecentBill,requireCustomer,
+    getBillWithTotalPrice,getTotalCustomer,getTotalBill,getTotalProduct,getTotalProductByType,getProfit} from '../api/services';
 
 
 export const FoodManagement = createContext();
@@ -10,12 +11,32 @@ const FoodProvider = ({children}) => {
     const [foodList, setFoodList] = useState([]);
     const [cartItemList, setCartItemList] = useState([]);
     const [itemDetail,setItemDetail] = useState([]);
+    const [recentBill,setRecentBill] = useState([])
+    const [customerList,setCustomerList] = useState([]);
+    const [billWithPrice,setBillWithPrice] = useState([]);
+    const [totalCustomer,setTotalCustomer] = useState(0);
+    const [totalBill,setTotalBill] = useState(0);
+    const [totalProduct,setTotalProduct] = useState(0);
+    const [totalProductByType,setTotalProductByType] = useState([]);
+    const [profit,setProfit] = useState(0);
+
+
+
+    
 
     useEffect(() =>{
 
         
         requireFoodList(setFoodList);
-        
+        requireRecentBill(setRecentBill);
+        requireCustomer(setCustomerList);
+        getBillWithTotalPrice(setBillWithPrice);
+        getTotalCustomer(setTotalCustomer);
+        getTotalBill(setTotalBill);
+        getTotalProduct(setTotalProduct);
+        getTotalProductByType(setTotalProductByType);
+        getProfit(setProfit)
+
     }, []);
 
 
@@ -69,6 +90,7 @@ const FoodProvider = ({children}) => {
 
 
     const data = {
+        setFoodList,
         foodList,
         cartItemList,
         modifyAmountInCart,
@@ -77,6 +99,15 @@ const FoodProvider = ({children}) => {
         itemDetail,
         setItemDetail,
         placeOrder,
+        recentBill,
+        customerList,
+        setCustomerList,
+        billWithPrice,
+        totalCustomer,
+        totalBill,
+        totalProduct,
+        totalProductByType,
+        profit,
         removeItem
     };
 
