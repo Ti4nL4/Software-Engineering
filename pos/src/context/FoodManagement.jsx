@@ -26,6 +26,7 @@ const FoodProvider = ({children}) => {
 
     useEffect(() =>{
 
+        
         requireFoodList(setFoodList);
         requireRecentBill(setRecentBill);
         requireCustomer(setCustomerList);
@@ -55,12 +56,19 @@ const FoodProvider = ({children}) => {
     }
 
     function IncreaseItem(item) {
-        item.item.amount = item.item.amount < item.item.Instock ? item.item.amount + 1 : item.item.amount;
+        item.amount = item.amount < item.Instock ? item.amount + 1 : item.amount;
         setCartItemList([...cartItemList]);
     }
     function DecreaseItem(item) {
-        item.item.amount = item.item.amount > 0 ? item.item.amount - 1 : 0;
+        item.amount = item.amount > 0 ? item.amount - 1 : 0;
         setCartItemList([...cartItemList]);
+    }
+
+    function removeItem(item) {
+
+        const foundItems = cartItemList.filter(cartItem => cartItem.Id !== item.Id);
+
+        setCartItemList(foundItems);
     }
 
     function placeOrder(callback) {
@@ -71,9 +79,11 @@ const FoodProvider = ({children}) => {
         }
 
         createNewOrder(data, res => {
-            console.log(res);
-            callback(res.data);
-            setCartItemList([]);
+            
+            console.log(res.isSuccess);
+            callback(res.isSuccess);
+            if (res.isSuccess)
+                setCartItemList([]);
         });
         
     }
@@ -97,7 +107,8 @@ const FoodProvider = ({children}) => {
         totalBill,
         totalProduct,
         totalProductByType,
-        profit
+        profit,
+        removeItem
     };
 
     return (

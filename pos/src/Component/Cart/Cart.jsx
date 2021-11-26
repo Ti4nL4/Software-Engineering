@@ -1,20 +1,15 @@
 import './Cart.css';
 import { FoodManagement } from '../../context/FoodManagement';
 import { useContext } from 'react';
-
+import CartItem from './CartItem';
 import { useNavigate } from "react-router-dom";
 
 const Cart = props => {
   
     let totalPrice=0;
     let navigate = useNavigate();
-    const { cartItemList,IncreaseItem ,DecreaseItem} = useContext(FoodManagement);
-    const handleIncreaseItem = (item)=> {
-        IncreaseItem(item);
-    }
-    const handleDecreaseItem = (item)=> {
-        DecreaseItem(item);
-    }
+    const { cartItemList} = useContext(FoodManagement);
+    
   return (
     <div className='cart-container offcanvas offcanvas-end' 
     tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -31,30 +26,11 @@ const Cart = props => {
                 <div className="menu-cart-body">
                 <div className="menu-cart-list-product">
                 {
-                        cartItemList.map(item => {
-                            totalPrice = totalPrice+item.Price * item.amount;
-                            return (
-                                <div key={item._id} className="menu-cart-product-item col-11 mx-auto">
-                                    <div className="menu-cart-product-image border border-1 border-danger p-1"><img src={item.Image} alt="" /></div>
-                                    <div className="menu-cart-product-info p-1">
-                                        <div className="menu-cart-product-name">{item.Product_Name}</div>
-                                        <div className="menu-cart-product-price">{item.Price * item.amount}$</div>
-                                    </div>
-                                    <div className="menu-cart-product-quantity">
-                                        <button >
-                                            <span className="minus" onClick={()=>handleDecreaseItem({item})}> - </span>
-                                            <input type="text" value={item.amount} readOnly={true} />
-                                            <span className="plus" onClick={()=>handleIncreaseItem({item})}> + </span>
-                                        </button>
-                                        
-                                    </div>
-                                    <div className="close" >
-                                        x
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
+                    cartItemList.map(item => {
+                        totalPrice = totalPrice+item.Price * item.amount;
+                        return <CartItem item = {item} />
+                    })
+                }
                 </div>
     
                 </div>

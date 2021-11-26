@@ -1,6 +1,5 @@
 import CheckoutForm from "../../Component/Checkout/CheckoutForm"
 import CheckoutCart from "../../Component/Checkout/CheckoutCart";
-import Navbar from "../../Component/Navbar/Navbar";
 
 const CheckoutPage = props => {
 

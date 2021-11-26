@@ -25,7 +25,7 @@ export default function Header(){
 								<Link to = '/menu' className='nav-link'>Thực đơn</Link>
 					      	</li>
 						  	<li className="nav-item">
-								<a className="nav-link" href="#">Khách hàng</a>
+								<a className="nav-link" href="/customer">Khách hàng</a>
 					      	</li>
 					    </ul>
 

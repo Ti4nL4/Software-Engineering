@@ -27,6 +27,8 @@ function App() {
       </FoodProvider>
      
   );
+  // return <Header/>
 }
 
 export default App;
+

@@ -12,7 +12,7 @@ const Menu = ({products}) => {
 
     const [foodTypes, setFoodTypes] = useState({});
     const [filterValue, setFilterValue] = useState('');
-    const {foodList, modifyAmountInCart} = useContext(FoodManagement);
+    const {foodList} = useContext(FoodManagement);
     
     useEffect(() =>{
 

@@ -43,6 +43,7 @@ module.exports = function (app) {
     
        product.get((result) => {
 
+         console.log(result);
             res.send(result);
 
        });
