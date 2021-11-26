@@ -1,0 +1,32 @@
+
+.menu-item {
+    background-color: white;
+    border-radius: 6%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.menu-item:hover {
+    position: relative;
+    bottom: 0.6rem;
+}
+
+.menu-item img{
+    width: auto;
+    height: 90%;
+    margin: 0 auto;
+    border-radius: 6%;
+}
+
+.menu-item button {
+    border-radius: 30%;
+    border-style: none;
+    background-color: red;
+    color: #fff;
+    padding: 7px 10px;
+}
+
+.fixed-in-box {
+    position: absolute;
+    width: 95%;
+    bottom: 0;
+}

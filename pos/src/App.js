@@ -1,23 +1,34 @@
-import { Provider } from 'react-redux';
-import { Login } from './component/user/login'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import store from './store'
-import { ForgotPassword } from './component/user/forgotpassword';
-import { ResetPassword } from './component/user/resetpassword';
-
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import FoodProvider from "./context/FoodManagement";
+import Navbar from './Component/Navbar/Navbar';
+import Cart from './Component/Cart/Cart';
+import routes from "./routes";
 
 function App() {
   return (
-    <Provider store={store}>
-    <Router>
-    <Routes>
-      <Route exact path="/reset/:token" element={<ResetPassword />}></Route>
-      <Route exact path="/forgot" element={<ForgotPassword />}></Route>
-      <Route exact path="/" element={<Login />}></Route>
-    </Routes>
-    </Router>
-    </Provider>
+    <FoodProvider>
+    <BrowserRouter>
+        <div className = 'row p-0 m-0'>
+            {/* <Navbar /> */}
+        </div>
+        <Cart />
+      <Routes>
+      
+      {
+        [
+        ...routes.map((route, index) => 
+          <Route exact path={route.path} element={route.component} key={index}></Route>
+        )
+        ]
+      }
+
+      </Routes>
+      </BrowserRouter>
+      </FoodProvider>
+     
   );
+  // return <Header/>
 }
 
 export default App;
+
