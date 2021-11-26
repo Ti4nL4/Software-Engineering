@@ -5,6 +5,8 @@ import {getData, _Render} from '../api/report';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../components/Datepick.css"
 function ReportsRevenue() {
   //console.log(datadatepick)
   const [data,setData]=useState([])
@@ -78,13 +80,13 @@ function ReportsRevenue() {
 
 
     return(
-    <div class='container'>
+    <div class='container bg-white'>
       <Header/>
-      <div className="container">
+      <div className="container mt-3">
             {/* <form method="get"> */}
             <div class ='row'>
-            <div class ='col-md-3 col-sm-6'>
-              {/* <label>Check-in</label> */}
+            <div class ='col-md-3 col-sm-6 fw-bold'>
+              <label>Check-in</label>
               <DatePicker
                 selected={checkInDate}
                 //minDate={new Date()}
@@ -94,8 +96,8 @@ function ReportsRevenue() {
                 name='start'
               />
             </div>
-            <div class ='col-md-3 col-sm-6'>
-              {/* <label>Check-out</label> */}
+            <div class ='col-md-3 col-sm-6 fw-bold'>
+              <label>Check-out</label>
               <DatePicker
                 selected={checkOutDate}
                 minDate={checkInDate}
@@ -105,7 +107,7 @@ function ReportsRevenue() {
                 name='end'
               />
             </div>
-            <div class ='col-md-4 col-sm-12'>
+            <div class ='col-md-4 col-sm-12 mt-4'>
             <button type="button" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button>
             {/* <button type="submit" class="btn btn-primary">Xuất báo cáo</button> */}
             </div>
@@ -118,7 +120,7 @@ function ReportsRevenue() {
 
         <div class="row">
         <div class="col-md-3 col-sm-12">
-        <div class="card widget-flat">
+        <div class="card widget-flat shadow">
         <div class="card-body">
           <div class="float-end">
           <i class="mdi mdi-pulse widget-icon"></i>
@@ -134,7 +136,7 @@ function ReportsRevenue() {
         </div>
         </div>
         <div class="col-md-3 col-sm-12">
-        <div class="card widget-flat">
+        <div class="card widget-flat shadow">
         <div class="card-body">
           <div class="float-end">
           <i class="mdi mdi-pulse widget-icon"></i>
@@ -150,7 +152,7 @@ function ReportsRevenue() {
         </div>
         </div>
         <div class="col-md-3 col-sm-12">
-        <div class="card widget-flat">
+        <div class="card widget-flat shadow">
         <div class="card-body">
           <div class="float-end">
           <i class="mdi mdi-pulse widget-icon"></i>
@@ -166,7 +168,7 @@ function ReportsRevenue() {
         </div>
         </div>
         <div class="col-md-3 col-sm-12">
-        <div class="card widget-flat">
+        <div class="card widget-flat shadow">
         <div class="card-body">
           <div class="float-end">
           <i class="mdi mdi-pulse widget-icon"></i>

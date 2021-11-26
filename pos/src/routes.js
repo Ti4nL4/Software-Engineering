@@ -5,6 +5,9 @@ import AdminProduct from './Admin/ManageProduct/ManageProduct'
 import AdminCustomer from './Admin/ManageCustomer/ManageCustomer'
 import AccountAdmin from './Admin/Account/Account'
 import Statistics from './Admin/Statistics'
+import Login from './components/Login'
+import Reports from './pages/Reports'
+import ReportProduct from './pages/ReportProduct'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  [
 
@@ -55,6 +58,23 @@ export default  [
         exact: true,
         public: true,
         component: <Statistics />
+    },
+    {
+        path: '/admin/login',
+        exact: true,
+        public: true,
+        component: <Login />
+    },
+    {
+        path: '/admin/report',
+        exact: true,
+        public: true,
+        component: <Reports />
+    },
+    {
+        path: '/admin/reportproduct',
+        exact: true,
+        public: true,
+        component: <ReportProduct />
     }
-
 ];

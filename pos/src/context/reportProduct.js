@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import '../components/Datepick.css'
 import "react-datepicker/dist/react-datepicker.css";
 
+
 function ReportPro() {
     const [data,setData]=useState('')
     
@@ -75,13 +76,13 @@ function ReportPro() {
     
   return(
     
-    <div class='container'>
+    <div class='container bg-white' style={{  height: "750px"}}>
       <Header/>
-        <div className="container">
+        <div className="container mt-3">
             {/* <form method="get"> */}
             <div class ='row'>
-            <div class ='col-md-3 col-sm-6'>
-              {/* <label>Check-in</label> */}
+            <div class ='col-md-3 col-sm-6 fw-bold'>
+              <label>Check-in</label>
               <DatePicker
                 selected={checkInDate}
                 //minDate={new Date()}
@@ -91,8 +92,8 @@ function ReportPro() {
                 name='start'
               />
             </div>
-            <div class ='col-md-3 col-sm-6'>
-              {/* <label>Check-out</label> */}
+            <div class ='col-md-3 col-sm-6 fw-bold'>
+              <label>Check-out</label>
               <DatePicker
                 selected={checkOutDate}
                 minDate={checkInDate}
@@ -102,7 +103,7 @@ function ReportPro() {
                 name='end'
               />
             </div>
-            <div class ='col-md-3 col-sm-12'>
+            <div class ='col-md-3 col-sm-12 mt-4'>
             <button type="button" class="btn btn-primary" onClick={RenderReport}>Xuất báo cáo</button>
             {/* <button type="submit" class="btn btn-primary">Xuất báo cáo</button> */}
             </div>
