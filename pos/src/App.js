@@ -1,29 +1,31 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Reports from './pages/Reports';
-import ReportProduct from './pages/ReportProduct'
-//import Header from './components/Header';
-// import Datepick from './components/Datepick'
-// import Sidebar from './components/topbar/Topbar'
-// import BasicDateRangePicker from './components/Datepick'
- import Login from './components/Login'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import FoodProvider from "./context/FoodManagement";
+import Navbar from './Component/Navbar/Navbar';
+import Cart from './Component/Cart/Cart';
+import routes from "./routes";
+
 function App() {
   return (
-    <>
+    <FoodProvider>
+    <BrowserRouter>
+        <div className = 'row p-0 m-0'>
+            <Navbar />
+        </div>
+        <Cart />
+      <Routes>
       
-      <Router>
-      
-      {/* <Header/> */}
-        <Switch>
-          <Route path='/' exact component={Login}/>
-          <Route path='/home' exact component={Home} />
-          <Route path='/reports' exact component={Reports} />
-          <Route path='/reportProduct'exact component={ReportProduct} />
-        </Switch>
-      </Router>
-    </>
+      {
+        [
+        ...routes.map((route, index) => 
+          <Route exact path={route.path} element={route.component} key={index}></Route>
+        )
+        ]
+      }
+
+      </Routes>
+      </BrowserRouter>
+      </FoodProvider>
+     
   );
   // return <Header/>
 }
