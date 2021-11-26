@@ -8,6 +8,7 @@ import Statistics from './Admin/Statistics'
 import Login from './components/Login'
 import Reports from './pages/Reports'
 import ReportProduct from './pages/ReportProduct'
+import Loginuser from './component/user/login'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  [
 
@@ -27,7 +28,7 @@ export default  [
         path: '/',
         exact: true,
         public: true,
-        component: <MenuPage />
+        component: <Loginuser />
     },
     {
         path: '/admin',
