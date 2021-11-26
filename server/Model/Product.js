@@ -61,4 +61,8 @@ module.exports = {
         const sql = `SELECT Product_Type,COUNT(*) AS Num FROM Product GROUP BY Product_Type`;
         query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
     },
+    getProductSearch:  function(search,callback){
+        const sql = `SELECT  * FROM ${tableName} WHERE Product_Name LIKE '%${search}%'`;
+        query.awaitQuery(sql).then(result => callback(result)).catch(error => callback(error));
+    },
 };

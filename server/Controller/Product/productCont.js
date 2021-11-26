@@ -57,10 +57,16 @@ module.exports = function (app) {
        })
     })
     app.get('/get-product-by-type', (req,res)=>{
-       product.getProductByType(req.body.product_type,result =>{
+       product.getProductByType(req.body.type,result =>{
          res.send(result)
        })
     })
+    app.get('/get-product-by-search/:key', (req,res)=>{
+       console.log(req.params.key);
+      product.getProductSearch(req.params.key,result =>{
+        res.send(result)
+      })
+   })
     app.post('/update-product',(req,res)=>{
       const product_name = req.body.data.product_name;
       const product_type = req.body.data.product_type

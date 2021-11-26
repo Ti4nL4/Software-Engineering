@@ -46,10 +46,12 @@ function ManageProduct() {
     const { foodList, setFoodList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
     const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+    const [list,setList] = useState([])
     let num = foodList ? foodList.length : 0;
     let numPage = num % 10 === 0 ? num / 10 : Math.floor(num / 10) + 1;
 
     useEffect(() => {
+        if(foodList) setList(foodList)
 
         if (isShowing || isShowingEditModal) {
             document.body.style.overflow = 'hidden';
@@ -58,7 +60,7 @@ function ManageProduct() {
             document.body.style.overflow = 'unset';
         }
 
-    }, [isShowing, isShowingEditModal, foodList,filterSearch]);
+    }, [isShowing, isShowingEditModal, foodList,filterSearch,list]);
 
 
     const handleInputChange = (event) => {
@@ -225,8 +227,8 @@ function ManageProduct() {
                     </div>
                 </div>
                 <div className="list-product-container">
-                    <table className="table table-bordered" data-aos="fade-up" >
-                        <thead>
+                    <table className="table table-bordered" data-aos="fade-up" style={{}} >
+                        <thead style={{position:'sticky',top:'0',overflowY:'hidden', backgroundColor:'#eee'}}>
                             <tr >
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
@@ -239,9 +241,10 @@ function ManageProduct() {
                         <tbody>
 
                             {foodList.map((food, index) =>
-                                (food.Product_Type === filter || filter==="" || filter === 'All') && food.Product_Name.toLocaleLowerCase().indexOf(filterSearch.toLocaleLowerCase()) !== -1 
-                                && index >= (page - 1) * 10 
-                                && index < page * 10 
+                                (food.Product_Type === filter || filter==="" || filter === 'All') && food.Product_Name.toLocaleLowerCase().indexOf(filterSearch.trim().toLocaleLowerCase()) !== -1 
+
+                                && ((filter!=="" && filter !== 'All' )||filterSearch.replace(/\s/g, '')||index >= (page - 1) * 10 )
+                                && ((filter!=="" && filter !== 'All' )||filterSearch.replace(/\s/g, '')||index < page * 10 )
                                 
                                 && <tr key={index} >
                                     <th scope="row">{index + 1}</th>
@@ -256,9 +259,9 @@ function ManageProduct() {
 
                         </tbody>
                     </table>
-                    <Stack spacing={2} style={{ alignItems: 'center' }}>
+                    {((filter==="" || filter === 'All')&& filterSearch.replace(/\s/g, '') === "" )&&<Stack spacing={2} style={{ alignItems: 'center' }}>
                         <Pagination count={numPage} color="primary" page={page} onChange={handleChangePage} />
-                    </Stack>
+                    </Stack>}
                 </div>
                 <div className="footer"><p>@CoppyRight2021</p></div>
             </div>

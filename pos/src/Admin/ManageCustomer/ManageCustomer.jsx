@@ -31,7 +31,7 @@ function ManageProduct() {
     })
     const [id, setId] = useState(0);
     const [open, setOpen] = useState(false);
-    // const [filter, setFilter] = useState('');
+    const [filterSearch, setFilterSearch] = useState('');
     const [page, setPage] = useState(1);
     const { customerList, setCustomerList } = useContext(FoodManagement);
     const { isShowing, toggle } = useModal();
@@ -47,7 +47,7 @@ function ManageProduct() {
             document.body.style.overflow = 'unset';
         }
 
-    }, [isShowing, customerList]);
+    }, [isShowing, customerList,filterSearch]);
 
 
     const handleInputChange = (event) => {
@@ -80,7 +80,14 @@ function ManageProduct() {
     const handleChangePage = (event, value) => {
         setPage(value);
     };
-
+    const handleChangeSearch=(event)=>{
+        const target = event.target;
+        const value = target.value;
+        setTimeout(()=>{
+            setFilterSearch(value);
+        },10)
+        console.log(value);
+    }
 
     const callB = () => {
         toggle();
@@ -147,8 +154,8 @@ function ManageProduct() {
                 <div className="filter-value">
                     <div className="input-group rounded" style={{ width: '200px' }}>
                         <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search"
-                            aria-describedby="search-addon" />
-                        <span className="input-group-text border-0" id="search-addon">
+                            aria-describedby="search-addon" onChange={handleChangeSearch}/>
+                        <span className="input-group-text border-0" id="search-addon" onClick={handleChangeSearch} >
                             <i className="fas fa-search"></i>
                         </span>
                     </div>
@@ -170,7 +177,11 @@ function ManageProduct() {
                         <tbody>
 
                             {customerList.map((food, index) =>
-                                index >= (page - 1) * 10 && index < page * 10 && <tr key={index} >
+                                 food.User_Name.toLocaleLowerCase().indexOf(filterSearch.trim().toLocaleLowerCase()) !== -1 
+
+                                 && (filterSearch.replace(/\s/g, '')||index >= (page - 1) * 10 )
+                                 && (filterSearch.replace(/\s/g, '')||index < page * 10 )
+                                && <tr key={index} >
                                     <th scope="row">{index + 1}</th>
                                     <td>{food.Id}</td>
                                     <td>{food.User_Name}</td>
@@ -186,9 +197,9 @@ function ManageProduct() {
 
                         </tbody>
                     </table>
-                    <Stack spacing={2} style={{ alignItems: 'center' }}>
+                    {( filterSearch.replace(/\s/g, '') === "" )&&<Stack spacing={2} style={{ alignItems: 'center' }}>
                         <Pagination count={numPage} color="primary" page={page} onChange={handleChangePage} />
-                    </Stack>
+                    </Stack>}
                 </div>
                 <div className="footer"><p>@CoppyRight2021</p></div>
             </div>

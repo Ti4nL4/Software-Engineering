@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './index.css'
 import { Link } from 'react-router-dom';
 import { useStyles } from './listEm.style.component';
@@ -18,7 +18,10 @@ function HomePageAdmin(props) {
     let numC = totalCustomer ? totalCustomer[0].Num : 0
     let numP = totalProduct ? totalProduct[0].Num : 0
     let numB = totalBill ? totalBill[0].Num : 0
-
+    useEffect(()=>{
+        console.log("numP",numP);
+        console.log('tt',totalProduct);
+    },[])
     const state = {
         labels:label,
         datasets: [
