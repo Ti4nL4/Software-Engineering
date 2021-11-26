@@ -3,7 +3,7 @@ require("dotenv").config()
 
 module.exports = mysql.createPool({
 
-    password: '',
+    password: 'Tienle5ml',
     host: 'localhost',
     user: 'root',
     database: 'restaurant'
