@@ -117,6 +117,8 @@
     width: 90%;
     margin: 0 auto;
     padding-bottom: 40px;
+    max-height: 550px;
+    overflow-y: scroll;
 }
 
 #product .footer {
