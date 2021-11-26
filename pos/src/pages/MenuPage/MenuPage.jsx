@@ -1,6 +1,4 @@
 import Menu from "../../Component/Menu/Menu";
-import Cart from "../../Component/Cart/Cart";
-import Navbar from '../../Component/Navbar/Navbar';
 import ItemModal from "../../Component/ItemModal/ItemModal";
 const MenuPage = props => {
 

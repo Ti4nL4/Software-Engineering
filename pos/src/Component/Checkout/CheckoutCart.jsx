@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { FoodManagement } from "../../context/FoodManagement";
 
 
@@ -33,12 +32,12 @@ const CheckoutCart = props => {
       </li>
     </ul>
 
-    <form className="card p-2">
+    {/* <form className="card p-2">
       <div className="input-group">
         <input type="text" className="form-control" placeholder="Promo code" />
         <button type="submit" className="btn btn-secondary">Redeem</button>
       </div>
-    </form>
+    </form> */}
   </div>
 }
 

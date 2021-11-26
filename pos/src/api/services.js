@@ -7,12 +7,12 @@ const requireFoodList = callback =>{
 
     // fetch(url).then(response => response.json())
     // .then(data => callback(data));
-  
+    
     axios.get(url + 'product')
       .then(res => {
-        
+        console.log("3132");  
         const data = res.data;
-        // console.log(data);
+        console.log(data);
         callback(data);
       })
       .catch(error => console.log(error));
