@@ -83,9 +83,7 @@ const deleteProduct =(id)=>{
 const getProductByType =(type,callback)=>{
   axios.get(url + 'get-product-by-type',type)
   .then(res => {
-    
     const data = res.data;
-    // console.log(data);
     callback(data);
   })
   .catch(error => console.log(error));
