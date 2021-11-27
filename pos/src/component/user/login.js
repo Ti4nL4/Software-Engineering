@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser, deleteErrors, loginUser } from "../../actions/userAction";
 
-export function Login() {
+export function Loginuser() {
     const validationForm = Yup.object().shape({
         username: Yup.string()
           .required('Please enter username'),

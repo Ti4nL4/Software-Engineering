@@ -1,6 +1,6 @@
 import CheckoutForm from "../../Component/Checkout/CheckoutForm"
 import CheckoutCart from "../../Component/Checkout/CheckoutCart";
-
+import Navbar from '../../Component/Navbar/Navbar';
 const CheckoutPage = props => {
 
 
@@ -8,9 +8,9 @@ const CheckoutPage = props => {
 
     return <>
     
-        {/* <div className='col-12 mb-5'>
+        <div className='col-12 mb-5'>
             <Navbar />
-        </div> */}
+        </div>
         
         <div className='row col-10 mx-auto p-5'>
             

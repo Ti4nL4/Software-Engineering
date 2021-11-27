@@ -8,9 +8,9 @@ function App() {
   return (
     <FoodProvider>
     <BrowserRouter>
-        <div className = 'row p-0 m-0'>
-            {/* <Navbar /> */}
-        </div>
+        {/* <div className = 'row p-0 m-0'>
+            <Navbar />
+        </div> */}
         <Cart />
       <Routes>
       

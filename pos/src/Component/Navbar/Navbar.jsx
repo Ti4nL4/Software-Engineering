@@ -8,25 +8,25 @@ export default function Header(){
 		
 		  	<nav className="navbar navbar-expand-md navbar-dark bg-danger">
 				<div className="container-fluid">
-					<a className="navbar-brand" href="/home">Home</a>
+					<a className="navbar-brand" href="/">Home</a>
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					    <span className="navbar-toggler-icon"></span>
 					</button>
 					<div className="collapse navbar-collapse " id="navbarSupportedContent">
 					    <ul className="navbar-nav me-auto">
 					      	<li className="nav-item">
-								<a className="nav-link" href="/reports">Doanh thu</a>
+								<a className="nav-link" href="/checkout">Thanh toán</a>
 					      	</li>
-					      	<li className="nav-item">
+					      	{/* <li className="nav-item">
 								<a className="nav-link " href="/reportProduct">Sản phẩm</a>
 					      	</li>
 						  	<li className="nav-item">
-								{/* <a className="nav-link " href="/menu">Thực đơn</a> */}
+								<a className="nav-link " href="/menu">Thực đơn</a>
 								<Link to = '/menu' className='nav-link'>Thực đơn</Link>
 					      	</li>
 						  	<li className="nav-item">
 								<a className="nav-link" href="/customer">Khách hàng</a>
-					      	</li>
+					      	</li> */}
 					    </ul>
 
 					    <div className="d-flex flex-row-reverse">
