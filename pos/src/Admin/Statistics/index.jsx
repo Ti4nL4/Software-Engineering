@@ -7,6 +7,9 @@ import { Grid } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import ItemEm from './itemEm/itemEm.component';
 import { FoodManagement } from '../../context/FoodManagement';
+import { Chart, LineController, LineElement, PointElement, LinearScale, Title,CategoryScale } from 'chart.js';
+
+Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
 
 function HomePageAdmin(props) {
     const classes = useStyles();
@@ -43,6 +46,8 @@ function HomePageAdmin(props) {
                     <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
                     <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
                     <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
+                    <li> <Link to="/admin/report"><i className="fas fa-money-bill"></i>Revenue</Link></li>
+
                 </ul>
             </div>
             <div className="body">
@@ -75,7 +80,7 @@ function HomePageAdmin(props) {
                                                 <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                             </li>
                                             <li>
-                                                <a className="dropdown-item" href="#">Logout</a>
+                                                <a className="dropdown-item" href="/admin/login">Logout</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -167,7 +172,7 @@ function HomePageAdmin(props) {
                         </div>
                         <div className="some-product">
                             <div className={classes.boxmain}>
-                                <h5>Most popular product</h5>
+                                <h5>Profits of week</h5>
                                 <Line
                                     data={state}
                                     options={{

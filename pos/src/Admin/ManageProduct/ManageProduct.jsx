@@ -183,7 +183,7 @@ function ManageProduct() {
                                         <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">Logout</a>
+                                            <a className="dropdown-item" href="/admin/login">Logout</a>
                                         </li>
                                     </ul>
                                 </li>

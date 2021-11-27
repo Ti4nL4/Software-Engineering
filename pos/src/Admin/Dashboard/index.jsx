@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { Chart } from "react-google-charts";
 import './index.css'
 import { Link } from 'react-router-dom';
 import { useStyles } from './listEm.style.component';
@@ -7,44 +8,30 @@ import { Grid } from '@mui/material';
 import { Pie } from 'react-chartjs-2';
 import ItemEm from './itemEm/itemEm.component';
 import { FoodManagement } from '../../context/FoodManagement';
+// import { ArcElement, Chart, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale } from 'chart.js';
+// Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, ArcElement);
 
 
 function HomePageAdmin(props) {
     const classes = useStyles();
     const { totalCustomer, totalBill, totalProduct, totalProductByType } = useContext(FoodManagement);
 
-    let label = totalProductByType ? totalProductByType.map(item=> item.Product_Type): [];
-    let data = totalProductByType ? totalProductByType.map(item=> item.Num): [];
+    let label = totalProductByType ? totalProductByType.map(item => item.Product_Type) : [];
+    let data = totalProductByType ? totalProductByType.map(item => item.Num) : [];
     let numC = totalCustomer ? totalCustomer[0].Num : 0
     let numP = totalProduct ? totalProduct[0].Num : 0
     let numB = totalBill ? totalBill[0].Num : 0
-    useEffect(()=>{
-        console.log("numP",numP);
-        console.log('tt',totalProduct);
-    },[])
-    const state = {
-        labels:label,
-        datasets: [
-            {
-                label: 'Product',
-                backgroundColor: [
-                    '#B21F00',
-                    '#C9DE00',
-                    '#2FDE00',
-                    '#00A6B4',
-                    '#6800B4'
-                ],
-                hoverBackgroundColor: [
-                    '#501800',
-                    '#4B5000',
-                    '#175000',
-                    '#003350',
-                    '#35014F'
-                ],
-                data: data
-            }
-        ]
+    const  getTuple=(a,b)=>{
+        return [a, b];
+     }
+    let datas=[["Type","Percent"]]
+    for (let i=0;i<5;i++){
+        datas=[...datas,getTuple(label[i],data[i])]
     }
+
+    console.log("lable", ...datas);
+    
+
 
     return (
         <div id="home-page-admin" className="home-page-admin">
@@ -57,6 +44,7 @@ function HomePageAdmin(props) {
                     <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
                     <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
                     <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
+                    <li> <Link to="/admin/report"><i className="fas fa-money-bill"></i>Revenue</Link></li>
                 </ul>
             </div>
             <div className="body">
@@ -89,7 +77,7 @@ function HomePageAdmin(props) {
                                                 <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                             </li>
                                             <li>
-                                                <a className="dropdown-item" href="#">Logout</a>
+                                                <a className="dropdown-item" href="/admin/login">Logout</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -145,22 +133,20 @@ function HomePageAdmin(props) {
                         <div className="some-product">
                             <div className={classes.boxmain}>
                                 <h5>Number product by type</h5>
-                                <div className="pie-chart">
-                                    <Pie
-                                        data={state}
-                                        options={{
-                                            title: {
-                                                display: true,
-                                                text: 'Number product by type',
-                                                fontSize: 20
-                                            },
-                                            legend: {
-                                                display: true,
-                                                position: 'bottom'
-                                            }
-                                        }}
-                                    />
-                                </div>
+                                <Chart
+                                    width={'100%'}
+                                    height={'600px'}
+                                    chartType="PieChart"
+                                    loader={<div>Loading Chart</div>}
+                                    data={datas}
+                                    options={{
+                                        legend: {           position: 'bottom', 
+                                        alignment: 'center' ,
+                                        orientation: 'vertical',
+                                    flexDirection:'collumn' },
+                                    }}
+                                    rootProps={{ 'data-testid': '1' }}
+                                />
                             </div>
 
                         </div>
