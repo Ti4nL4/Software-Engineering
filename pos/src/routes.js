@@ -8,7 +8,9 @@ import Statistics from './Admin/Statistics'
 import Login from './components/Login'
 import Reports from './pages/Reports'
 import ReportProduct from './pages/ReportProduct'
-import {Loginuser} from './Component/user/login'
+import { Loginuser } from './Component/user/login'
+import { ForgotPassword } from './Component/user/forgotpassword'
+import { ResetPassword } from './Component/user/resetpassword'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  [
 
@@ -77,5 +79,23 @@ export default  [
         exact: true,
         public: true,
         component: <ReportProduct />
-    }
+    },
+    {
+        path: '/guest/login',
+        exact: true,
+        public: true,
+        component: <Loginuser />
+    },
+    {
+        path: '/guest/forgot',
+        exact: true,
+        public: true,
+        component: <ForgotPassword />
+    },
+    {
+        path: '/reset/:token',
+        exact: true,
+        public: true,
+        component: <ResetPassword />
+    },
 ];

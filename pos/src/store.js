@@ -8,6 +8,6 @@ const store = createStore(combineReducers({
   user: loginReducer,
   forgotPassword: forgotReducer}),
   composeWithDevTools(applyMiddleware(...middleware))
-);
+); 
 
-export default store; 
+export default store;   

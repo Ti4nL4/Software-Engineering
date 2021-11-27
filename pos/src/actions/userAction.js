@@ -2,7 +2,7 @@ import axios from "axios";
 export const registerUser = (name, email, password, address, phone) => async (dispatch) => {
     try {
         dispatch({ type: "REGISTER_REQUEST"})
-        const { data } = await axios.post("http://localhost:3001/api/register",
+        const { data } = await axios.post("http://localhost:9001/api/register",
         { email, name, phone, address, password })
         dispatch({ type: "REGISTER_SUCCESS", payload: data})
     }
@@ -18,7 +18,7 @@ export const deleteErrors = () => async (dispatch) => {
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         dispatch({ type: "LOGIN_REQUEST"})
-        const { data } = await axios.post("http://localhost:3001/api/login",
+        const { data } = await axios.post("http://localhost:9001/api/login",
         { email, password })
         dispatch({ type: "LOGIN_SUCCESS", payload: data})
     }
@@ -30,7 +30,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 export const forgotPassword = (email) => async (dispatch) => {
     try {
         dispatch({ type: "FORGOT_REQUEST"})
-        const { data } = await axios.post("http://localhost:3001/api/forgot",
+        const { data } = await axios.post("http://localhost:9001/api/forgot",
         { email })
         dispatch({ type: "FORGOT_SUCCESS", payload: data.message})
     }
@@ -42,7 +42,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 export const resetPassword = (token) => async (dispatch) => {
     try {
         dispatch({ type: "RESET_REQUEST"})
-        const { data } = await axios.get(`http://localhost:3001/api/reset/${token}`)
+        const { data } = await axios.get(`http://localhost:9001/api/reset/${token}`)
         dispatch({ type: "RESET_SUCCESS", payload: data.message})
     }
     catch(error) {
@@ -53,7 +53,7 @@ export const resetPassword = (token) => async (dispatch) => {
 export const updatePasswordToken = (token, newPassword) => async (dispatch) => {
     try {
         dispatch({ type: "RESET_PASSWORD_REQUEST"})
-        const { data } = await axios.put(`http://localhost:3001/api/reset/password/${token}`,
+        const { data } = await axios.put(`http://localhost:9001/api/reset/password/${token}`,
         {token, newPassword})
         dispatch({ type: "RESET_PASSWORD_SUCCESS", payload: data.message})
     }
