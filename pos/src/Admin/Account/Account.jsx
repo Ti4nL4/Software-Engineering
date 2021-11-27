@@ -15,11 +15,11 @@ function Account() {
                     <li><h2>AmazingFood</h2></li>
 
                     <li> <Link to="/admin"><i className="far fa-chart-bar"></i>DashBoard</Link></li>
-
                     <li><Link to="/admin/statistics"><i className="fas fa-balance-scale"></i>Statistics</Link></li>
                     <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
                     <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
                     <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
+                    <li> <Link to="/admin/report"><i className="fas fa-money-bill"></i>Revenue</Link></li>
                 </ul>
             </div>
             <div className="header">
