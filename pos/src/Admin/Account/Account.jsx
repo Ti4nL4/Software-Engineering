@@ -31,7 +31,7 @@ function Account() {
                                     <li className="nav-item dropdown dropstart ">
                                         <a
                                             className="nav-link d-flex align-items-center"
-                                            href="#"
+                                            href="/"
                                             id="navbarDropdownMenuLink"
                                             role="button"
                                             data-bs-toggle="dropdown"
@@ -50,7 +50,11 @@ function Account() {
                                             <p className="dropdown-item" ><Link to='/admin/account'>My profile</Link></p>
                                             </li>
                                             <li>
+<<<<<<< HEAD
                                                 <a className="dropdown-item" href="/admin/login">Logout</a>
+=======
+                                                <a className="dropdown-item" href="/">Logout</a>
+>>>>>>> 02687d598b6b72d44445e60e2e6c7386dba906f6
                                             </li>
                                         </ul>
                                     </li>

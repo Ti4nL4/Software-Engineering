@@ -194,15 +194,16 @@ INSERT INTO `product` (`Id`, `Product_Name`, `Product_Type`, `Price`, `Fund`, `P
 -- Table structure for table `_user`
 --
 
-CREATE TABLE `_user` (
-  `Id` int(11) NOT NULL,
-  `Role_of_user` varchar(30) NOT NULL,
-  `User_Name` varchar(30) NOT NULL,
-  `User_Password` varchar(30) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Phone` char(10) NOT NULL,
-  `Address` varchar(100) NOT NULL
-) ;
+create table `_User` (
+	  `Id`					int				not null	unique	primary key auto_increment,
+    `Role_of_user`		varchar(30)		not null, 	#Guest vs Admin
+    `User_Name`			varchar(30) 	not null,
+    `User_Password`		varchar(500)		not null,
+    `Email`				varchar(50)		not null	unique,
+    `Phone`				char(10)		not null,
+    `Address`				varchar(100) 	not null,
+    `passwordResetToken`		varchar(500)	
+);
 
 --
 -- Dumping data for table `_user`

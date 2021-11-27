@@ -7,16 +7,29 @@ import { Grid } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import ItemEm from './itemEm/itemEm.component';
 import { FoodManagement } from '../../context/FoodManagement';
+<<<<<<< HEAD
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title,CategoryScale } from 'chart.js';
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
 
+=======
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+>>>>>>> 02687d598b6b72d44445e60e2e6c7386dba906f6
 function HomePageAdmin(props) {
     const classes = useStyles();
     const { totalCustomer, totalBill, totalProduct,profit } = useContext(FoodManagement);
     let label = profit ? profit.map(item=> item.Date): [];
     let data = profit ? profit.map(item=> item.Profit): [];
-    let date = profit ? profit.map(item=> item.Day_Name): [];
+    //let date = profit ? profit.map(item=> item.Day_Name): [];
     let numC = totalCustomer ? totalCustomer[0].Num : 0
     let numP = totalProduct ? totalProduct[0].Num : 0
     let numB = totalBill ? totalBill[0].Num : 0
@@ -34,6 +47,15 @@ function HomePageAdmin(props) {
             }
         ]
     }
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        Title,
+        Tooltip,
+        Legend
+      );
     return (
         <div id="admin-statistics" className="admin-statistics">
             <div className="sidebar">
@@ -47,7 +69,10 @@ function HomePageAdmin(props) {
                     <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
                     <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
                     <li> <Link to="/admin/report"><i className="fas fa-money-bill"></i>Revenue</Link></li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 02687d598b6b72d44445e60e2e6c7386dba906f6
                 </ul>
             </div>
             <div className="body">

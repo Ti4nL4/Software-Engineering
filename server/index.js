@@ -38,11 +38,12 @@ productCont(app);
 billCont(app);
 customerCont(app);
 
-
+const user = require('./app/routes/user_router')
+app.use("/api", user);
 
 
 require('./app/routes/report.router')(app);
 require('./app/routes/login.router')(app);
 app.listen(9001, function(){
 	console.log("Server listening on http://localhost:9001");
-});
+});  

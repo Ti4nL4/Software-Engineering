@@ -81,7 +81,7 @@ export function ResetPassword() {
             <div >
                 <p className="sign-success text-center">Reset password successfully!</p>
                 <div className="text-end">
-                    <Link to="/" className="forgotq">Login now?</Link>
+                    <Link to="/guest/login" className="forgotq">Login now?</Link>
                 </div>
             </div> : null }
         </div> 
