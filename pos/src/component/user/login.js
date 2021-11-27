@@ -86,13 +86,13 @@ export function Loginuser() {
             dispatch(deleteErrors)
         }
         if(message === 'login_success') {
-            navigate(`/success_login`)
+            navigate(`/menu`)
         }
     }, [dispatch, error, show, message, navigate])
     return (
      <div className="row signup-background">
          <div className="col imagess">
-             <img className="image_lefts" src="Saly-2.png" alt="error" />
+             <img className="image_lefts" src="/Saly-2.png" alt="error" />
          </div>
          {show ? <div className="col container signup-container">
             <form key={1} className="form-signups" onSubmit={handleSubmit(call_register)}>
@@ -221,13 +221,13 @@ export function Loginuser() {
                     <button type="submit" className="button-sign-in">Sign in</button>
                 </div>
                 <div className="text-end">
-                    <Link to="/forgot" className="forgotq">Forgot password?</Link>
+                    <Link to="/guest/forgot" className="forgotq">Forgot password?</Link>
                 </div>
              </div> 
             </form>  
         </div> : null}
          <div className="col imagess">
-             <img className="image_rights" src="Saly-3.png" alt="error" />
+             <img className="image_rights" src="/Saly-3.png" alt="error" />
          </div>
      </div>   
     )

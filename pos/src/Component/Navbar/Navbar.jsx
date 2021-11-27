@@ -34,6 +34,10 @@ export default function Header(){
 								<i className="fa fa-sign-out" aria-hidden="true"></i>
 								<a className="navbar-brand" href="/">Đăng xuất</a>
 							</button>
+							<button type="button"  className="btn btn-outline-danger">
+								<i className="fa fa-sign-out" aria-hidden="true"></i>
+								<a className="navbar-brand" href="/guest/login">Đăng nhập</a>
+							</button>
 						</div>
 					</div>
 					

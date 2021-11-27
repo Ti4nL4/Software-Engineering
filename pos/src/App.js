@@ -1,11 +1,13 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import FoodProvider from "./context/FoodManagement";
+import { Provider } from 'react-redux'
 import Navbar from './Component/Navbar/Navbar';
 import Cart from './Component/Cart/Cart';
 import routes from "./routes";
-
+import store from './store'
 function App() {
   return (
+    <Provider store={store}>
     <FoodProvider>
     <BrowserRouter>
         {/* <div className = 'row p-0 m-0'>
@@ -25,9 +27,8 @@ function App() {
       </Routes>
       </BrowserRouter>
       </FoodProvider>
-     
+     </Provider>
   );
-  // return <Header/>
 }
 
 export default App;

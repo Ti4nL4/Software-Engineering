@@ -62,7 +62,7 @@ export function ForgotPassword() {
     return (
      <div className="row signup-background">
         <div className="col imagess">
-            <img className="image_lefts" src="Saly-3.png" alt="error" />
+            <img className="image_lefts" src="/Saly-3.png" alt="error" />
          </div>
         <div className="col container signin-container">
             <form onSubmit={message !== 'success' ? handleSubmit(forgotRequest) : tokenRequest}>
@@ -92,7 +92,7 @@ export function ForgotPassword() {
                     {showError === 'Reset password token is invalid!' ? 
                     <p className="text-danger passwordwhy">{showError}</p> : null }
                     <div className="col d-flex justify-content-end">
-                    <Link to="/"> <button className="cancel-button">Cancel</button> </Link>
+                    <Link to="/guest/login"> <button className="cancel-button">Cancel</button> </Link>
                     <button type="submit" className="continue-button">Continue</button>
                     </div> 
                 </div>
@@ -100,7 +100,7 @@ export function ForgotPassword() {
             </form>  
         </div>
          <div className="col imagess">
-             <img className="image_rights" src="Saly-2.png" alt="error" />
+             <img className="image_rights" src="/Saly-2.png" alt="error" />
          </div>
      </div>   
      

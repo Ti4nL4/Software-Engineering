@@ -7,13 +7,22 @@ import { Grid } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import ItemEm from './itemEm/itemEm.component';
 import { FoodManagement } from '../../context/FoodManagement';
-
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
 function HomePageAdmin(props) {
     const classes = useStyles();
     const { totalCustomer, totalBill, totalProduct,profit } = useContext(FoodManagement);
     let label = profit ? profit.map(item=> item.Date): [];
     let data = profit ? profit.map(item=> item.Profit): [];
-    let date = profit ? profit.map(item=> item.Day_Name): [];
+    //let date = profit ? profit.map(item=> item.Day_Name): [];
     let numC = totalCustomer ? totalCustomer[0].Num : 0
     let numP = totalProduct ? totalProduct[0].Num : 0
     let numB = totalBill ? totalBill[0].Num : 0
@@ -31,6 +40,15 @@ function HomePageAdmin(props) {
             }
         ]
     }
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        Title,
+        Tooltip,
+        Legend
+      );
     return (
         <div id="admin-statistics" className="admin-statistics">
             <div className="sidebar">

@@ -7,7 +7,8 @@ import { Grid } from '@mui/material';
 import { Pie } from 'react-chartjs-2';
 import ItemEm from './itemEm/itemEm.component';
 import { FoodManagement } from '../../context/FoodManagement';
-
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 function HomePageAdmin(props) {
     const classes = useStyles();
