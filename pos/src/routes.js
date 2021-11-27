@@ -30,7 +30,7 @@ export default  [
         path: '/',
         exact: true,
         public: true,
-        component: <MenuPage />
+        component: <Loginuser />
     },
     {
         path: '/admin',

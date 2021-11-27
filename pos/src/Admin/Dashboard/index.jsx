@@ -58,6 +58,7 @@ function HomePageAdmin(props) {
                     <li><Link to="/admin/product"><i className="fas fa-shopping-basket"></i>Product</Link></li>
                     <li><Link to="/admin/customer"><i className="fas fa-users"></i>Customer</Link></li>
                     <li><Link to='/admin/account'><i className="fas fa-user"></i>Account</Link></li>
+                    <li> <Link to="/admin/report"><i className="fas fa-money-bill"></i>Revenue</Link></li>
                 </ul>
             </div>
             <div className="body">
